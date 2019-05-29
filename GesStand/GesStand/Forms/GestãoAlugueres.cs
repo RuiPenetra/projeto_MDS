@@ -41,6 +41,8 @@ namespace GesStand.Forms
             #endregion
         }
 
+        #region LER DADOS
+
         public void LerClientes()
         {
             List_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
@@ -93,6 +95,9 @@ namespace GesStand.Forms
             }
         }
 
+        #endregion
+
+
         private void bt_insCarro_Click(object sender, EventArgs e)
         {
             Cliente clienteSelecionado = List_clientes.SelectedItem as Cliente;
@@ -101,7 +106,7 @@ namespace GesStand.Forms
 
             a.CarroAluguer = new CarroAluguer();
 
-            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende inserir este serviço ? ", "SALVAR", MessageBoxButtons.YesNo);
+            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende inserir este aluguer ? ", "SALVAR", MessageBoxButtons.YesNo);
 
             if (guardar == DialogResult.Yes)
             {
@@ -143,6 +148,21 @@ namespace GesStand.Forms
 
         }
 
+        private void bt_remCarro_Click(object sender, EventArgs e)
+        {
+            DialogResult remover = MessageBox.Show("Tem a certeza que pertende cancelar o aluguer ? ", "SALVAR", MessageBoxButtons.YesNo);
+
+            if (remover == DialogResult.Yes)
+            {
+
+
+            }
+            else
+            {
+
+            }
+        }
+
         #region ATUALIZAR
         public void atualizar_listAluguerCarro()
         {
@@ -176,21 +196,6 @@ namespace GesStand.Forms
 
         #endregion
 
-        private void bt_remCarro_Click(object sender, EventArgs e)
-        {
-            DialogResult remover = MessageBox.Show("Tem a certeza que pertende cancelar o aluguer ? ", "SALVAR", MessageBoxButtons.YesNo);
-
-            if (remover == DialogResult.Yes)
-            {
-
-
-            }
-            else
-            {
-              
-            }
-        }
-
         #region VALIDAÇÕES
         public bool ValidarTextBox(params TextBox[] registos)
         {
@@ -205,11 +210,6 @@ namespace GesStand.Forms
             }
             return true;
         }
-
-        #endregion
-
-
-
         private void tb_kms_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
@@ -217,6 +217,8 @@ namespace GesStand.Forms
                 e.Handled = true;
             }
         }
+
+        #endregion
     }
 }
 

@@ -191,13 +191,10 @@
     <None Include="Properties\DataSources\CarroVenda.datasource" />
     <None Include="Properties\DataSources\Cliente.datasource" />
     <None Include="Properties\DataSources\Form_GestaoClientes.datasource" />
-    <None Include="Properties\DataSources\Form_GestãoOficina.datasource" />
     <None Include="Properties\DataSources\Form_Gestão_Vendas.datasource" />
-    <None Include="Properties\DataSources\GesStand.Classes.Aluguer.datasource" />
-    <None Include="Properties\DataSources\GesStand.Classes.Carro.datasource" />
     <None Include="Properties\DataSources\GesStand.Classes.CarroAluguer.datasource" />
-    <None Include="Properties\DataSources\GesStand.Classes.Venda.datasource" />
     <None Include="Properties\DataSources\GesStand.Forms.Form_GestaoOficina.datasource" />
+    <None Include="Properties\DataSources\GesStand.Forms.Form_Gestão_Alugueres.datasource" />
     <None Include="Properties\DataSources\GesStand.Forms.form_MenuPrincipal.datasource" />
     <None Include="Properties\DataSources\GesStand.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\GesStand.Properties.Settings.datasource" />

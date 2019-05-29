@@ -41,8 +41,14 @@ namespace GesStand
         {
             DialogResult guardar = MessageBox.Show("Tem a certeza que pertende guardar/editar o cliente? ? ", "SALVAR", MessageBoxButtons.YesNo);
 
+
+            clienteDataGridView.Focus();
+            clienteDataGridView.Rows[0].Selected = true;
+            clienteDataGridView.CurrentCell = clienteDataGridView.Rows[0].Cells[0];
+ 
             if (guardar == DialogResult.Yes)
             {
+     
                 MdGesStand.SaveChanges();
 
                 atualizarDatagrid();                
@@ -109,6 +115,8 @@ namespace GesStand
                     bin_novo_registo.Enabled = true;
                 }
             }
+
+            
         }
 
         public int ver_textbox_clientes()
@@ -209,6 +217,16 @@ namespace GesStand
             {
                 e.Cancel = true;
             }
+        }
+
+        private void clienteDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            //int Id = Convert.ToInt32(idClienteTextBox.Text);
+            //Cliente clienteSelecionado = from cliente in MdGesStand.Cliente
+            //                              where cliente.IdCliente ==Id
+            //                              select cliente;
+
+            //tb_carrosOficina = MdGesStand.Cliente.Count()
         }
     }
 }
