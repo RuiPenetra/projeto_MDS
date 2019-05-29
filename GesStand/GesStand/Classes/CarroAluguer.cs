@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GesStand.Classes
 {
-    public partial class CarroAluguer
+    public partial class CarroAluguer:Carro
     {
     }
 }

@@ -17,8 +17,8 @@ namespace GesStand
         public int IdAluguer { get; set; }
         public System.DateTime DataInicio { get; set; }
         public System.DateTime DataFim { get; set; }
-        public int Valor { get; set; }
-        public string Kms { get; set; }
+        public decimal Valor { get; set; }
+        public int Kms { get; set; }
         public int ClienteIdCliente { get; set; }
     
         public virtual Cliente Cliente { get; set; }

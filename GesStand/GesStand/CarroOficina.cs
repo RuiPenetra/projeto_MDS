@@ -21,7 +21,7 @@ namespace GesStand
         }
     
         public string Matricula { get; set; }
-        public string Kms { get; set; }
+        public int Kms { get; set; }
         public int ClienteIdCliente { get; set; }
     
         public virtual Cliente Cliente { get; set; }

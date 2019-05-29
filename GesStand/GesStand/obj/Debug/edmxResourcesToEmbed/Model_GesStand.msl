@@ -41,17 +41,17 @@
           <ScalarProperty Name="ClienteIdCliente" ColumnName="ClienteIdCliente" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(Model_GesStand.CarroVenda)">
-        <MappingFragment StoreEntitySet="Carro_CarroVenda">
-          <ScalarProperty Name="IdCarro" ColumnName="IdCarro" />
-          <ScalarProperty Name="Extras" ColumnName="Extras" />
-        </MappingFragment>
-      </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Model_GesStand.CarroAluguer)">
         <MappingFragment StoreEntitySet="Carro_CarroAluguer">
           <ScalarProperty Name="IdCarro" ColumnName="IdCarro" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model_GesStand.CarroVenda)">
+        <MappingFragment StoreEntitySet="Carro_CarroVenda">
+          <ScalarProperty Name="IdCarro" ColumnName="IdCarro" />
+          <ScalarProperty Name="Extras" ColumnName="Extras" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -88,20 +88,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="VendaCarroVenda" TypeName="Model_GesStand.VendaCarroVenda" StoreEntitySet="Venda">
-      <EndProperty Name="CarroVenda">
-        <ScalarProperty Name="IdCarro" ColumnName="CarroVenda_IdCarro" />
-      </EndProperty>
-      <EndProperty Name="Venda">
-        <ScalarProperty Name="IdVenda" ColumnName="IdVenda" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="AluguerCarroAluguer" TypeName="Model_GesStand.AluguerCarroAluguer" StoreEntitySet="aluguer">
       <EndProperty Name="CarroAluguer">
         <ScalarProperty Name="IdCarro" ColumnName="CarroAluguer_IdCarro" />
       </EndProperty>
       <EndProperty Name="Aluguer">
         <ScalarProperty Name="IdAluguer" ColumnName="IdAluguer" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VendaCarroVenda" TypeName="Model_GesStand.VendaCarroVenda" StoreEntitySet="Venda">
+      <EndProperty Name="CarroVenda">
+        <ScalarProperty Name="IdCarro" ColumnName="CarroVenda_IdCarro" />
+      </EndProperty>
+      <EndProperty Name="Venda">
+        <ScalarProperty Name="IdVenda" ColumnName="IdVenda" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

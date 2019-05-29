@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="845adbe2d5d14dae8e10ac3ae46bf57f" Name="Diagram1" >
+      <Diagram DiagramId="845adbe2d5d14dae8e10ac3ae46bf57f" Name="Diagram1" ZoomLevel="71" >
         <EntityTypeShape EntityType="Model_GesStand.Cliente" Width="1.5" PointX="0.625" PointY="3" />
         <EntityTypeShape EntityType="Model_GesStand.Venda" Width="1.5" PointX="4.5" PointY="3.25" />
         <EntityTypeShape EntityType="Model_GesStand.Carro" Width="1.5" PointX="10.75" PointY="3.5" />
@@ -12,18 +12,18 @@
         <EntityTypeShape EntityType="Model_GesStand.Servico" Width="1.5" PointX="5.75" PointY="0.5" />
         <EntityTypeShape EntityType="Model_GesStand.CarroOficina" Width="1.5" PointX="9.875" PointY="0.5" />
         <InheritanceConnector EntityType="Model_GesStand.CarroOficina" />
-        <EntityTypeShape EntityType="Model_GesStand.CarroVenda" Width="1.5" PointX="7.375" PointY="3.375" />
-        <InheritanceConnector EntityType="Model_GesStand.CarroVenda" />
         <EntityTypeShape EntityType="Model_GesStand.Aluguer" Width="1.5" PointX="5" PointY="6.75" />
         <EntityTypeShape EntityType="Model_GesStand.CarroAluguer" Width="1.5" PointX="10.625" PointY="7.125" />
         <InheritanceConnector EntityType="Model_GesStand.CarroAluguer" />
         <AssociationConnector Association="Model_GesStand.ClienteCarroOficina" />
         <AssociationConnector Association="Model_GesStand.CarroOficinaServico" />
         <AssociationConnector Association="Model_GesStand.ServicoParcela" />
-        <AssociationConnector Association="Model_GesStand.VendaCarroVenda" />
         <AssociationConnector Association="Model_GesStand.ClienteAluguer" />
         <AssociationConnector Association="Model_GesStand.AluguerCarroAluguer" />
         <AssociationConnector Association="Model_GesStand.ClienteVenda" />
+        <EntityTypeShape EntityType="Model_GesStand.CarroVenda" Width="1.5" PointX="7.625" PointY="3.75" />
+        <InheritanceConnector EntityType="Model_GesStand.CarroVenda" />
+        <AssociationConnector Association="Model_GesStand.VendaCarroVenda" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

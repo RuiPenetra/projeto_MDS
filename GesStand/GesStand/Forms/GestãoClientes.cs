@@ -19,7 +19,7 @@ namespace GesStand
             InitializeComponent();
 
             MdGesStand = new Model_GesStandContainer();// ??????
-            //timer1.Start();
+            timer1.Start();
 
             (from Cliente in MdGesStand.Cliente
              orderby Cliente.Nome
@@ -39,10 +39,14 @@ namespace GesStand
 
         private void bin_guardar_Click(object sender, EventArgs e)
         {
+            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende guardar/editar o cliente? ? ", "SALVAR", MessageBoxButtons.YesNo);
 
-            MdGesStand.SaveChanges();
+            if (guardar == DialogResult.Yes)
+            {
+                MdGesStand.SaveChanges();
 
-            atualizarDatagrid();
+                atualizarDatagrid();                
+            }
         }
 
         private void bin_eliminar_Click(object sender, EventArgs e)
@@ -178,11 +182,6 @@ namespace GesStand
         }
         #endregion
 
-        private void clienteBindingNavigator_RefreshItems(object sender, EventArgs e)
-        {
-
-        }
-
         private void bt_remover_Click(object sender, EventArgs e)
         {
             DialogResult ver_eliminar = MessageBox.Show("Tem a certeza que pertende excluir este Cliente? ", "Eliminar", MessageBoxButtons.YesNo);
@@ -200,6 +199,16 @@ namespace GesStand
         {
             clienteDataGridView.Rows.Add();
 
+        }
+
+        private void Form_GestaoClientes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult fechar = MessageBox.Show("Tem a certeza que pertende sair ? ", "Sair", MessageBoxButtons.YesNo);
+
+            if (fechar == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

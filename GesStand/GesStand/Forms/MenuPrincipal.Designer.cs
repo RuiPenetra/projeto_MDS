@@ -35,6 +35,13 @@
             this.bt_gestClientes = new System.Windows.Forms.Button();
             this.bt_gestAluguer = new System.Windows.Forms.Button();
             this.bt_gestVenda = new System.Windows.Forms.Button();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.status_datetime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.status_contador = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lb_clientes = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lb_totalVendas = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lb_totalAluguer = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
@@ -49,14 +56,8 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.status_datetime = new System.Windows.Forms.ToolStripStatusLabel();
-            this.status_contador = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lb_clientes = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lb_totalVendas = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lb_totalAluguer = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -71,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -122,6 +122,7 @@
             this.bt_gestAluguer.Size = new System.Drawing.Size(167, 145);
             this.bt_gestAluguer.TabIndex = 15;
             this.bt_gestAluguer.UseVisualStyleBackColor = false;
+            this.bt_gestAluguer.Click += new System.EventHandler(this.bt_gestAluguer_Click);
             // 
             // bt_gestVenda
             // 
@@ -132,13 +133,68 @@
             this.bt_gestVenda.Size = new System.Drawing.Size(167, 145);
             this.bt_gestVenda.TabIndex = 17;
             this.bt_gestVenda.UseVisualStyleBackColor = false;
+            this.bt_gestVenda.Click += new System.EventHandler(this.bt_gestVenda_Click);
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.status_datetime,
+            this.status_contador,
+            this.lb_clientes,
+            this.lb_totalVendas,
+            this.lb_totalAluguer});
+            this.statusStrip.Location = new System.Drawing.Point(0, 482);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(903, 22);
+            this.statusStrip.TabIndex = 19;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // status_datetime
+            // 
+            this.status_datetime.BackColor = System.Drawing.Color.Transparent;
+            this.status_datetime.Name = "status_datetime";
+            this.status_datetime.Size = new System.Drawing.Size(71, 17);
+            this.status_datetime.Text = "00 / 00 / 00  ";
+            // 
+            // status_contador
+            // 
+            this.status_contador.BackColor = System.Drawing.Color.Transparent;
+            this.status_contador.Name = "status_contador";
+            this.status_contador.Size = new System.Drawing.Size(55, 17);
+            this.status_contador.Text = " 00:00:00 ";
+            // 
+            // lb_clientes
+            // 
+            this.lb_clientes.BackColor = System.Drawing.Color.Transparent;
+            this.lb_clientes.Name = "lb_clientes";
+            this.lb_clientes.Size = new System.Drawing.Size(73, 17);
+            this.lb_clientes.Text = "  Clientes: 0  ";
+            // 
+            // lb_totalVendas
+            // 
+            this.lb_totalVendas.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_totalVendas.Name = "lb_totalVendas";
+            this.lb_totalVendas.Size = new System.Drawing.Size(97, 17);
+            this.lb_totalVendas.Text = "  Total Vendas: 0  ";
+            // 
+            // lb_totalAluguer
+            // 
+            this.lb_totalAluguer.BackColor = System.Drawing.Color.Transparent;
+            this.lb_totalAluguer.Name = "lb_totalAluguer";
+            this.lb_totalAluguer.Size = new System.Drawing.Size(102, 17);
+            this.lb_totalAluguer.Text = "  Total Aluguer: 0  ";
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox13
             // 
             this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox13.Image = global::GesStand.Properties.Resources.logo_gesStand;
-            this.pictureBox13.Location = new System.Drawing.Point(220, 8);
+            this.pictureBox13.BackgroundImage = global::GesStand.Properties.Resources.logo_gesStand;
+            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox13.Location = new System.Drawing.Point(240, 8);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(416, 234);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -288,59 +344,6 @@
             this.pictureBox12.TabIndex = 11;
             this.pictureBox12.TabStop = false;
             // 
-            // statusStrip
-            // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.status_datetime,
-            this.status_contador,
-            this.lb_clientes,
-            this.lb_totalVendas,
-            this.lb_totalAluguer});
-            this.statusStrip.Location = new System.Drawing.Point(0, 482);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(903, 22);
-            this.statusStrip.TabIndex = 19;
-            this.statusStrip.Text = "statusStrip1";
-            // 
-            // status_datetime
-            // 
-            this.status_datetime.BackColor = System.Drawing.Color.Transparent;
-            this.status_datetime.Name = "status_datetime";
-            this.status_datetime.Size = new System.Drawing.Size(71, 17);
-            this.status_datetime.Text = "00 / 00 / 00  ";
-            // 
-            // status_contador
-            // 
-            this.status_contador.BackColor = System.Drawing.Color.Transparent;
-            this.status_contador.Name = "status_contador";
-            this.status_contador.Size = new System.Drawing.Size(55, 17);
-            this.status_contador.Text = " 00:00:00 ";
-            // 
-            // lb_clientes
-            // 
-            this.lb_clientes.BackColor = System.Drawing.Color.Transparent;
-            this.lb_clientes.Name = "lb_clientes";
-            this.lb_clientes.Size = new System.Drawing.Size(73, 17);
-            this.lb_clientes.Text = "  Clientes: 0  ";
-            // 
-            // lb_totalVendas
-            // 
-            this.lb_totalVendas.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_totalVendas.Name = "lb_totalVendas";
-            this.lb_totalVendas.Size = new System.Drawing.Size(97, 17);
-            this.lb_totalVendas.Text = "  Total Vendas: 0  ";
-            // 
-            // lb_totalAluguer
-            // 
-            this.lb_totalAluguer.BackColor = System.Drawing.Color.Transparent;
-            this.lb_totalAluguer.Name = "lb_totalAluguer";
-            this.lb_totalAluguer.Size = new System.Drawing.Size(102, 17);
-            this.lb_totalAluguer.Text = "  Total Aluguer: 0  ";
-            // 
-            // timer
-            // 
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
             // form_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,7 +368,10 @@
             this.Controls.Add(this.pictureBox12);
             this.Name = "form_MenuPrincipal";
             this.Text = "GesStand";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_MenuPrincipal_FormClosing);
             this.groupBox1.ResumeLayout(false);
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
@@ -380,8 +386,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

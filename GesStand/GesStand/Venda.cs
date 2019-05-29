@@ -15,12 +15,12 @@ namespace GesStand
     public partial class Venda
     {
         public int IdVenda { get; set; }
-        public int Valor { get; set; }
+        public decimal Valor { get; set; }
         public string Estado { get; set; }
         public System.DateTime Data { get; set; }
         public int ClienteIdCliente { get; set; }
     
-        public virtual CarroVenda CarroVenda { get; set; }
         public virtual Cliente Cliente { get; set; }
+        public virtual CarroVenda CarroVenda { get; set; }
     }
 }

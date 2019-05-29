@@ -12,8 +12,8 @@
           <Property Name="IdAluguer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DataInicio" Type="datetime" Nullable="false" />
           <Property Name="DataFim" Type="datetime" Nullable="false" />
-          <Property Name="Valor" Type="int" Nullable="false" />
-          <Property Name="Kms" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Kms" Type="int" Nullable="false" />
           <Property Name="ClienteIdCliente" Type="int" Nullable="false" />
           <Property Name="CarroAluguer_IdCarro" Type="int" Nullable="false" />
         </EntityType>
@@ -40,7 +40,7 @@
             <PropertyRef Name="IdCarro" />
           </Key>
           <Property Name="Matricula" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Kms" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Kms" Type="int" Nullable="false" />
           <Property Name="ClienteIdCliente" Type="int" Nullable="false" />
           <Property Name="IdCarro" Type="int" Nullable="false" />
         </EntityType>
@@ -66,7 +66,7 @@
             <PropertyRef Name="IdParcela" />
           </Key>
           <Property Name="IdParcela" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valor" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ServicoIdServicos" Type="int" Nullable="false" />
         </EntityType>
@@ -85,7 +85,7 @@
             <PropertyRef Name="IdVenda" />
           </Key>
           <Property Name="IdVenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Valor" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Data" Type="datetime" Nullable="false" />
           <Property Name="ClienteIdCliente" Type="int" Nullable="false" />
@@ -291,10 +291,6 @@
             <End Role="Servico" EntitySet="Servico" />
             <End Role="Parcela" EntitySet="parcela" />
           </AssociationSet>
-          <AssociationSet Name="VendaCarroVenda" Association="Model_GesStand.VendaCarroVenda">
-            <End Role="Venda" EntitySet="Venda" />
-            <End Role="CarroVenda" EntitySet="Carro" />
-          </AssociationSet>
           <AssociationSet Name="ClienteAluguer" Association="Model_GesStand.ClienteAluguer">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Aluguer" EntitySet="aluguer" />
@@ -307,7 +303,11 @@
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Venda" EntitySet="Venda" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="VendaCarroVenda" Association="Model_GesStand.VendaCarroVenda">
+            <End Role="Venda" EntitySet="Venda" />
+            <End Role="CarroVenda" EntitySet="Carro" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="IdCliente" />
@@ -326,12 +326,12 @@
             <PropertyRef Name="IdVenda" />
           </Key>
           <Property Name="IdVenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valor" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="Estado" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="CarroVenda" Relationship="Model_GesStand.VendaCarroVenda" FromRole="Venda" ToRole="CarroVenda" />
           <NavigationProperty Name="Cliente" Relationship="Model_GesStand.ClienteVenda" FromRole="Venda" ToRole="Cliente" />
           <Property Name="ClienteIdCliente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CarroVenda" Relationship="Model_GesStand.VendaCarroVenda" FromRole="Venda" ToRole="CarroVenda" />
         </EntityType>
         <EntityType Name="Carro">
           <Key>
@@ -348,7 +348,7 @@
             <PropertyRef Name="IdParcela" />
           </Key>
           <Property Name="IdParcela" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Servico" Relationship="Model_GesStand.ServicoParcela" FromRole="Parcela" ToRole="Servico" />
           <Property Name="ServicoIdServicos" Type="Int32" Nullable="false" />
@@ -367,14 +367,10 @@
         </EntityType>
         <EntityType Name="CarroOficina" BaseType="Model_GesStand.Carro" >
           <Property Name="Matricula" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Kms" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Kms" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cliente" Relationship="Model_GesStand.ClienteCarroOficina" FromRole="CarroOficina" ToRole="Cliente" />
           <Property Name="ClienteIdCliente" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Servico" Relationship="Model_GesStand.CarroOficinaServico" FromRole="CarroOficina" ToRole="Servico" />
-        </EntityType>
-        <EntityType Name="CarroVenda" BaseType="Model_GesStand.Carro" >
-          <Property Name="Extras" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Venda" Relationship="Model_GesStand.VendaCarroVenda" FromRole="CarroVenda" ToRole="Venda" />
         </EntityType>
         <EntityType Name="Aluguer">
           <Key>
@@ -383,8 +379,8 @@
           <Property Name="IdAluguer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DataFim" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Valor" Type="Int32" Nullable="false" />
-          <Property Name="Kms" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Kms" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cliente" Relationship="Model_GesStand.ClienteAluguer" FromRole="Aluguer" ToRole="Cliente" />
           <Property Name="ClienteIdCliente" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CarroAluguer" Relationship="Model_GesStand.AluguerCarroAluguer" FromRole="Aluguer" ToRole="CarroAluguer" />
@@ -430,10 +426,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VendaCarroVenda">
-          <End Type="Model_GesStand.Venda" Role="Venda" Multiplicity="1" />
-          <End Type="Model_GesStand.CarroVenda" Role="CarroVenda" Multiplicity="1" />
-        </Association>
         <Association Name="ClienteAluguer">
           <End Type="Model_GesStand.Cliente" Role="Cliente" Multiplicity="1" />
           <End Type="Model_GesStand.Aluguer" Role="Aluguer" Multiplicity="*" />
@@ -461,6 +453,14 @@
               <PropertyRef Name="ClienteIdCliente" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CarroVenda" BaseType="Model_GesStand.Carro" >
+          <Property Name="Extras" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Venda" Relationship="Model_GesStand.VendaCarroVenda" FromRole="CarroVenda" ToRole="Venda" />
+        </EntityType>
+        <Association Name="VendaCarroVenda">
+          <End Type="Model_GesStand.Venda" Role="Venda" Multiplicity="1" />
+          <End Type="Model_GesStand.CarroVenda" Role="CarroVenda" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -508,17 +508,17 @@
           <ScalarProperty Name="ClienteIdCliente" ColumnName="ClienteIdCliente" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(Model_GesStand.CarroVenda)">
-        <MappingFragment StoreEntitySet="Carro_CarroVenda">
-          <ScalarProperty Name="IdCarro" ColumnName="IdCarro" />
-          <ScalarProperty Name="Extras" ColumnName="Extras" />
-        </MappingFragment>
-      </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Model_GesStand.CarroAluguer)">
         <MappingFragment StoreEntitySet="Carro_CarroAluguer">
           <ScalarProperty Name="IdCarro" ColumnName="IdCarro" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model_GesStand.CarroVenda)">
+        <MappingFragment StoreEntitySet="Carro_CarroVenda">
+          <ScalarProperty Name="IdCarro" ColumnName="IdCarro" />
+          <ScalarProperty Name="Extras" ColumnName="Extras" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -555,20 +555,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="VendaCarroVenda" TypeName="Model_GesStand.VendaCarroVenda" StoreEntitySet="Venda">
-      <EndProperty Name="CarroVenda">
-        <ScalarProperty Name="IdCarro" ColumnName="CarroVenda_IdCarro" />
-      </EndProperty>
-      <EndProperty Name="Venda">
-        <ScalarProperty Name="IdVenda" ColumnName="IdVenda" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="AluguerCarroAluguer" TypeName="Model_GesStand.AluguerCarroAluguer" StoreEntitySet="aluguer">
       <EndProperty Name="CarroAluguer">
         <ScalarProperty Name="IdCarro" ColumnName="CarroAluguer_IdCarro" />
       </EndProperty>
       <EndProperty Name="Aluguer">
         <ScalarProperty Name="IdAluguer" ColumnName="IdAluguer" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VendaCarroVenda" TypeName="Model_GesStand.VendaCarroVenda" StoreEntitySet="Venda">
+      <EndProperty Name="CarroVenda">
+        <ScalarProperty Name="IdCarro" ColumnName="CarroVenda_IdCarro" />
+      </EndProperty>
+      <EndProperty Name="Venda">
+        <ScalarProperty Name="IdVenda" ColumnName="IdVenda" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

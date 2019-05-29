@@ -131,25 +131,25 @@ namespace GesStand
             if (servicoSelecionado != null)
             {
                 LB_Parcelas.DataSource = servicoSelecionado.Parcela.ToList<Parcela>();
-                Parcela p = LB_Parcelas.SelectedItem as Parcela;
-                lb_valTotal.Text = Convert.ToString(total()) + "€";
+                //Parcela p = LB_Parcelas.SelectedItem as Parcela;
+                //lb_valTotal.Text = Convert.ToString(total()) + "€";
             }
 
         }
 
-        public Decimal total()
-        {
-            int index = 0;
-            Decimal soma = 0;
+        //public Decimal total()
+        //{
+        //    int index = 0;
+        //    Decimal soma = 0;
 
-            for (index = 0; index < LB_Parcelas.Items.Count; index++)
-            {
-                Parcela p = LB_Parcelas.Items[index] as Parcela;
-                soma += p.Valor;
-            }
+        //    for (index = 0; index < LB_Parcelas.Items.Count; index++)
+        //    {
+        //        Parcela p = LB_Parcelas.Items[index] as Parcela;
+        //        soma += p.Valor;
+        //    }
 
-            return soma;
-        }
+        //    return soma;
+        //}
         #endregion
 
 
@@ -185,7 +185,7 @@ namespace GesStand
             {
                 LB_Parcelas.DataSource = servicoSelecionado.Parcela.ToList<Parcela>();
                 Parcela p = LB_Parcelas.SelectedItem as Parcela;
-                lb_valTotal.Text = Convert.ToString(total()) + "€"; ;
+                //lb_valTotal.Text = Convert.ToString(total()) + "€"; ;
             }
         }
 

@@ -87,6 +87,7 @@
     <Compile Include="Classes\Carro.cs" />
     <Compile Include="Classes\CarroAluguer.cs" />
     <Compile Include="Classes\CarroOficina.cs" />
+    <Compile Include="Classes\CarroVenda.cs" />
     <Compile Include="Classes\Parcela.cs" />
     <Compile Include="Classes\Servico.cs" />
     <Compile Include="Classes\Venda.cs" />
@@ -106,17 +107,17 @@
     <Compile Include="Forms\GestãoOficina.Designer.cs">
       <DependentUpon>GestãoOficina.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Gestão_Alugueres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Gestão_Alugueres.Designer.cs">
+      <DependentUpon>Gestão_Alugueres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Oficina.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Oficina.Designer.cs">
-      <DependentUpon>Oficina.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Gestão_Vendas.cs">
       <SubType>Form</SubType>
@@ -161,11 +162,11 @@
     <EmbeddedResource Include="Forms\GestãoOficina.resx">
       <DependentUpon>GestãoOficina.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Gestão_Alugueres.resx">
+      <DependentUpon>Gestão_Alugueres.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Oficina.resx">
-      <DependentUpon>Oficina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Gestão_Vendas.resx">
       <DependentUpon>Gestão_Vendas.cs</DependentUpon>
@@ -189,7 +190,15 @@
     <None Include="Properties\DataSources\CarroOficina.datasource" />
     <None Include="Properties\DataSources\CarroVenda.datasource" />
     <None Include="Properties\DataSources\Cliente.datasource" />
-    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\Form_GestaoClientes.datasource" />
+    <None Include="Properties\DataSources\Form_GestãoOficina.datasource" />
+    <None Include="Properties\DataSources\Form_Gestão_Vendas.datasource" />
+    <None Include="Properties\DataSources\GesStand.Classes.Aluguer.datasource" />
+    <None Include="Properties\DataSources\GesStand.Classes.Carro.datasource" />
+    <None Include="Properties\DataSources\GesStand.Classes.CarroAluguer.datasource" />
+    <None Include="Properties\DataSources\GesStand.Classes.Venda.datasource" />
+    <None Include="Properties\DataSources\GesStand.Forms.Form_GestaoOficina.datasource" />
+    <None Include="Properties\DataSources\GesStand.Forms.form_MenuPrincipal.datasource" />
     <None Include="Properties\DataSources\GesStand.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\GesStand.Properties.Settings.datasource" />
     <None Include="Properties\DataSources\Model_GesStandContainer.datasource" />
@@ -222,6 +231,18 @@
       <LastGenOutput>Model_GesStand.cs</LastGenOutput>
       <DependentUpon>Model_GesStand.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\export1.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\export.jpg" />
+    <None Include="Resources\logo_gesStand_fatura.png" />
+    <None Include="Resources\export21.png" />
+    <None Include="Resources\export2.png" />
+    <None Include="Resources\teste26.gif" />
+    <None Include="Resources\teste25.gif" />
+    <None Include="Resources\teste24.gif" />
+    <None Include="Resources\teste23.gif" />
+    <None Include="Resources\teste22.gif" />
+    <None Include="Resources\img_oficina.bmp" />
     <None Include="Resources\bt_add_client1.png" />
     <None Include="Resources\bt_remover_client.png" />
     <None Include="Resources\bt_gravar_client.png" />

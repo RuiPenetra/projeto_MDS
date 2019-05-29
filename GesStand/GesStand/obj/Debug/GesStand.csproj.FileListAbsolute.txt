@@ -12,8 +12,8 @@ C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projet
 C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projeto\GesStand\GesStand\obj\Debug\GesStand.csproj.CopyComplete
 C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projeto\GesStand\GesStand\obj\Debug\GesStand.exe
 C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projeto\GesStand\GesStand\obj\Debug\GesStand.pdb
-C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projeto\GesStand\GesStand\obj\Debug\GesStand.Form_GestãoOficina.resources
-C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projeto\GesStand\GesStand\obj\Debug\GesStand.Gestão_Vendas.resources
 C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projeto\GesStand\GesStand\obj\Debug\GesStand.Form_GestaoClientes.resources
 C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projeto\GesStand\GesStand\obj\Debug\GesStand.Forms.Form_GestaoOficina.resources
 C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projeto\GesStand\GesStand\obj\Debug\GesStand.Forms.form_MenuPrincipal.resources
+C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projeto\GesStand\GesStand\obj\Debug\GesStand.Form_Gestão_Vendas.resources
+C:\Users\Rui\Desktop\Projetos_2ºSemestre\Desenvolvimento de Aplicações\projeto\GesStand\GesStand\obj\Debug\GesStand.Forms.Form_Gestão_Alugueres.resources
