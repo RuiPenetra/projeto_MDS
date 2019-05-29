@@ -48,35 +48,35 @@ namespace GesStand.Forms
         #region LER DADOS
         private void LerClientes()
         {
-            LB_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
+            LIST_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
         }
         private void LB_clientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Cliente clienteSelecionado = LB_clientes.SelectedItem as Cliente;
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
             lb_clienteNome.Text = clienteSelecionado.Nome;
             lb_clienteNif.Text = clienteSelecionado.NIF;
             lb_clienteContacto.Text = Convert.ToString(clienteSelecionado.Contacto);
 
-            LB_carros.DataSource = null;
+            LIST_carros.DataSource = null;
 
             if (clienteSelecionado != null)
             {
-                LB_carros.DataSource = clienteSelecionado.CarroOficina.ToList<CarroOficina>();
+                LIST_carros.DataSource = clienteSelecionado.CarroOficina.ToList<CarroOficina>();
 
             }
         }
 
         private void LB_carros_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CarroOficina carroOficinaSelecionado = LB_carros.SelectedItem as CarroOficina;
+            CarroOficina carroOficinaSelecionado = LIST_carros.SelectedItem as CarroOficina;
 
-            LB_Servicos.DataSource = null;
+            LIST_Servicos.DataSource = null;
 
             if (carroOficinaSelecionado != null)
             {
 
-                LB_Servicos.DataSource = carroOficinaSelecionado.Servico.ToList<Servico>();
+                LIST_Servicos.DataSource = carroOficinaSelecionado.Servico.ToList<Servico>();
 
                 lb_carroChassi.Text = "NºChassi: " + carroOficinaSelecionado.NumeroChassis;
                 lb_carroModelo.Text = "Modelo: " + carroOficinaSelecionado.Modelo;
@@ -96,13 +96,13 @@ namespace GesStand.Forms
 
         private void LB_Servicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Servico servicoSelecionado = LB_Servicos.SelectedItem as Servico;
+            Servico servicoSelecionado = LIST_Servicos.SelectedItem as Servico;
 
-            LB_Parcelas.DataSource = null;
+            LIST_Parcelas.DataSource = null;
 
             if (servicoSelecionado != null)
             {
-                LB_Parcelas.DataSource = servicoSelecionado.Parcela.ToList<Parcela>();
+                LIST_Parcelas.DataSource = servicoSelecionado.Parcela.ToList<Parcela>();
 
                 lb_servicoDataEntrada.Text = "Data Entrada : " + servicoSelecionado.DataEntrada;
                 lb_servicoDataSaida.Text = "Data saida : " + servicoSelecionado.DataSaida;
@@ -118,7 +118,7 @@ namespace GesStand.Forms
         private void bt_addCarro_Click(object sender, EventArgs e)
         {
 
-            Cliente clienteSelecionado = LB_clientes.SelectedItem as Cliente;
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
             CarroOficina co = new CarroOficina();
 
@@ -152,7 +152,7 @@ namespace GesStand.Forms
 
         private void bt_addServico_Click(object sender, EventArgs e)
         {
-            CarroOficina CarroOficinaSelecionado = LB_carros.SelectedItem as CarroOficina;
+            CarroOficina CarroOficinaSelecionado = LIST_carros.SelectedItem as CarroOficina;
             Servico s = new Servico();
 
             DialogResult guardar = MessageBox.Show("Tem a certeza que pertende inserir este serviço ? ", "SALVAR", MessageBoxButtons.YesNo);
@@ -186,7 +186,7 @@ namespace GesStand.Forms
             if (!ValidarTextBox(tb_p_descricao,tb_p_valor))
                 return;
 
-            Servico ServicoSelecionado = LB_Servicos.SelectedItem as Servico;
+            Servico ServicoSelecionado = LIST_Servicos.SelectedItem as Servico;
 
             Parcela p = new Parcela();
 
@@ -264,36 +264,36 @@ namespace GesStand.Forms
         #region Atualizar
         public void atualizarCarros()
         {
-            Cliente clienteSelecionado = LB_clientes.SelectedItem as Cliente;
-            LB_carros.DataSource = null;
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+            LIST_carros.DataSource = null;
             if (clienteSelecionado != null)
             {
-                LB_carros.DataSource = clienteSelecionado.CarroOficina.ToList<CarroOficina>();
+                LIST_carros.DataSource = clienteSelecionado.CarroOficina.ToList<CarroOficina>();
             }
         }
 
         public void atualizarServicos()
         {
-            CarroOficina carroOficinaSelecionado = LB_carros.SelectedItem as CarroOficina;
+            CarroOficina carroOficinaSelecionado = LIST_carros.SelectedItem as CarroOficina;
 
             if (carroOficinaSelecionado != null)
             {
-                LB_Servicos.DataSource = null;
-                LB_Servicos.DataSource = carroOficinaSelecionado.Servico.ToList<Servico>();
+                LIST_Servicos.DataSource = null;
+                LIST_Servicos.DataSource = carroOficinaSelecionado.Servico.ToList<Servico>();
 
             }
         }
 
         public void atualizarParcelas()
         {
-            Servico servicoSelecionado = LB_Servicos.SelectedItem as Servico;
+            Servico servicoSelecionado = LIST_Servicos.SelectedItem as Servico;
 
-            LB_Parcelas.DataSource = null;
+            LIST_Parcelas.DataSource = null;
 
             if (servicoSelecionado != null)
             {
-                LB_Parcelas.DataSource = servicoSelecionado.Parcela.ToList<Parcela>();
-                Parcela p = LB_Parcelas.SelectedItem as Parcela;
+                LIST_Parcelas.DataSource = servicoSelecionado.Parcela.ToList<Parcela>();
+                Parcela p = LIST_Parcelas.SelectedItem as Parcela;
                 lb_parcelasValorTotal.Text = Convert.ToString(servicoSelecionado.Total) + " €";
 
             }

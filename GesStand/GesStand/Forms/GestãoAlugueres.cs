@@ -35,8 +35,8 @@ namespace GesStand.Forms
             toolTip1.ShowAlways = true;
 
             // Set up the ToolTip text for the Button and Checkbox.
-            toolTip1.SetToolTip(bt_insCarro, "Guardar Registo");
-            toolTip1.SetToolTip(bt_remCarro, "Remover Registo");
+            toolTip1.SetToolTip(BT_insCarro, "Guardar Registo");
+            toolTip1.SetToolTip(BT_remCarro, "Remover Registo");
             toolTip1.SetToolTip(bt_exportar, "Exportar");
             #endregion
         }
@@ -45,29 +45,29 @@ namespace GesStand.Forms
 
         public void LerClientes()
         {
-            List_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
+            LIST_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
         }
 
         private void List_clientes_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            Cliente clienteSelecionado = List_clientes.SelectedItem as Cliente;
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
             lb_cl_nome.Text = clienteSelecionado.Nome;
             lb_cl_nif.Text = clienteSelecionado.NIF;
             lb_contacto.Text = clienteSelecionado.Contacto.ToString();
 
-            List_aluguer.DataSource = null;
+            LIST_aluguer.DataSource = null;
 
             if (clienteSelecionado != null)
             {
-                List_aluguer.DataSource = clienteSelecionado.Aluguer.ToList<Aluguer>();
+                LIST_aluguer.DataSource = clienteSelecionado.Aluguer.ToList<Aluguer>();
 
             }
         }
 
         private void List_aluguer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Aluguer aluguerSelecionada = List_aluguer.SelectedItem as Aluguer;
+            Aluguer aluguerSelecionada = LIST_aluguer.SelectedItem as Aluguer;
 
             if (aluguerSelecionada != null)
             {
@@ -100,7 +100,7 @@ namespace GesStand.Forms
 
         private void bt_insCarro_Click(object sender, EventArgs e)
         {
-            Cliente clienteSelecionado = List_clientes.SelectedItem as Cliente;
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
             Aluguer a = new Aluguer();
 
@@ -166,17 +166,17 @@ namespace GesStand.Forms
         #region ATUALIZAR
         public void atualizar_listAluguerCarro()
         {
-            Cliente clienteSelecionado = List_clientes.SelectedItem as Cliente;
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
             lb_cl_nome.Text = clienteSelecionado.Nome;
             lb_cl_nif.Text = clienteSelecionado.NIF;
             lb_contacto.Text = clienteSelecionado.Contacto.ToString();
 
-            List_aluguer.DataSource = null;
+            LIST_aluguer.DataSource = null;
 
             if (clienteSelecionado != null)
             {
-                List_aluguer.DataSource = clienteSelecionado.Aluguer.ToList<Aluguer>();
+                LIST_aluguer.DataSource = clienteSelecionado.Aluguer.ToList<Aluguer>();
 
             }
         }

@@ -32,9 +32,9 @@ namespace GesStand
             toolTip1.ShowAlways = true;
 
             // Set up the ToolTip text for the Button and Checkbox.
-            toolTip1.SetToolTip(bt_insCarro, "Guardar");
-            toolTip1.SetToolTip(bt_remCarro, "Remover");
-            toolTip1.SetToolTip(bt_exportar, "Exportar");
+            toolTip1.SetToolTip(BT_insCarro, "Guardar");
+            toolTip1.SetToolTip(BT_remCarro, "Remover");
+            toolTip1.SetToolTip(BT_exportar, "Exportar");
             #endregion
 
             MdGesStand = new Model_GesStandContainer();
@@ -46,61 +46,48 @@ namespace GesStand
         #region LER
         private void LerClientes()
         {
-            List_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
+            LIST_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
         }
         private void List_clientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Cliente clienteSelecionado = List_clientes.SelectedItem as Cliente;
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
-            lb_cl_nome.Text = clienteSelecionado.Nome;
-            lb_cl_nif.Text = clienteSelecionado.NIF;
-            lb_contacto.Text = clienteSelecionado.Contacto.ToString();
+            TB_inf_nome.Text = clienteSelecionado.Nome;
+            TB_inf_nif.Text = clienteSelecionado.NIF;
+            TB_inf_contacto.Text = clienteSelecionado.Contacto.ToString();
 
-            List_venda.DataSource = null;
+            LIST_venda.DataSource = null;
 
             if (clienteSelecionado != null)
             {
-                List_venda.DataSource = clienteSelecionado.Venda.ToList<Venda>();
+                LIST_venda.DataSource = clienteSelecionado.Venda.ToList<Venda>();
 
             }
         }
 
         private void List_venda_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Venda vendaSelecionada = List_venda.SelectedItem as Venda;
+            Venda vendaSelecionada = LIST_venda.SelectedItem as Venda;
 
             if (vendaSelecionada != null)
             {
-                lb_nChassi.Text = "NºChassi: " + vendaSelecionada.CarroVenda.NumeroChassis;
-                lb_modelo.Text = "Modelo: " + vendaSelecionada.CarroVenda.Modelo;
-                lb_marca.Text = "Marca: " + vendaSelecionada.CarroVenda.Marca;
-                lb_combustivel.Text = "Combustivel: " + vendaSelecionada.CarroVenda.Combustivel;
-                lb_extras.Text = "Extras: " + vendaSelecionada.CarroVenda.Extras;
+                TB_inf_nchassi.Text = "NºChassi: " + vendaSelecionada.CarroVenda.NumeroChassis;
+                TB_inf_modelo.Text = "Modelo: " + vendaSelecionada.CarroVenda.Modelo;
+                TB_inf_marca.Text = "Marca: " + vendaSelecionada.CarroVenda.Marca;
+                TB_inf_combustivel.Text = "Combustivel: " + vendaSelecionada.CarroVenda.Combustivel;
+                TB_inf_extras.Text = "Extras: " + vendaSelecionada.CarroVenda.Extras;
 
-                lb_estado.Text = "Estado: " + vendaSelecionada.Estado;
-                lb_data.Text = "Data: " + vendaSelecionada.Data.ToString();
-                lb_valor.Text = vendaSelecionada.Valor.ToString() + " €";
+                TB_inf_estado.Text = "Estado: " + vendaSelecionada.Estado;
+                TB_inf_data.Text = "Data: " + vendaSelecionada.Data.ToString();
+                TB_inf_valor.Text = vendaSelecionada.Valor.ToString();
             }
-            else
-            {
-                lb_nChassi.Text = "Nenhum";
-                lb_modelo.Text = "Nenhum";
-                lb_marca.Text = "Nenhum";
-                lb_combustivel.Text = "Nenhum";
-                lb_extras.Text = "Nenhum";
-
-                lb_estado.Text = "Nenhum";
-                lb_data.Text = "Nenhum";
-                lb_valor.Text = "Nenhum";
-            }
-
         }
         #endregion
 
         #region INSERIR
         private void bt_insCarro_Click(object sender, EventArgs e)
         {
-            Cliente clienteSelecionado = List_clientes.SelectedItem as Cliente;
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
             Venda v = new Venda();
 
@@ -129,20 +116,20 @@ namespace GesStand
         #region ATUALIZAR
         public void atualizar_listVendaCarro()
         {
-            Cliente clienteSelecionado = List_clientes.SelectedItem as Cliente;
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+            TB_inf_nome.Text = clienteSelecionado.Nome;
+            TB_inf_nif.Text = clienteSelecionado.NIF;
+            TB_inf_contacto.Text = clienteSelecionado.Contacto.ToString();
 
-            lb_cl_nome.Text = clienteSelecionado.Nome;
-            lb_cl_nif.Text = clienteSelecionado.NIF;
-            lb_contacto.Text = clienteSelecionado.Contacto.ToString();
-
-            List_venda.DataSource = null;
+            LIST_venda.DataSource = null;
 
             if (clienteSelecionado != null)
             {
-                List_venda.DataSource = clienteSelecionado.Venda.ToList<Venda>();
+                LIST_venda.DataSource = clienteSelecionado.Venda.ToList<Venda>();
 
             }
         }
+
         #endregion
 
         #region CONFIGURAÇÕES
@@ -165,5 +152,7 @@ namespace GesStand
         }
 
         #endregion
+
+
     }
 }
