@@ -107,11 +107,11 @@
     <Compile Include="Forms\GestãoOficina.Designer.cs">
       <DependentUpon>GestãoOficina.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Gestão_Alugueres.cs">
+    <Compile Include="Forms\GestãoAlugueres.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Gestão_Alugueres.Designer.cs">
-      <DependentUpon>Gestão_Alugueres.cs</DependentUpon>
+    <Compile Include="Forms\GestãoAlugueres.Designer.cs">
+      <DependentUpon>GestãoAlugueres.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -119,11 +119,11 @@
     <Compile Include="Forms\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Gestão_Vendas.cs">
+    <Compile Include="Forms\GestãoVendas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Gestão_Vendas.Designer.cs">
-      <DependentUpon>Gestão_Vendas.cs</DependentUpon>
+    <Compile Include="Forms\GestãoVendas.Designer.cs">
+      <DependentUpon>GestãoVendas.cs</DependentUpon>
     </Compile>
     <Compile Include="Model_GesStand.Context.cs">
       <AutoGen>True</AutoGen>
@@ -162,14 +162,14 @@
     <EmbeddedResource Include="Forms\GestãoOficina.resx">
       <DependentUpon>GestãoOficina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Gestão_Alugueres.resx">
-      <DependentUpon>Gestão_Alugueres.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\GestãoAlugueres.resx">
+      <DependentUpon>GestãoAlugueres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Gestão_Vendas.resx">
-      <DependentUpon>Gestão_Vendas.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\GestãoVendas.resx">
+      <DependentUpon>GestãoVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
