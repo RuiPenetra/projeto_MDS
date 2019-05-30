@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LIST_clientes = new System.Windows.Forms.ListBox();
             this.CARRO = new System.Windows.Forms.GroupBox();
@@ -86,6 +87,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.BT_exportar = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.CARRO.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -816,5 +819,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button BT_exportar;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

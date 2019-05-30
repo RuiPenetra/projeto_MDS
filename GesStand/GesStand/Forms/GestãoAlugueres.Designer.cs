@@ -92,6 +92,9 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.BT_exportar = new System.Windows.Forms.Button();
+            this.TB_inf_estado = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox6.SuspendLayout();
             this.CARRO.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -505,6 +508,8 @@
             // groupBox10
             // 
             this.groupBox10.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox10.Controls.Add(this.TB_inf_estado);
+            this.groupBox10.Controls.Add(this.label6);
             this.groupBox10.Controls.Add(this.TB_inf_extras);
             this.groupBox10.Controls.Add(this.TB_inf_modelo);
             this.groupBox10.Controls.Add(this.TB_inf_combustivel);
@@ -518,7 +523,7 @@
             this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(18, 169);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(271, 143);
+            this.groupBox10.Size = new System.Drawing.Size(271, 147);
             this.groupBox10.TabIndex = 28;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "CARRO";
@@ -527,7 +532,7 @@
             // 
             this.TB_inf_extras.Enabled = false;
             this.TB_inf_extras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_extras.Location = new System.Drawing.Point(69, 102);
+            this.TB_inf_extras.Location = new System.Drawing.Point(69, 96);
             this.TB_inf_extras.Name = "TB_inf_extras";
             this.TB_inf_extras.Size = new System.Drawing.Size(87, 20);
             this.TB_inf_extras.TabIndex = 43;
@@ -617,7 +622,7 @@
             // 
             this.lb_extras.AutoSize = true;
             this.lb_extras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_extras.Location = new System.Drawing.Point(14, 104);
+            this.lb_extras.Location = new System.Drawing.Point(14, 98);
             this.lb_extras.Name = "lb_extras";
             this.lb_extras.Size = new System.Drawing.Size(56, 13);
             this.lb_extras.TabIndex = 8;
@@ -760,6 +765,26 @@
             this.BT_exportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BT_exportar.UseVisualStyleBackColor = false;
             // 
+            // TB_inf_estado
+            // 
+            this.TB_inf_estado.Enabled = false;
+            this.TB_inf_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_inf_estado.Location = new System.Drawing.Point(69, 122);
+            this.TB_inf_estado.Name = "TB_inf_estado";
+            this.TB_inf_estado.Size = new System.Drawing.Size(87, 20);
+            this.TB_inf_estado.TabIndex = 45;
+            this.TB_inf_estado.Text = "Nenhum";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(14, 124);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "Estado :";
+            // 
             // Form_Gestão_Alugueres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -861,5 +886,8 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button BT_exportar;
+        private System.Windows.Forms.TextBox TB_inf_estado;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

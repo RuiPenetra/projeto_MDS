@@ -37,7 +37,7 @@ namespace GesStand.Forms
             // Set up the ToolTip text for the Button and Checkbox.
             toolTip1.SetToolTip(BT_insCarro, "Guardar Registo");
             toolTip1.SetToolTip(BT_remCarro, "Remover Registo");
-            toolTip1.SetToolTip(bt_exportar, "Exportar");
+            toolTip1.SetToolTip(BT_exportar, "Exportar");
             #endregion
         }
 
@@ -52,9 +52,9 @@ namespace GesStand.Forms
         {
             Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
-            lb_cl_nome.Text = clienteSelecionado.Nome;
-            lb_cl_nif.Text = clienteSelecionado.NIF;
-            lb_contacto.Text = clienteSelecionado.Contacto.ToString();
+            TB_inf_nome.Text = clienteSelecionado.Nome;
+            TB_inf_nif.Text = clienteSelecionado.NIF;
+            TB_inf_contacto.Text = clienteSelecionado.Contacto.ToString();
 
             LIST_aluguer.DataSource = null;
 
@@ -71,27 +71,27 @@ namespace GesStand.Forms
 
             if (aluguerSelecionada != null)
             {
-                lb_nChassi.Text = "NºChassi: " + aluguerSelecionada.CarroAluguer.NumeroChassis;
-                lb_modelo.Text = "Modelo: " + aluguerSelecionada.CarroAluguer.Modelo;
-                lb_marca.Text = "Marca: " + aluguerSelecionada.CarroAluguer.Marca;
-                lb_combustivel.Text = "Combustivel: " + aluguerSelecionada.CarroAluguer.Combustivel;
-                lb_estado.Text = "Estado: " + aluguerSelecionada.CarroAluguer.Estado;
+                TB_inf_nchassi.Text = "NºChassi: " + aluguerSelecionada.CarroAluguer.NumeroChassis;
+                TB_inf_modelo.Text = "Modelo: " + aluguerSelecionada.CarroAluguer.Modelo;
+                TB_inf_modelo.Text = "Marca: " + aluguerSelecionada.CarroAluguer.Marca;
+                TB_inf_combustivel.Text = "Combustivel: " + aluguerSelecionada.CarroAluguer.Combustivel;
+                TB_inf_estado.Text = "Estado: " + aluguerSelecionada.CarroAluguer.Estado;
 
-                lb_data_inicio.Text = "Data Inicio: " + aluguerSelecionada.DataInicio.ToString();
-                lb_data_inicio.Text = "Data Fim: " + aluguerSelecionada.DataFim.ToString();
-                lb_valor.Text = aluguerSelecionada.Valor.ToString() + " €";
+                TB_inf_dt_inicio.Text = "Data Inicio: " + aluguerSelecionada.DataInicio.ToString();
+                TB_inf_dt_fim.Text = "Data Fim: " + aluguerSelecionada.DataFim.ToString();
+                TB_inf_valor.Text = aluguerSelecionada.Valor.ToString() + " €";
             }
             else
             {
-                lb_nChassi.Text = "Nenhum";
-                lb_modelo.Text = "Nenhum";
-                lb_marca.Text = "Nenhum";
-                lb_combustivel.Text = "Nenhum";
-                lb_estado.Text = "Nenhum";
+                TB_inf_nchassi.Text = "Nenhum";
+                TB_inf_modelo.Text = "Nenhum";
+                TB_inf_marca.Text = "Nenhum";
+                TB_inf_combustivel.Text = "Nenhum";
+                TB_inf_combustivel.Text = "Nenhum";
 
-                lb_data_inicio.Text = "Nenhum";
-                lb_data_inicio.Text = "Nenhum";
-                lb_valor.Text = "__,__€";
+                TB_inf_dt_inicio.Text = "Nenhum";
+                TB_inf_dt_fim.Text = "Nenhum";
+                TB_inf_valor.Text = "0";
             }
         }
 
@@ -168,9 +168,9 @@ namespace GesStand.Forms
         {
             Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
-            lb_cl_nome.Text = clienteSelecionado.Nome;
-            lb_cl_nif.Text = clienteSelecionado.NIF;
-            lb_contacto.Text = clienteSelecionado.Contacto.ToString();
+            TB_inf_nome.Text = clienteSelecionado.Nome;
+            TB_inf_nif.Text = clienteSelecionado.NIF;
+            TB_inf_contacto.Text = clienteSelecionado.Contacto.ToString();
 
             LIST_aluguer.DataSource = null;
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace GesStand
 {
+    [Serializable]
     public partial class CarroOficina:Carro
     {      
             public override string ToString()
