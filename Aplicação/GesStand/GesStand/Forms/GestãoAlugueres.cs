@@ -110,8 +110,9 @@ namespace GesStand.Forms
 
             if (guardar == DialogResult.Yes)
             {
-                if (!ValidarTextBox(tb_chassi,tb_combustivel,tb_estado,tb_kms,tb_marca,tb_matricula,tb_modelo,tb_valor))
+                if (!ValidarTextBox(tb_chassi,tb_combustivel,tb_estado,tb_matricula,tb_marca,tb_estado,tb_modelo,tb_valor,tb_kms))
                     return;
+
                 if (!decimal.TryParse(tb_valor.Text.Replace('.', ','), out decimal valor))
                 {
                     tb_valor.Text = string.Empty;
@@ -154,25 +155,25 @@ namespace GesStand.Forms
 
             CarroAluguer carroAluguerSelecionado= LIST_aluguer.SelectedItem as CarroAluguer;
 
-           Aluguer aluguer=
+           //Aluguer aluguer=
 
-            DialogResult remover = MessageBox.Show("Tem a certeza que pertende cancelar o aluguer ? ", "SALVAR", MessageBoxButtons.YesNo);
+           // DialogResult remover = MessageBox.Show("Tem a certeza que pertende cancelar o aluguer ? ", "SALVAR", MessageBoxButtons.YesNo);
 
-            if (remover == DialogResult.Yes)
-            {
-                if (LIST_aluguer.SelectedItem != null)
-                {
-                    MdGesStand.aluguer.Remove(carroAluguerSelecionado);
-                    MdGesStand.SaveChanges();
+           // if (remover == DialogResult.Yes)
+           // {
+           //     if (LIST_aluguer.SelectedItem != null)
+           //     {
+           //         MdGesStand.aluguer.Remove(carroAluguerSelecionado);
+           //         MdGesStand.SaveChanges();
 
-                    MessageBox.Show("Carro removido com sucesso!", "ALERTA", MessageBoxButtons.OK);
+           //         MessageBox.Show("Carro removido com sucesso!", "ALERTA", MessageBoxButtons.OK);
 
-                }
-                else
-                {
-                    MessageBox.Show("[ATENÇÃO]-Não existe alugueres para remover!", "ALERTA", MessageBoxButtons.OK);
-                }
-            }
+           //     }
+           //     else
+           //     {
+           //         MessageBox.Show("[ATENÇÃO]-Não existe alugueres para remover!", "ALERTA", MessageBoxButtons.OK);
+           //     }
+           // }
 
         }
 

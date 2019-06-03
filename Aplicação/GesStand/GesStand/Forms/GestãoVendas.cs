@@ -93,6 +93,9 @@ namespace GesStand
 
             v.CarroVenda = new CarroVenda();
 
+            if (!ValidarTextBox(tb_chassi, tb_combustivel, tb_estado, tb_extras, tb_marca, tb_estado, tb_modelo, tb_valor))
+                return;
+
             v.Estado = tb_estado.Text;
             v.Data = Convert.ToDateTime(dateTimePicker_data.Text);
             v.Valor = Convert.ToDecimal(tb_valor.Text);
@@ -102,6 +105,7 @@ namespace GesStand
             v.CarroVenda.Modelo = tb_modelo.Text;
             v.CarroVenda.Combustivel = tb_combustivel.Text;
             v.CarroVenda.Extras = tb_extras.Text;
+
 
 
             clienteSelecionado.Venda.Add(v);
@@ -153,6 +157,29 @@ namespace GesStand
 
         #endregion
 
+        #region VALIDAÇÕES
+        public bool ValidarTextBox(params TextBox[] registos)
+        {
+            foreach (TextBox textBox in registos)
+            {
+                if (textBox.Text == string.Empty)
+                {
+                    MessageBox.Show("Não foi possivel guardar o registo pois existe campos por preencher!!", "ERRO");
+                    textBox.Focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void tb_kms_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        #endregion
 
     }
 }
