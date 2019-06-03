@@ -122,7 +122,7 @@ namespace GesStand.Forms
 
                 a.Kms = Convert.ToInt32( tb_kms.Text);
                 a.DataInicio = Convert.ToDateTime(dateTimePicker_data_inicio.Text);
-                a.DataFim = Convert.ToDateTime(dateTimePicker_data_fim.Text);
+                a.DataFim = Convert.ToDateTime(dateTimePicker_data_fim.Text);           
                 a.Valor = Convert.ToDecimal(tb_valor.Text);
 
 
@@ -150,17 +150,30 @@ namespace GesStand.Forms
 
         private void bt_remCarro_Click(object sender, EventArgs e)
         {
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+
+            CarroAluguer carroAluguerSelecionado= LIST_aluguer.SelectedItem as CarroAluguer;
+
+           Aluguer aluguer=
+
             DialogResult remover = MessageBox.Show("Tem a certeza que pertende cancelar o aluguer ? ", "SALVAR", MessageBoxButtons.YesNo);
 
             if (remover == DialogResult.Yes)
             {
+                if (LIST_aluguer.SelectedItem != null)
+                {
+                    MdGesStand.aluguer.Remove(carroAluguerSelecionado);
+                    MdGesStand.SaveChanges();
 
+                    MessageBox.Show("Carro removido com sucesso!", "ALERTA", MessageBoxButtons.OK);
 
+                }
+                else
+                {
+                    MessageBox.Show("[ATENÇÃO]-Não existe alugueres para remover!", "ALERTA", MessageBoxButtons.OK);
+                }
             }
-            else
-            {
 
-            }
         }
 
         #region ATUALIZAR

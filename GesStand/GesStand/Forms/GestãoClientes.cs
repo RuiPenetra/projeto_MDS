@@ -27,46 +27,12 @@ namespace GesStand
 
             clienteBindingSource.DataSource = MdGesStand.Cliente.Local.ToBindingList();// ??????
         }
-
-        public void atualizarDatagrid()
-        {
-            (from Cliente in MdGesStand.Cliente
-             orderby Cliente.IdCliente
-             select Cliente).Load();
-
-            clienteBindingSource.DataSource = MdGesStand.Cliente.Local.ToBindingList();
-        }
-
-        private void bin_guardar_Click(object sender, EventArgs e)
-        {
-            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende guardar/editar o cliente? ? ", "SALVAR", MessageBoxButtons.YesNo);
-
-
-            clienteDataGridView.Focus();
-            clienteDataGridView.Rows[0].Selected = true;
-            clienteDataGridView.CurrentCell = clienteDataGridView.Rows[0].Cells[0];
- 
-            if (guardar == DialogResult.Yes)
-            {
-     
-                MdGesStand.SaveChanges();
-
-                atualizarDatagrid();                
-            }
-        }
-
-        private void bin_eliminar_Click(object sender, EventArgs e)
-        {
-            clienteDataGridView.Rows.Remove(clienteDataGridView.CurrentRow);
-            conf_eliminarCliente();
-            atualizarDatagrid();
-        }
-
-        private void bt_filtrar_Click(object sender, EventArgs e)
+                
+        private void BT_filtrar_Click(object sender, EventArgs e)
         {
             if (tb_filtrar.Text.Length > 0)
             {
-                bin_novo_registo.Enabled = false;
+                BT_novo_registo.Enabled = false;
 
                 MdGesStand.Dispose();
                 MdGesStand = new Model_GesStandContainer();
@@ -80,7 +46,7 @@ namespace GesStand
             }
             else
             {
-                bt_filtrar.Enabled = true;
+                BT_filtrar.Enabled = true;
 
                 MdGesStand.Dispose();
                 MdGesStand = new Model_GesStandContainer();
@@ -108,106 +74,63 @@ namespace GesStand
 
                 if (celula == 0)
                 {
-                    bin_novo_registo.Enabled = false;
+                    BT_novo_registo.Enabled = false;
                 }
                 else
                 {
-                    bin_novo_registo.Enabled = true;
+                    BT_novo_registo.Enabled = true;
                 }
             }
 
             
         }
 
-        public int ver_textbox_clientes()
-        {
-            if (String.IsNullOrEmpty(nomeTextBox.Text))
-            {
-                MessageBox.Show("O campo < Nome > não foi preenchido!", "ERRO");
+        //public int ver_textbox_clientes()
+        //{
+        //    if (String.IsNullOrEmpty(nomeTextBox.Text))
+        //    {
+        //        MessageBox.Show("O campo < Nome > não foi preenchido!", "ERRO");
 
-                return 1;
-            }
+        //        return 1;
+        //    }
 
-            if (String.IsNullOrEmpty(nIFTextBox.Text))
-            {
-                MessageBox.Show("O campo < Nif > não foi preenchido!", "ERRO");
+        //    if (String.IsNullOrEmpty(nIFTextBox.Text))
+        //    {
+        //        MessageBox.Show("O campo < Nif > não foi preenchido!", "ERRO");
 
-                return 1;
-            }
+        //        return 1;
+        //    }
 
-            if (String.IsNullOrEmpty(moradaTextBox.Text))
-            {
-                MessageBox.Show("O campo < Morada > não foi preenchido!", "ERRO");
+        //    if (String.IsNullOrEmpty(moradaTextBox.Text))
+        //    {
+        //        MessageBox.Show("O campo < Morada > não foi preenchido!", "ERRO");
 
-                return 1;
-            }
+        //        return 1;
+        //    }
 
-            if (String.IsNullOrEmpty(contactoTextBox.Text))
-            {
-                MessageBox.Show("O campo < Contacto > não foi preenchido!", "ERRO");
+        //    if (String.IsNullOrEmpty(contactoTextBox.Text))
+        //    {
+        //        MessageBox.Show("O campo < Contacto > não foi preenchido!", "ERRO");
 
-                return 1;
-            }
+        //        return 1;
+        //    }
 
-            return 0;
+        //    return 0;
 
-        }
+        //}
 
         #endregion
 
-        #region Confirmações
-        public void conf_guardarCliente()
-        {
-            DialogResult ver_guardar = MessageBox.Show("Tem a certeza que pertende inserir/editar Cliente? ", "Guardar", MessageBoxButtons.YesNo);
+        //#region Configurações
+        //private void contactoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
 
-            if (ver_guardar == DialogResult.Yes)
-            {
-                MessageBox.Show("Cliente inserido/alterado com sucesso!", "Sucesso");
-                MdGesStand.SaveChanges();
-            }
-        }
-
-        public void conf_eliminarCliente()
-        {
-            DialogResult ver_eliminar = MessageBox.Show("Tem a certeza que pertende excluir este Cliente? ", "Eliminar", MessageBoxButtons.YesNo);
-
-            if (ver_eliminar == DialogResult.Yes)
-            {
-                MessageBox.Show("Cliente excluido com sucesso!", "Sucesso");
-                //MdGesStand.SaveChanges();
-
-            }
-        }
-        #endregion
-
-        #region Configurações
-        private void contactoTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }
-        }
-        #endregion
-
-        private void bt_remover_Click(object sender, EventArgs e)
-        {
-            DialogResult ver_eliminar = MessageBox.Show("Tem a certeza que pertende excluir este Cliente? ", "Eliminar", MessageBoxButtons.YesNo);
-
-            if (ver_eliminar == DialogResult.Yes)
-            {
-                MessageBox.Show("Cliente excluido com sucesso!", "Sucesso");
-                clienteDataGridView.Rows.Remove(clienteDataGridView.CurrentRow);
-                MdGesStand.SaveChanges();
-
-            }
-        }
-
-        private void bt_novo_Click(object sender, EventArgs e)
-        {
-            clienteDataGridView.Rows.Add();
-
-        }
+        //#endregion
 
         private void Form_GestaoClientes_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -218,15 +141,38 @@ namespace GesStand
                 e.Cancel = true;
             }
         }
-
-        private void clienteDataGridView_SelectionChanged(object sender, EventArgs e)
+                     
+        private void BT_guardar_Click(object sender, EventArgs e)
         {
-            //int Id = Convert.ToInt32(idClienteTextBox.Text);
-            //Cliente clienteSelecionado = from cliente in MdGesStand.Cliente
-            //                              where cliente.IdCliente ==Id
-            //                              select cliente;
+            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende guardar/editar o cliente? ? ", "SALVAR", MessageBoxButtons.YesNo);
 
-            //tb_carrosOficina = MdGesStand.Cliente.Count()
+
+            clienteDataGridView.Focus();
+            clienteDataGridView.Rows[0].Selected = true;
+            clienteDataGridView.CurrentCell = clienteDataGridView.Rows[0].Cells[0];
+
+            if (guardar == DialogResult.Yes)
+            {
+
+                MdGesStand.SaveChanges();
+
+                MessageBox.Show("O cliente foi guardado/alterado com sucesso!", "SUCESSO");
+
+                //atualizarDatagrid();                
+            }
+        }
+
+        private void BT_remover_Click(object sender, EventArgs e)
+        {
+            DialogResult ver_eliminar = MessageBox.Show("Tem a certeza que pertende exclui o cliente selecionado? ", "EXCLUIR", MessageBoxButtons.YesNo);
+
+            if (ver_eliminar == DialogResult.Yes)
+            {
+                clienteDataGridView.Rows.Remove(clienteDataGridView.CurrentRow);
+                MessageBox.Show("Cliente excluido com sucesso!", "Sucesso");
+                MdGesStand.SaveChanges();
+
+            }
         }
     }
 }

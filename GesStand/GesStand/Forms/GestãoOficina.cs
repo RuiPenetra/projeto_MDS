@@ -81,7 +81,7 @@ namespace GesStand.Forms
                 LIST_servicos.DataSource = carroOficinaSelecionado.Servico.ToList<Servico>();
 
                 TB_inf_nchassi.Text = carroOficinaSelecionado.NumeroChassis;
-                TB_inf_modelo.Text = carroOficinaSelecionado.Modelo;
+                TB_inf_kms.Text = Convert.ToString(carroOficinaSelecionado.Kms);
                 TB_inf_marca.Text = carroOficinaSelecionado.Marca;
                 TB_inf_combustivel.Text = carroOficinaSelecionado.Combustivel;
 
@@ -89,7 +89,7 @@ namespace GesStand.Forms
             else
             {
                 TB_inf_nchassi.Text = "Nenhum";
-                TB_inf_modelo.Text = "Nenhum";
+                TB_inf_kms.Text = "0";
                 TB_inf_marca.Text = "Nenhum";
                 TB_inf_combustivel.Text = "Nenhum";
 
@@ -106,11 +106,19 @@ namespace GesStand.Forms
             {
                 LIST_parcelas.DataSource = servicoSelecionado.Parcela.ToList<Parcela>();
 
-                TB_inf_dt_inicio.Text = Convert.ToString( servicoSelecionado.DataEntrada);
-                TB_inf_dt_fim.Text = Convert.ToString( servicoSelecionado.DataSaida);
+                TB_inf_dt_inicio.Text = Convert.ToString(servicoSelecionado.DataEntrada);
+                TB_inf_dt_fim.Text = Convert.ToString(servicoSelecionado.DataSaida);
                 TB_inf_tipo.Text = Convert.ToString(servicoSelecionado.Tipo);
-                TB_inf_valor.Text = Convert.ToString(servicoSelecionado.Total) ;
-                
+                TB_inf_valor.Text = Convert.ToString(servicoSelecionado.Total); //Total de parcelas
+
+            }
+            else
+            {
+                TB_inf_dt_inicio.Text = "Nenhum";
+                TB_inf_dt_fim.Text = "Nenhum";
+                TB_inf_tipo.Text = "Nenhum";
+                TB_inf_valor.Text = "0";
+
             }
         }
 
@@ -136,7 +144,7 @@ namespace GesStand.Forms
                 co.Modelo = tb_c_modelo.Text;
                 co.Combustivel = tb_c_combustivel.Text;
                 co.Matricula = tb_c_matricula.Text;
-                co.Kms =Convert.ToInt32( tb_c_kms.Text);
+                co.Kms = Convert.ToInt32(tb_c_kms.Text);
 
                 clienteSelecionado.CarroOficina.Add(co);
                 MdGesStand.SaveChanges();
@@ -163,7 +171,7 @@ namespace GesStand.Forms
             {
                 if (!ValidarTextBox(tb_s_servicoTipo))
                     return;
-                
+
 
                 s.DataEntrada = Convert.ToDateTime(dateTimePickerDataInicio.Text);
                 s.DataSaida = Convert.ToDateTime(dateTimePickerDataFim.Text);
@@ -182,10 +190,10 @@ namespace GesStand.Forms
             }
 
         }
-               
+
         private void bt_addParcela_Click(object sender, EventArgs e)
         {
-            if (!ValidarTextBox(tb_p_descricao,tb_p_valor))
+            if (!ValidarTextBox(tb_p_descricao, tb_p_valor))
                 return;
 
             Servico ServicoSelecionado = LIST_servicos.SelectedItem as Servico;
@@ -222,22 +230,77 @@ namespace GesStand.Forms
             }
 
         }
-        
+
         #endregion
 
         #region REMOVER
         private void bt_remvCarro_Click(object sender, EventArgs e)
         {
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+
+            CarroOficina carroSelecionado = LIST_carros.SelectedItem as CarroOficina;
+
+            DialogResult excluir = MessageBox.Show("Tem a certeza que pretende excluir o carro selecionado??", "EXCLUIR", MessageBoxButtons.YesNo);
+
+            if (excluir == DialogResult.Yes)
+            {
+                if (LIST_servicos.SelectedItem == null)
+                {
+                    MdGesStand.Carro.Remove(carroSelecionado);
+                    MdGesStand.SaveChanges();
+
+                    MessageBox.Show("Carro removido com sucesso!", "ALERTA", MessageBoxButtons.OK);
+
+                    atualizarCarros();
+                }
+                else
+                {
+                    MessageBox.Show("[ATENÇÃO]-Não pode excluir um carro com serviços associadas!", "ALERTA", MessageBoxButtons.OK);
+
+                }
+            }
 
         }
 
         private void bt_remvServico_Click(object sender, EventArgs e)
         {
+            Servico servicoSelecionado = LIST_servicos.SelectedItem as Servico;
 
+            DialogResult excluir = MessageBox.Show("Tem a certeza que pretende excluir o servico selecionado??", "EXCLUIR", MessageBoxButtons.YesNo);
+
+            if (excluir == DialogResult.Yes)
+            {
+                if (LIST_parcelas.SelectedItem == null)
+                {
+                    MdGesStand.Servico.Remove(servicoSelecionado);
+                    MdGesStand.SaveChanges();
+
+                    MessageBox.Show("Serviço removido com sucesso!", "ALERTA", MessageBoxButtons.OK);
+
+                    atualizarServicos();
+                }
+                else
+                {
+                    MessageBox.Show("[ATENÇÃO]-Não pode excluir um servico com parcelas associadas!", "ALERTA", MessageBoxButtons.OK);
+
+                }
+            }
         }
+
         private void bt_remvParcela_Click(object sender, EventArgs e)
         {
 
+            Parcela parcelaSelecionada = LIST_parcelas.SelectedItem as Parcela;
+            DialogResult excluir = MessageBox.Show("Tem a certeza que pretende excluir a parcela selecionada??", "EXCLUIR", MessageBoxButtons.YesNo);
+
+            if (excluir == DialogResult.Yes)
+            {
+                MdGesStand.parcela.Remove(parcelaSelecionada);
+                MdGesStand.SaveChanges();
+
+                MessageBox.Show("Parcela removida com sucesso!", "SUCESSO", MessageBoxButtons.OK);
+                atualizarParcelas();
+            }
         }
         #endregion
 
@@ -323,13 +386,13 @@ namespace GesStand.Forms
         #endregion
 
         #region VALIDAÇÕES
-        public  bool ValidarTextBox(params TextBox[] registos)
+        public bool ValidarTextBox(params TextBox[] registos)
         {
             foreach (TextBox textBox in registos)
             {
                 if (textBox.Text == string.Empty)
                 {
-                    MessageBox.Show("Não foi possivel guardar o registo pois existe campos por preencher!!","ERRO");
+                    MessageBox.Show("Não foi possivel guardar o registo pois existe campos por preencher!!", "ERRO");
                     textBox.Focus();
                     return false;
                 }
@@ -340,54 +403,61 @@ namespace GesStand.Forms
 
         private void BT_exportar_Click(object sender, EventArgs e)
         {
-            if (LIST_clientes.SelectedIndex == -1 || LIST_carros.SelectedIndex == -1 || LIST_servicos.SelectedIndex == -1)
-                return;
+            DialogResult exportar = MessageBox.Show("Tem a certeza que pertende exportar os dados selecionados ? ", "EXPORTAR", MessageBoxButtons.YesNo);
 
-
-
-            Cliente clienteSelected = (Cliente)LIST_clientes.SelectedItem;
-            CarroOficina carroSelected = (CarroOficina)LIST_carros.SelectedItem;
-            Servico servicoSelected = (Servico)LIST_servicos.SelectedItem;
-
-
-
-            saveFileDialogFicheiroTexto.Filter = "Arquivo de Texto (.txt)|.txt";
-            saveFileDialogFicheiroTexto.FileName = clienteSelected.Nome + "" + carroSelected.Matricula + "" + servicoSelected.Tipo + ".txt";
-            if (saveFileDialogFicheiroTexto.ShowDialog() != DialogResult.OK)
-                return;
-
-
-
-            StreamWriter ficheiro = new StreamWriter(saveFileDialogFicheiroTexto.FileName, false);
-
-            ficheiro.WriteLine("Data de Emissão: " + DateTime.Now.ToString());
-            ficheiro.WriteLine(string.Empty);
-
-            ficheiro.WriteLine("Cliente: " + clienteSelected.Nome);
-            ficheiro.WriteLine("Contacto: " + clienteSelected.Contacto);
-            ficheiro.WriteLine(string.Empty);
-
-            ficheiro.WriteLine("Carro(Matrícula): " + carroSelected.Matricula);
-            ficheiro.WriteLine("Serviço: " + servicoSelected.Tipo);
-            ficheiro.WriteLine("Entrada: " + servicoSelected.DataEntrada.ToString("MM/dd/yyyy"));
-            ficheiro.WriteLine("Saída: " + servicoSelected.DataSaida.ToString("MM/dd/yyyy"));
-            ficheiro.WriteLine(string.Empty);
-
-            ficheiro.WriteLine("Parcelas: ");
-            foreach (Parcela parcela in servicoSelected.Parcela)
+            if (exportar == DialogResult.Yes)
             {
-                ficheiro.WriteLine(parcela.Valor + "€" + " - " + parcela.Descricao);
+
+                if (LIST_clientes.SelectedIndex == -1 || LIST_carros.SelectedIndex == -1 || LIST_servicos.SelectedIndex == -1)
+                    return;
+
+
+
+                Cliente clienteSelecionado = (Cliente)LIST_clientes.SelectedItem;
+                CarroOficina carroSelecionado = (CarroOficina)LIST_carros.SelectedItem;
+                Servico servicoSelecionado = (Servico)LIST_servicos.SelectedItem;
+
+                string linha = "***************************************************************";
+
+
+                saveFileDialogFicheiroTexto.Filter = "Arquivo de Texto (.txt)|.txt";
+                saveFileDialogFicheiroTexto.FileName = clienteSelecionado.Nome + "" + carroSelecionado.Matricula + "" + servicoSelecionado.Tipo + ".txt";
+
+                if (saveFileDialogFicheiroTexto.ShowDialog() != DialogResult.OK)
+                    return;
+
+
+
+                StreamWriter ficheiro = new StreamWriter(saveFileDialogFicheiroTexto.FileName, false);
+
+                ficheiro.WriteLine("Data de Emissão: " + DateTime.Now.ToString());
+                ficheiro.WriteLine(string.Empty);
+
+                ficheiro.WriteLine("Cliente: " + clienteSelecionado.Nome);
+                ficheiro.WriteLine("Contacto: " + clienteSelecionado.Contacto);
+                ficheiro.WriteLine(string.Empty);
+                ficheiro.WriteLine(linha);
+                ficheiro.WriteLine(string.Empty);
+
+                ficheiro.WriteLine("Carro(Matrícula): " + carroSelecionado.Matricula);
+                ficheiro.WriteLine("Serviço: " + servicoSelecionado.Tipo);
+                ficheiro.WriteLine("Entrada: " + servicoSelecionado.DataEntrada.ToString("MM/dd/yyyy"));
+                ficheiro.WriteLine("Saída: " + servicoSelecionado.DataSaida.ToString("MM/dd/yyyy"));
+                ficheiro.WriteLine(string.Empty);
+                ficheiro.WriteLine(linha);
+                ficheiro.WriteLine(string.Empty);
+
+                ficheiro.WriteLine("Parcelas: ");
+                foreach (Parcela parcela in servicoSelecionado.Parcela)
+                {
+                    ficheiro.WriteLine(parcela.Valor + "€" + " - " + parcela.Descricao);
+                }
+
+                ficheiro.Close();
+                MessageBox.Show("Dados Exportados!");
+
             }
-
-
-
-            ficheiro.Close();
-            MessageBox.Show("Dados Exportados!");
         }
 
-        private void LIST_Parcelas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -11,7 +11,7 @@ namespace GesStand
     {
         public override string ToString()
         {
-            return "( " + "[ " + this.DataEntrada + " ]"  + " ->" + this.Tipo + this.Total + " )";
+            return "( " + this.DataEntrada.ToShortDateString() + " )"  + "   => " + this.Tipo + "   => " + this.Total +" €";
         }
 
         public Decimal Total

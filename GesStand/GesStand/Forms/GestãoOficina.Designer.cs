@@ -83,7 +83,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.TB_inf_modelo = new System.Windows.Forms.TextBox();
+            this.TB_inf_kms = new System.Windows.Forms.TextBox();
             this.TB_inf_combustivel = new System.Windows.Forms.TextBox();
             this.TB_inf_marca = new System.Windows.Forms.TextBox();
             this.TB_inf_nchassi = new System.Windows.Forms.TextBox();
@@ -104,6 +104,7 @@
             this.BT_exportar = new System.Windows.Forms.Button();
             this.saveFileDialogFicheiroTexto = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -144,9 +145,9 @@
             this.groupBox4.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox4.Controls.Add(this.groupBox8);
             this.groupBox4.Controls.Add(this.LIST_parcelas);
-            this.groupBox4.Location = new System.Drawing.Point(784, 76);
+            this.groupBox4.Location = new System.Drawing.Point(808, 55);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(213, 503);
+            this.groupBox4.Size = new System.Drawing.Size(175, 510);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Parcelas";
@@ -160,9 +161,9 @@
             this.groupBox8.Controls.Add(this.tb_p_descricao);
             this.groupBox8.Controls.Add(this.label2);
             this.groupBox8.Controls.Add(this.label1);
-            this.groupBox8.Location = new System.Drawing.Point(15, 336);
+            this.groupBox8.Location = new System.Drawing.Point(13, 336);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(187, 155);
+            this.groupBox8.Size = new System.Drawing.Size(149, 166);
             this.groupBox8.TabIndex = 7;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Novo";
@@ -173,7 +174,7 @@
             this.BT_remvParcela.BackgroundImage = global::GesStand.Properties.Resources.bt_remover_client;
             this.BT_remvParcela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_remvParcela.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BT_remvParcela.Location = new System.Drawing.Point(110, 97);
+            this.BT_remvParcela.Location = new System.Drawing.Point(82, 109);
             this.BT_remvParcela.Name = "BT_remvParcela";
             this.BT_remvParcela.Size = new System.Drawing.Size(44, 42);
             this.BT_remvParcela.TabIndex = 7;
@@ -182,7 +183,7 @@
             // 
             // tb_p_valor
             // 
-            this.tb_p_valor.Location = new System.Drawing.Point(70, 56);
+            this.tb_p_valor.Location = new System.Drawing.Point(26, 80);
             this.tb_p_valor.Name = "tb_p_valor";
             this.tb_p_valor.Size = new System.Drawing.Size(100, 20);
             this.tb_p_valor.TabIndex = 5;
@@ -192,7 +193,7 @@
             this.BT_addParcela.BackColor = System.Drawing.Color.Transparent;
             this.BT_addParcela.BackgroundImage = global::GesStand.Properties.Resources.bt_gravar_client;
             this.BT_addParcela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_addParcela.Location = new System.Drawing.Point(49, 96);
+            this.BT_addParcela.Location = new System.Drawing.Point(26, 109);
             this.BT_addParcela.Name = "BT_addParcela";
             this.BT_addParcela.Size = new System.Drawing.Size(39, 42);
             this.BT_addParcela.TabIndex = 1;
@@ -201,7 +202,7 @@
             // 
             // tb_p_descricao
             // 
-            this.tb_p_descricao.Location = new System.Drawing.Point(70, 27);
+            this.tb_p_descricao.Location = new System.Drawing.Point(26, 32);
             this.tb_p_descricao.Name = "tb_p_descricao";
             this.tb_p_descricao.Size = new System.Drawing.Size(100, 20);
             this.tb_p_descricao.TabIndex = 4;
@@ -209,7 +210,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 60);
+            this.label2.Location = new System.Drawing.Point(28, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 3;
@@ -218,7 +219,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 31);
+            this.label1.Location = new System.Drawing.Point(28, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 2;
@@ -227,11 +228,10 @@
             // LIST_parcelas
             // 
             this.LIST_parcelas.FormattingEnabled = true;
-            this.LIST_parcelas.Location = new System.Drawing.Point(11, 22);
+            this.LIST_parcelas.Location = new System.Drawing.Point(10, 25);
             this.LIST_parcelas.Name = "LIST_parcelas";
-            this.LIST_parcelas.Size = new System.Drawing.Size(191, 303);
+            this.LIST_parcelas.Size = new System.Drawing.Size(154, 303);
             this.LIST_parcelas.TabIndex = 0;
-            this.LIST_parcelas.SelectedIndexChanged += new System.EventHandler(this.LIST_Parcelas_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -239,10 +239,10 @@
             this.groupBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.groupBox3.Controls.Add(this.groupBox7);
             this.groupBox3.Controls.Add(this.LIST_servicos);
-            this.groupBox3.Location = new System.Drawing.Point(556, 61);
+            this.groupBox3.Location = new System.Drawing.Point(534, 55);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox3.Size = new System.Drawing.Size(209, 524);
+            this.groupBox3.Size = new System.Drawing.Size(259, 524);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Serviços";
@@ -258,7 +258,7 @@
             this.groupBox7.Controls.Add(this.dateTimePickerDataInicio);
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Controls.Add(this.BT_remvServico);
-            this.groupBox7.Location = new System.Drawing.Point(14, 335);
+            this.groupBox7.Location = new System.Drawing.Point(42, 335);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(179, 175);
             this.groupBox7.TabIndex = 6;
@@ -351,7 +351,7 @@
             this.LIST_servicos.FormattingEnabled = true;
             this.LIST_servicos.Location = new System.Drawing.Point(12, 19);
             this.LIST_servicos.Name = "LIST_servicos";
-            this.LIST_servicos.Size = new System.Drawing.Size(181, 303);
+            this.LIST_servicos.Size = new System.Drawing.Size(236, 303);
             this.LIST_servicos.TabIndex = 0;
             this.LIST_servicos.SelectedIndexChanged += new System.EventHandler(this.LB_Servicos_SelectedIndexChanged);
             // 
@@ -360,7 +360,7 @@
             this.groupBox2.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox2.Controls.Add(this.groupBox6);
             this.groupBox2.Controls.Add(this.LIST_carros);
-            this.groupBox2.Location = new System.Drawing.Point(291, 55);
+            this.groupBox2.Location = new System.Drawing.Point(277, 55);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(247, 530);
             this.groupBox2.TabIndex = 6;
@@ -545,7 +545,7 @@
             this.groupBox5.Controls.Add(this.label22);
             this.groupBox5.Controls.Add(this.label26);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(19, 406);
+            this.groupBox5.Location = new System.Drawing.Point(15, 406);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(270, 58);
             this.groupBox5.TabIndex = 14;
@@ -566,7 +566,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(20, 25);
+            this.label22.Location = new System.Drawing.Point(15, 25);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(87, 13);
             this.label22.TabIndex = 12;
@@ -577,7 +577,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(207, 26);
+            this.label26.Location = new System.Drawing.Point(209, 26);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(13, 13);
             this.label26.TabIndex = 13;
@@ -598,9 +598,9 @@
             this.panel1.Controls.Add(this.BT_exportar);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(1021, 55);
+            this.panel1.Location = new System.Drawing.Point(1014, 55);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(303, 545);
+            this.panel1.Size = new System.Drawing.Size(295, 545);
             this.panel1.TabIndex = 15;
             // 
             // groupBox12
@@ -614,7 +614,7 @@
             this.groupBox12.Controls.Add(this.label6);
             this.groupBox12.Controls.Add(this.label16);
             this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox12.Location = new System.Drawing.Point(18, 52);
+            this.groupBox12.Location = new System.Drawing.Point(13, 52);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(270, 111);
             this.groupBox12.TabIndex = 29;
@@ -694,7 +694,8 @@
             // groupBox13
             // 
             this.groupBox13.BackColor = System.Drawing.Color.Gainsboro;
-            this.groupBox13.Controls.Add(this.TB_inf_modelo);
+            this.groupBox13.Controls.Add(this.label3);
+            this.groupBox13.Controls.Add(this.TB_inf_kms);
             this.groupBox13.Controls.Add(this.TB_inf_combustivel);
             this.groupBox13.Controls.Add(this.TB_inf_marca);
             this.groupBox13.Controls.Add(this.TB_inf_nchassi);
@@ -703,22 +704,22 @@
             this.groupBox13.Controls.Add(this.label23);
             this.groupBox13.Controls.Add(this.label24);
             this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox13.Location = new System.Drawing.Point(18, 169);
+            this.groupBox13.Location = new System.Drawing.Point(13, 169);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(271, 105);
             this.groupBox13.TabIndex = 28;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "CARRO";
             // 
-            // TB_inf_modelo
+            // TB_inf_kms
             // 
-            this.TB_inf_modelo.Enabled = false;
-            this.TB_inf_modelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_modelo.Location = new System.Drawing.Point(182, 43);
-            this.TB_inf_modelo.Name = "TB_inf_modelo";
-            this.TB_inf_modelo.Size = new System.Drawing.Size(75, 20);
-            this.TB_inf_modelo.TabIndex = 42;
-            this.TB_inf_modelo.Text = "Nenhum";
+            this.TB_inf_kms.Enabled = false;
+            this.TB_inf_kms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_inf_kms.Location = new System.Drawing.Point(170, 43);
+            this.TB_inf_kms.Name = "TB_inf_kms";
+            this.TB_inf_kms.Size = new System.Drawing.Size(57, 20);
+            this.TB_inf_kms.TabIndex = 42;
+            this.TB_inf_kms.Text = "Nenhum";
             // 
             // TB_inf_combustivel
             // 
@@ -756,9 +757,9 @@
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(137, 46);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(48, 13);
+            this.label19.Size = new System.Drawing.Size(30, 13);
             this.label19.TabIndex = 10;
-            this.label19.Text = "Modelo :";
+            this.label19.Text = "Kms:";
             // 
             // label21
             // 
@@ -800,7 +801,7 @@
             this.groupBox14.Controls.Add(this.label25);
             this.groupBox14.Controls.Add(this.label27);
             this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox14.Location = new System.Drawing.Point(19, 281);
+            this.groupBox14.Location = new System.Drawing.Point(14, 281);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(270, 114);
             this.groupBox14.TabIndex = 14;
@@ -916,6 +917,16 @@
             this.BT_exportar.UseVisualStyleBackColor = false;
             this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(226, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(22, 13);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "Km";
+            // 
             // Form_GestaoOficina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -923,7 +934,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BackgroundImage = global::GesStand.Properties.Resources.logo_gesStand_fatura;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1336, 689);
+            this.ClientSize = new System.Drawing.Size(1336, 622);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox3);
@@ -1016,7 +1027,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.TextBox TB_inf_modelo;
+        private System.Windows.Forms.TextBox TB_inf_kms;
         private System.Windows.Forms.TextBox TB_inf_combustivel;
         private System.Windows.Forms.TextBox TB_inf_marca;
         private System.Windows.Forms.TextBox TB_inf_nchassi;
@@ -1037,5 +1048,6 @@
         private System.Windows.Forms.Button BT_exportar;
         private System.Windows.Forms.SaveFileDialog saveFileDialogFicheiroTexto;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label3;
     }
 }
