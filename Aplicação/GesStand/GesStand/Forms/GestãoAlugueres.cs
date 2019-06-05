@@ -22,6 +22,7 @@ namespace GesStand.Forms
         {
             MdGesStand = new Model_GesStandContainer();
             LerClientes();
+            LerCarros();
 
             #region BUTTON HOVER
             // Create the ToolTip and associate with the Form container.
@@ -35,8 +36,8 @@ namespace GesStand.Forms
             toolTip1.ShowAlways = true;
 
             // Set up the ToolTip text for the Button and Checkbox.
-            toolTip1.SetToolTip(BT_insCarro, "Guardar Registo");
-            toolTip1.SetToolTip(BT_remCarro, "Remover Registo");
+            toolTip1.SetToolTip(BT_inserirCarro, "Guardar Registo");
+            toolTip1.SetToolTip(BT_removerCarro, "Remover Registo");
             toolTip1.SetToolTip(BT_exportar, "Exportar");
             #endregion
         }
@@ -47,6 +48,13 @@ namespace GesStand.Forms
         {
             LIST_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
         }
+
+        public void LerCarros()
+        {
+            LIST_carro.DataSource = MdGesStand.Carro.OfType<CarroAluguer>().ToList();
+
+        }
+
 
         private void List_clientes_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -71,14 +79,15 @@ namespace GesStand.Forms
 
             if (aluguerSelecionada != null)
             {
-                TB_inf_nchassi.Text = "NºChassi: " + aluguerSelecionada.CarroAluguer.NumeroChassis;
-                TB_inf_modelo.Text = "Modelo: " + aluguerSelecionada.CarroAluguer.Modelo;
-                TB_inf_modelo.Text = "Marca: " + aluguerSelecionada.CarroAluguer.Marca;
-                TB_inf_combustivel.Text = "Combustivel: " + aluguerSelecionada.CarroAluguer.Combustivel;
-                TB_inf_estado.Text = "Estado: " + aluguerSelecionada.CarroAluguer.Estado;
+                TB_inf_nchassi.Text = aluguerSelecionada.CarroAluguer.NumeroChassis;
+                TB_inf_modelo.Text = aluguerSelecionada.CarroAluguer.Modelo;
+                TB_inf_marca.Text = aluguerSelecionada.CarroAluguer.Marca;
+                TB_inf_combustivel.Text = aluguerSelecionada.CarroAluguer.Combustivel;
+                TB_inf_matricula.Text = aluguerSelecionada.CarroAluguer.Matricula;
 
-                TB_inf_dt_inicio.Text = "Data Inicio: " + aluguerSelecionada.DataInicio.ToString();
-                TB_inf_dt_fim.Text = "Data Fim: " + aluguerSelecionada.DataFim.ToString();
+                TB_inf_dt_inicio.Text = aluguerSelecionada.DataInicio.ToShortDateString();
+                TB_inf_dt_fim.Text = aluguerSelecionada.DataFim.ToShortDateString();
+                TB_inf_kms.Text = aluguerSelecionada.Kms.ToString();
                 TB_inf_valor.Text = aluguerSelecionada.Valor.ToString() + " €";
             }
             else
@@ -97,107 +106,142 @@ namespace GesStand.Forms
 
         #endregion
 
-
-        private void bt_insCarro_Click(object sender, EventArgs e)
+        #region INSERIR
+        private void BT_inserirCarro_Click(object sender, EventArgs e)
         {
             Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
-            Aluguer a = new Aluguer();
+            CarroAluguer carroAluguer = new CarroAluguer();
 
-            a.CarroAluguer = new CarroAluguer();
 
-            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende inserir este aluguer ? ", "SALVAR", MessageBoxButtons.YesNo);
+            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende inserir este carro ? ", "SALVAR", MessageBoxButtons.YesNo);
 
             if (guardar == DialogResult.Yes)
             {
-                if (!ValidarTextBox(tb_chassi,tb_combustivel,tb_estado,tb_matricula,tb_marca,tb_estado,tb_modelo,tb_valor,tb_kms))
+                if (!ValidarTextBox(tb_chassi, tb_combustivel, tb_matricula, tb_marca, tb_modelo))
                     return;
 
-                if (!decimal.TryParse(tb_valor.Text.Replace('.', ','), out decimal valor))
-                {
-                    tb_valor.Text = string.Empty;
-                    tb_valor.Focus();
-                    MessageBox.Show("Introduza um Valor!");
-                    return;
-                }
+                carroAluguer.NumeroChassis = tb_chassi.Text;
+                carroAluguer.Marca = tb_marca.Text;
+                carroAluguer.Modelo = tb_modelo.Text;
+                carroAluguer.Combustivel = tb_combustivel.Text;
+                carroAluguer.Matricula = tb_matricula.Text;
+                carroAluguer.Estado = "DISPONIVEL";
 
-                a.Kms = Convert.ToInt32( tb_kms.Text);
-                a.DataInicio = Convert.ToDateTime(dateTimePicker_data_inicio.Text);
-                a.DataFim = Convert.ToDateTime(dateTimePicker_data_fim.Text);           
-                a.Valor = Convert.ToDecimal(tb_valor.Text);
-
-
-                a.CarroAluguer.NumeroChassis = tb_chassi.Text;
-                a.CarroAluguer.Marca = tb_marca.Text;
-                a.CarroAluguer.Modelo = tb_modelo.Text;
-                a.CarroAluguer.Combustivel = tb_combustivel.Text;
-                a.CarroAluguer.Estado = tb_estado.Text;
-                a.CarroAluguer.Matricula = tb_matricula.Text;
-
-                clienteSelecionado.Aluguer.Add(a);
+                MdGesStand.Carro.Add(carroAluguer);
 
                 MdGesStand.SaveChanges();
 
-                atualizar_listAluguerCarro();
-            }
-            else
-            {
-                
+                limpar_carros();
+                atualizar_listCarro();
+                MessageBox.Show("Carro inserido com sucesso!", "SUCESSO");
             }
 
-           
 
         }
 
-        private void bt_remCarro_Click(object sender, EventArgs e)
+        private void BT_inserirAluguer_Click(object sender, EventArgs e)
         {
+
             Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
-            CarroAluguer carroAluguerSelecionado= LIST_aluguer.SelectedItem as CarroAluguer;
+            CarroAluguer carroAluguerSelecionado = LIST_carro.SelectedItem as CarroAluguer;
 
-           //Aluguer aluguer=
+            Aluguer aluguer = new Aluguer();
 
-           // DialogResult remover = MessageBox.Show("Tem a certeza que pertende cancelar o aluguer ? ", "SALVAR", MessageBoxButtons.YesNo);
 
-           // if (remover == DialogResult.Yes)
-           // {
-           //     if (LIST_aluguer.SelectedItem != null)
-           //     {
-           //         MdGesStand.aluguer.Remove(carroAluguerSelecionado);
-           //         MdGesStand.SaveChanges();
+            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende efectuar o aluguer deste carro ? ", "SALVAR", MessageBoxButtons.YesNo);
 
-           //         MessageBox.Show("Carro removido com sucesso!", "ALERTA", MessageBoxButtons.OK);
-
-           //     }
-           //     else
-           //     {
-           //         MessageBox.Show("[ATENÇÃO]-Não existe alugueres para remover!", "ALERTA", MessageBoxButtons.OK);
-           //     }
-           // }
-
-        }
-
-        #region ATUALIZAR
-        public void atualizar_listAluguerCarro()
-        {
-            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
-
-            TB_inf_nome.Text = clienteSelecionado.Nome;
-            TB_inf_nif.Text = clienteSelecionado.NIF;
-            TB_inf_contacto.Text = clienteSelecionado.Contacto.ToString();
-
-            LIST_aluguer.DataSource = null;
-
-            if (clienteSelecionado != null)
+            if (guardar == DialogResult.Yes)
             {
-                LIST_aluguer.DataSource = clienteSelecionado.Aluguer.ToList<Aluguer>();
+                if (carroAluguerSelecionado.Estado == "INDISPONIVEL")
+                {
+                    MessageBox.Show("O carro que pertende alugar já se encontra alugado!", "INDISPONIVEL");
+                }
+                else
+                {
+                    if (!ValidarTextBox(tb_kms, tb_valor))
+                        return;
+
+                    if (!decimal.TryParse(tb_valor.Text.Replace('.', ','), out decimal valor))
+                    {
+                        tb_valor.Text = string.Empty;
+                        tb_valor.Focus();
+                        MessageBox.Show("Introduza um Valor!");
+                        return;
+                    }
+
+                    carroAluguerSelecionado.Estado = "INDISPONIVEL";
+                    aluguer.DataInicio = Convert.ToDateTime(dateTimePicker_data_inicio.Text);
+                    aluguer.DataFim = Convert.ToDateTime(dateTimePicker_data_fim.Text);
+                    aluguer.Valor = valor;
+                    aluguer.Kms = Convert.ToInt32(tb_kms);
+                    aluguer.Cliente = clienteSelecionado;
+                    aluguer.CarroAluguer = carroAluguerSelecionado;
+
+                    MdGesStand.aluguer.Add(aluguer);
+
+                    MdGesStand.SaveChanges();
+
+                    limpar_aluguer();
+
+                    atualizar_listCarro();
+                    atualizar_listAluguer();
+
+                    MessageBox.Show("Aluguer inserido com sucesso!", "SUCESSO");
+
+                }
 
             }
         }
 
         #endregion
 
-        #region CONFIGURAÇÕES
+        private void BT_remCarro_Click(object sender, EventArgs e)
+        {
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+
+            CarroAluguer carroAluguerSelecionado = LIST_aluguer.SelectedItem as CarroAluguer;
+
+            //Aluguer aluguer=
+
+            // DialogResult remover = MessageBox.Show("Tem a certeza que pertende cancelar o aluguer ? ", "SALVAR", MessageBoxButtons.YesNo);
+
+            // if (remover == DialogResult.Yes)
+            // {
+            //     if (LIST_aluguer.SelectedItem != null)
+            //     {
+            //         MdGesStand.aluguer.Remove(carroAluguerSelecionado);
+            //         MdGesStand.SaveChanges();
+
+            //         MessageBox.Show("Carro removido com sucesso!", "ALERTA", MessageBoxButtons.OK);
+
+            //     }
+            //     else
+            //     {
+            //         MessageBox.Show("[ATENÇÃO]-Não existe alugueres para remover!", "ALERTA", MessageBoxButtons.OK);
+            //     }
+            // }
+
+        }
+
+        #region ATUALIZAR
+        public void atualizar_listCarro()
+        {
+            LIST_carro.DataSource = MdGesStand.Carro.OfType<CarroAluguer>().ToList();
+
+        }
+
+        public void atualizar_listAluguer()
+        {
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+
+            LIST_aluguer.DataSource = clienteSelecionado.Aluguer.ToList();
+        }
+
+        #endregion
+
+        #region FECHAR
         private void Form_Gestão_Alugueres_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult fechar = MessageBox.Show("Tem a certeza que pertende sair ? ", "Sair", MessageBoxButtons.YesNo);
@@ -231,8 +275,81 @@ namespace GesStand.Forms
                 e.Handled = true;
             }
         }
+        #endregion
+
+
+
+        #region LIMPAR
+        public void limpar_carros()
+        {
+            tb_chassi.Clear();
+            tb_marca.Clear();
+            tb_modelo.Clear();
+            tb_combustivel.Clear();
+            tb_matricula.Clear();
+        }
+
+        public void limpar_aluguer()
+        {
+            dateTimePicker_data_inicio.ResetText();
+            dateTimePicker_data_fim.ResetText();
+            tb_valor.Clear();
+            tb_kms.Clear();
+        }
+
+
 
         #endregion
+
+        #region REMOVER
+        private void BT_removerAluguer_Click(object sender, EventArgs e)
+        {
+            Aluguer aluguer = LIST_aluguer.SelectedItem as Aluguer;
+
+            DialogResult remover = MessageBox.Show("Tem a certeza que remover remover este aluguer? ", "REMOVER", MessageBoxButtons.YesNo);
+
+            if (remover == DialogResult.Yes)
+            {
+                aluguer.CarroAluguer.Estado = "DISPONIVEL";
+                MdGesStand.aluguer.Remove(aluguer);
+
+
+                MdGesStand.SaveChanges();
+                atualizar_listAluguer();
+                atualizar_listCarro();
+
+                MessageBox.Show("Aluguer removido com sucesso!", "SUCESSO");
+            }
+
+        }
+
+        private void BT_removerCarro_Click(object sender, EventArgs e)
+        {
+            CarroAluguer carroAluguer = LIST_carro.SelectedItem as CarroAluguer;
+
+            DialogResult remover = MessageBox.Show("Tem a certeza que remover remover este carro? ", "REMOVER", MessageBoxButtons.YesNo);
+
+            if (remover == DialogResult.Yes)
+            {
+                if (carroAluguer.Estado == "INDISPONIVEL")
+                {
+                    MessageBox.Show("Não foi possivel remover o carro pois este encontra se alugado a um cliente! Caso prentenda remover ele terá que cancelar(apagar) o aluguer do mesmo!!", "AVISO");
+                }
+                else
+                {
+                    MdGesStand.Carro.Remove(carroAluguer);
+
+                    MdGesStand.SaveChanges();
+
+                    atualizar_listCarro();
+
+                    MessageBox.Show("Carro removido com sucesso!", "SUCESSO");
+                }
+            }
+        }
+
+        #endregion
+
     }
 }
 

@@ -7,7 +7,7 @@
     <Property Name="IdAluguer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DataInicio" Type="datetime" Nullable="false" />
     <Property Name="DataFim" Type="datetime" Nullable="false" />
-    <Property Name="Valor" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Valor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="Kms" Type="int" Nullable="false" />
     <Property Name="ClienteIdCliente" Type="int" Nullable="false" />
     <Property Name="CarroAluguer_IdCarro" Type="int" Nullable="false" />

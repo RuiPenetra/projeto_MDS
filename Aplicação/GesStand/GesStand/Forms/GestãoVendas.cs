@@ -32,15 +32,15 @@ namespace GesStand
             toolTip1.ShowAlways = true;
 
             // Set up the ToolTip text for the Button and Checkbox.
-            toolTip1.SetToolTip(BT_insCarro, "Guardar");
-            toolTip1.SetToolTip(BT_remCarro, "Remover");
+            toolTip1.SetToolTip(BT_inserirVenda, "Guardar");
+            toolTip1.SetToolTip(BT_removerVenda, "Remover");
             toolTip1.SetToolTip(BT_exportar, "Exportar");
             #endregion
 
             MdGesStand = new Model_GesStandContainer();
             LerClientes();
 
-            
+
         }
 
         #region LER
@@ -71,21 +71,21 @@ namespace GesStand
 
             if (vendaSelecionada != null)
             {
-                TB_inf_nchassi.Text = "NºChassi: " + vendaSelecionada.CarroVenda.NumeroChassis;
-                TB_inf_modelo.Text = "Modelo: " + vendaSelecionada.CarroVenda.Modelo;
-                TB_inf_marca.Text = "Marca: " + vendaSelecionada.CarroVenda.Marca;
-                TB_inf_combustivel.Text = "Combustivel: " + vendaSelecionada.CarroVenda.Combustivel;
-                TB_inf_extras.Text = "Extras: " + vendaSelecionada.CarroVenda.Extras;
+                TB_inf_nchassi.Text = vendaSelecionada.CarroVenda.NumeroChassis;
+                TB_inf_modelo.Text = vendaSelecionada.CarroVenda.Modelo;
+                TB_inf_marca.Text = vendaSelecionada.CarroVenda.Marca;
+                TB_inf_combustivel.Text =  vendaSelecionada.CarroVenda.Combustivel;
+                TB_inf_extras.Text = vendaSelecionada.CarroVenda.Extras;
 
-                TB_inf_estado.Text = "Estado: " + vendaSelecionada.Estado;
-                TB_inf_data.Text = "Data: " + vendaSelecionada.Data.ToString();
+                TB_inf_estado.Text = vendaSelecionada.Estado;
+                TB_inf_data.Text =  vendaSelecionada.Data.ToString();
                 TB_inf_valor.Text = vendaSelecionada.Valor.ToString();
             }
         }
         #endregion
 
         #region INSERIR
-        private void bt_insCarro_Click(object sender, EventArgs e)
+        private void bt_inserirVenda_Click(object sender, EventArgs e)
         {
             Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
@@ -93,26 +93,40 @@ namespace GesStand
 
             v.CarroVenda = new CarroVenda();
 
-            if (!ValidarTextBox(tb_chassi, tb_combustivel, tb_estado, tb_extras, tb_marca, tb_estado, tb_modelo, tb_valor))
-                return;
+            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende inserir esta venda ? ", "SALVAR", MessageBoxButtons.YesNo);
 
-            v.Estado = tb_estado.Text;
-            v.Data = Convert.ToDateTime(dateTimePicker_data.Text);
-            v.Valor = Convert.ToDecimal(tb_valor.Text);
+            if (guardar == DialogResult.Yes)
+            {
+                if (!ValidarTextBox(tb_chassi, tb_combustivel, tb_estado, tb_extras, tb_marca, tb_estado, tb_modelo, tb_valor))
+                    return;
 
-            v.CarroVenda.NumeroChassis = tb_chassi.Text;
-            v.CarroVenda.Marca = tb_marca.Text;
-            v.CarroVenda.Modelo = tb_modelo.Text;
-            v.CarroVenda.Combustivel = tb_combustivel.Text;
-            v.CarroVenda.Extras = tb_extras.Text;
+                if (!decimal.TryParse(tb_valor.Text.Replace('.', ','), out decimal valor))
+                {
+                    tb_valor.Text = string.Empty;
+                    tb_valor.Focus();
+                    MessageBox.Show("Introduza um Valor!");
+                    return;
+                }
 
+                v.Estado = tb_estado.Text;
+                v.Data = Convert.ToDateTime(dateTimePicker_data.Text);
+                v.Valor = valor;
 
+                v.CarroVenda.NumeroChassis = tb_chassi.Text;
+                v.CarroVenda.Marca = tb_marca.Text;
+                v.CarroVenda.Modelo = tb_modelo.Text;
+                v.CarroVenda.Combustivel = tb_combustivel.Text;
+                v.CarroVenda.Extras = tb_extras.Text;
 
-            clienteSelecionado.Venda.Add(v);
+                clienteSelecionado.Venda.Add(v);
 
-            MdGesStand.SaveChanges();
+                MdGesStand.SaveChanges();
 
-            atualizar_listVendaCarro();
+                atualizar_listVendaCarro();
+
+                MessageBox.Show("Venda inserida com sucesso!");
+
+            }
         }
 
         #endregion
@@ -136,7 +150,7 @@ namespace GesStand
 
         #endregion
 
-        #region CONFIGURAÇÕES
+        #region FECHAR
         private void Form_Gestão_Vendas_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult fechar = MessageBox.Show("Tem a certeza que pertende sair ? ", "Sair", MessageBoxButtons.YesNo);
@@ -144,14 +158,6 @@ namespace GesStand
             if (fechar == DialogResult.No)
             {
                 e.Cancel = true;
-            }
-        }
-
-        private void tb_valor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
             }
         }
 
@@ -171,15 +177,41 @@ namespace GesStand
             }
             return true;
         }
-        private void tb_kms_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }
-        }
+        //private void tb_kms_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
+
 
         #endregion
 
+        private void BT_removerVenda_Click(object sender, EventArgs e)
+        {
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+
+            Venda venda = LIST_venda.SelectedItem as Venda;
+
+            CarroVenda carroVenda = venda.CarroVenda;
+
+            DialogResult remover = MessageBox.Show("Tem a certeza que pertende remover esta venda ? ", "REMOVER", MessageBoxButtons.YesNo);
+
+            if (remover == DialogResult.Yes)
+            {
+
+                MdGesStand.Carro.Remove(venda.CarroVenda);
+
+                clienteSelecionado.Venda.Remove(venda);
+                
+                MdGesStand.SaveChanges();
+
+                atualizar_listVendaCarro();
+
+                MessageBox.Show("Venda removida com sucesso!");
+
+            }
+        }
     }
 }

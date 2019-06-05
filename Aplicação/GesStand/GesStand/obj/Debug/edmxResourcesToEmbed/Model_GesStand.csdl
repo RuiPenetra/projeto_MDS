@@ -107,7 +107,7 @@
     <Property Name="IdAluguer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="DataFim" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Valor" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Valor" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="Kms" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Cliente" Relationship="Model_GesStand.ClienteAluguer" FromRole="Aluguer" ToRole="Cliente" />
     <Property Name="ClienteIdCliente" Type="Int32" Nullable="false" />

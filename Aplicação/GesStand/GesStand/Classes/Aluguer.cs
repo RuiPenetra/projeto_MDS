@@ -10,7 +10,7 @@ namespace GesStand
     {
         public override string ToString()
         {
-            return "( " + " |> " + this.CarroAluguer.Marca + "     |>" + this.CarroAluguer.Modelo + "     |>" + this.Kms + "     |> " + this.Valor + " )";
+            return "--> " + this.CarroAluguer.Marca +  " --> " + this.CarroAluguer.Matricula + " --> " + this.Valor + " €";
         }
     }
 }

@@ -10,7 +10,7 @@ namespace GesStand
     {
         public override string ToString()
         {
-            return "[ -> Marca:" + this.Marca + "  -> Modelo: " + this.Modelo + " ]";
+            return "-> " + this.Marca + " -> " + this.Modelo;
         }
     }
 }

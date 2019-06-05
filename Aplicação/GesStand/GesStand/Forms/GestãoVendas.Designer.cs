@@ -40,8 +40,8 @@
             this.dateTimePicker_data = new System.Windows.Forms.DateTimePicker();
             this.tb_valor = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.BT_remCarro = new System.Windows.Forms.Button();
-            this.BT_insCarro = new System.Windows.Forms.Button();
+            this.BT_removerVenda = new System.Windows.Forms.Button();
+            this.BT_inserirVenda = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tb_extras = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -126,8 +126,8 @@
             this.CARRO.BackColor = System.Drawing.Color.LightGray;
             this.CARRO.Controls.Add(this.LIST_venda);
             this.CARRO.Controls.Add(this.groupBox2);
-            this.CARRO.Controls.Add(this.BT_remCarro);
-            this.CARRO.Controls.Add(this.BT_insCarro);
+            this.CARRO.Controls.Add(this.BT_removerVenda);
+            this.CARRO.Controls.Add(this.BT_inserirVenda);
             this.CARRO.Controls.Add(this.groupBox3);
             this.CARRO.Location = new System.Drawing.Point(10, 15);
             this.CARRO.Name = "CARRO";
@@ -200,7 +200,6 @@
             this.tb_valor.Name = "tb_valor";
             this.tb_valor.Size = new System.Drawing.Size(100, 20);
             this.tb_valor.TabIndex = 4;
-            this.tb_valor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_valor_KeyPress);
             // 
             // label8
             // 
@@ -211,28 +210,29 @@
             this.label8.TabIndex = 5;
             this.label8.Text = "Valor :";
             // 
-            // BT_remCarro
+            // BT_removerVenda
             // 
-            this.BT_remCarro.BackColor = System.Drawing.Color.Transparent;
-            this.BT_remCarro.BackgroundImage = global::GesStand.Properties.Resources.bt_remover_client;
-            this.BT_remCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_remCarro.Location = new System.Drawing.Point(283, 478);
-            this.BT_remCarro.Name = "BT_remCarro";
-            this.BT_remCarro.Size = new System.Drawing.Size(54, 52);
-            this.BT_remCarro.TabIndex = 9;
-            this.BT_remCarro.UseVisualStyleBackColor = false;
+            this.BT_removerVenda.BackColor = System.Drawing.Color.Transparent;
+            this.BT_removerVenda.BackgroundImage = global::GesStand.Properties.Resources.bt_remover_client;
+            this.BT_removerVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_removerVenda.Location = new System.Drawing.Point(283, 478);
+            this.BT_removerVenda.Name = "BT_removerVenda";
+            this.BT_removerVenda.Size = new System.Drawing.Size(54, 52);
+            this.BT_removerVenda.TabIndex = 9;
+            this.BT_removerVenda.UseVisualStyleBackColor = false;
+            this.BT_removerVenda.Click += new System.EventHandler(this.BT_removerVenda_Click);
             // 
-            // BT_insCarro
+            // BT_inserirVenda
             // 
-            this.BT_insCarro.BackColor = System.Drawing.Color.Transparent;
-            this.BT_insCarro.BackgroundImage = global::GesStand.Properties.Resources.bt_gravar_client;
-            this.BT_insCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_insCarro.Location = new System.Drawing.Point(166, 478);
-            this.BT_insCarro.Name = "BT_insCarro";
-            this.BT_insCarro.Size = new System.Drawing.Size(54, 52);
-            this.BT_insCarro.TabIndex = 8;
-            this.BT_insCarro.UseVisualStyleBackColor = false;
-            this.BT_insCarro.Click += new System.EventHandler(this.bt_insCarro_Click);
+            this.BT_inserirVenda.BackColor = System.Drawing.Color.Transparent;
+            this.BT_inserirVenda.BackgroundImage = global::GesStand.Properties.Resources.bt_gravar_client;
+            this.BT_inserirVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_inserirVenda.Location = new System.Drawing.Point(166, 478);
+            this.BT_inserirVenda.Name = "BT_inserirVenda";
+            this.BT_inserirVenda.Size = new System.Drawing.Size(54, 52);
+            this.BT_inserirVenda.TabIndex = 8;
+            this.BT_inserirVenda.UseVisualStyleBackColor = false;
+            this.BT_inserirVenda.Click += new System.EventHandler(this.bt_inserirVenda_Click);
             // 
             // groupBox3
             // 
@@ -767,8 +767,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button BT_remCarro;
-        private System.Windows.Forms.Button BT_insCarro;
+        private System.Windows.Forms.Button BT_removerVenda;
+        private System.Windows.Forms.Button BT_inserirVenda;
         private System.Windows.Forms.TextBox tb_extras;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;

@@ -78,7 +78,7 @@ namespace GesStand.Forms
             lb_clientes.Text = "Clientes: " + Convert.ToString(MdGesStand.Cliente.Count());
             lb_totalAluguer.Text = "Total Aluguer: " + Convert.ToString(MdGesStand.aluguer.Count());
             lb_totalVendas.Text = "Total Vendas: " + Convert.ToString(MdGesStand.Venda.Count());
-            contadorTempo = contadorTempo.Add(new TimeSpan(0, 0, 0, 0,1));
+            contadorTempo = contadorTempo.Add(new TimeSpan(0, 0, 0, 0, 100));
             status_contador.Text= contadorTempo.ToLongTimeString();
         }
 
