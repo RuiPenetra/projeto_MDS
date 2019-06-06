@@ -81,6 +81,8 @@
             this.lb_carroMarca = new System.Windows.Forms.Label();
             this.lb_extras = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.TB_inf_kms = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.TB_inf_valor = new System.Windows.Forms.TextBox();
             this.TB_inf_dt_fim = new System.Windows.Forms.TextBox();
             this.TB_inf_dt_inicio = new System.Windows.Forms.TextBox();
@@ -93,8 +95,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.BT_exportar = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TB_inf_kms = new System.Windows.Forms.TextBox();
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.CARRO.SuspendLayout();
@@ -422,7 +422,7 @@
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(920, 43);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(303, 512);
+            this.panel2.Size = new System.Drawing.Size(303, 517);
             this.panel2.TabIndex = 22;
             // 
             // groupBox11
@@ -654,6 +654,27 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "ALUGUER";
             // 
+            // TB_inf_kms
+            // 
+            this.TB_inf_kms.Enabled = false;
+            this.TB_inf_kms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_inf_kms.Location = new System.Drawing.Point(82, 71);
+            this.TB_inf_kms.Name = "TB_inf_kms";
+            this.TB_inf_kms.Size = new System.Drawing.Size(110, 20);
+            this.TB_inf_kms.TabIndex = 48;
+            this.TB_inf_kms.Text = "Nenhum";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(37, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 47;
+            this.label6.Text = "kms :";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // TB_inf_valor
             // 
             this.TB_inf_valor.Enabled = false;
@@ -761,7 +782,7 @@
             // BT_exportar
             // 
             this.BT_exportar.BackColor = System.Drawing.Color.Transparent;
-            this.BT_exportar.BackgroundImage = global::GesStand.Properties.Resources.export1;
+            this.BT_exportar.BackgroundImage = global::GesStand.Properties.Resources.export;
             this.BT_exportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_exportar.ForeColor = System.Drawing.Color.Transparent;
             this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -772,27 +793,6 @@
             this.BT_exportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BT_exportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BT_exportar.UseVisualStyleBackColor = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(37, 74);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
-            this.label6.TabIndex = 47;
-            this.label6.Text = "kms :";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TB_inf_kms
-            // 
-            this.TB_inf_kms.Enabled = false;
-            this.TB_inf_kms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_kms.Location = new System.Drawing.Point(82, 71);
-            this.TB_inf_kms.Name = "TB_inf_kms";
-            this.TB_inf_kms.Size = new System.Drawing.Size(110, 20);
-            this.TB_inf_kms.TabIndex = 48;
-            this.TB_inf_kms.Text = "Nenhum";
             // 
             // Form_Gestão_Alugueres
             // 

@@ -27,7 +27,7 @@ namespace GesStand
 
             clienteBindingSource.DataSource = MdGesStand.Cliente.Local.ToBindingList();// ??????
         }
-                
+
         private void BT_filtrar_Click(object sender, EventArgs e)
         {
             if (tb_filtrar.Text.Length > 0)
@@ -82,7 +82,7 @@ namespace GesStand
                 }
             }
 
-            
+
         }
 
         //public int ver_textbox_clientes()
@@ -141,22 +141,37 @@ namespace GesStand
                 e.Cancel = true;
             }
         }
-                     
+
         private void BT_guardar_Click(object sender, EventArgs e)
         {
             DialogResult guardar = MessageBox.Show("Tem a certeza que pertende guardar/editar o cliente? ? ", "SALVAR", MessageBoxButtons.YesNo);
 
 
-            clienteDataGridView.Focus();
-            clienteDataGridView.Rows[0].Selected = true;
-            clienteDataGridView.CurrentCell = clienteDataGridView.Rows[0].Cells[0];
+            //string verificar_nif = Convert.ToString(clienteDataGridView.CurrentRow.Cells[3].Value);
+
+            //int conta = (from cliente in MdGesStand.Cliente
+            //             where cliente.NIF.Contains(nIFTextBox.Text)
+            //             orderby cliente.Nome
+            //             select cliente).ToList().Count();
 
             if (guardar == DialogResult.Yes)
             {
+                //if (conta > 0)
+                //{
+                //    MessageBox.Show("O NIF introduzido já existe!");
+                //}
+                //else
+                //{
 
-                MdGesStand.SaveChanges();
+                    clienteDataGridView.Focus();
+                    clienteDataGridView.Rows[0].Selected = true;
+                    clienteDataGridView.CurrentCell = clienteDataGridView.Rows[0].Cells[0];
 
-                MessageBox.Show("O cliente foi guardado/alterado com sucesso!", "SUCESSO");
+                    MdGesStand.SaveChanges();
+                    MessageBox.Show("O cliente foi guardado/alterado com sucesso!", "SUCESSO");
+
+
+                //}
 
                 //atualizarDatagrid();                
             }
@@ -164,20 +179,34 @@ namespace GesStand
 
         private void BT_remover_Click(object sender, EventArgs e)
         {
-            DialogResult ver_eliminar = MessageBox.Show("Tem a certeza que pertende exclui o cliente selecionado? ", "EXCLUIR", MessageBoxButtons.YesNo);
+            DialogResult remover = MessageBox.Show("Tem a certeza que pertende exclui o cliente selecionado? ", "REMOVER", MessageBoxButtons.YesNo);
 
-            if (ver_eliminar == DialogResult.Yes)
+            if (remover == DialogResult.Yes)
             {
                 clienteDataGridView.Rows.Remove(clienteDataGridView.CurrentRow);
-                MessageBox.Show("Cliente excluido com sucesso!", "Sucesso");
+
+                int procurar = Convert.ToInt32(clienteDataGridView.CurrentRow.Cells[0].Value);
+                MessageBox.Show("Cliente removido com sucesso!", "Sucesso");
                 MdGesStand.SaveChanges();
 
             }
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
         }
+
+
+
+
+        //    MinhaOficinaContainer queryNIF = new MinhaOficinaContainer();
+
+        //        if ((from pessoa in queryNIF.ClienteSet
+        //             where pessoa.NIF.Contains(textBoxNif.Text)
+        //             orderby pessoa.Nome
+        //             select pessoa).ToList().Count() > 0)
+        //        {
+        //            MessageBox.Show("O NIF introduzido já existe!");
+        //            return;
+        //        }
+
+        //queryNIF.Dispose();
     }
 }

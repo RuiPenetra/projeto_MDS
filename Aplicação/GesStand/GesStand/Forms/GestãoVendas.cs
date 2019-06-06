@@ -202,8 +202,7 @@ namespace GesStand
             {
 
                 MdGesStand.Carro.Remove(venda.CarroVenda);
-
-                clienteSelecionado.Venda.Remove(venda);
+                MdGesStand.Venda.Remove(venda);
                 
                 MdGesStand.SaveChanges();
 

@@ -175,7 +175,7 @@ namespace GesStand.Forms
                     aluguer.DataInicio = Convert.ToDateTime(dateTimePicker_data_inicio.Text);
                     aluguer.DataFim = Convert.ToDateTime(dateTimePicker_data_fim.Text);
                     aluguer.Valor = valor;
-                    aluguer.Kms = Convert.ToInt32(tb_kms);
+                    aluguer.Kms = Convert.ToInt32(tb_kms.Text);
                     aluguer.Cliente = clienteSelecionado;
                     aluguer.CarroAluguer = carroAluguerSelecionado;
 
