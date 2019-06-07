@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestão_Alugueres));
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.LIST_aluguer = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -151,7 +152,7 @@
             // 
             // BT_removerAluguer
             // 
-            this.BT_removerAluguer.BackgroundImage = global::GesStand.Properties.Resources.bt_remover_client;
+            this.BT_removerAluguer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_removerAluguer.BackgroundImage")));
             this.BT_removerAluguer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_removerAluguer.Location = new System.Drawing.Point(119, 134);
             this.BT_removerAluguer.Name = "BT_removerAluguer";
@@ -171,7 +172,7 @@
             // BT_inserirAluguer
             // 
             this.BT_inserirAluguer.BackColor = System.Drawing.Color.Transparent;
-            this.BT_inserirAluguer.BackgroundImage = global::GesStand.Properties.Resources.bt_gravar_client;
+            this.BT_inserirAluguer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_inserirAluguer.BackgroundImage")));
             this.BT_inserirAluguer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_inserirAluguer.Location = new System.Drawing.Point(73, 134);
             this.BT_inserirAluguer.Name = "BT_inserirAluguer";
@@ -317,7 +318,7 @@
             // 
             // BT_removerCarro
             // 
-            this.BT_removerCarro.BackgroundImage = global::GesStand.Properties.Resources.bt_remover_client;
+            this.BT_removerCarro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_removerCarro.BackgroundImage")));
             this.BT_removerCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_removerCarro.Location = new System.Drawing.Point(149, 169);
             this.BT_removerCarro.Name = "BT_removerCarro";
@@ -338,7 +339,7 @@
             // BT_inserirCarro
             // 
             this.BT_inserirCarro.BackColor = System.Drawing.Color.Transparent;
-            this.BT_inserirCarro.BackgroundImage = global::GesStand.Properties.Resources.bt_gravar_client;
+            this.BT_inserirCarro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_inserirCarro.BackgroundImage")));
             this.BT_inserirCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_inserirCarro.Location = new System.Drawing.Point(98, 169);
             this.BT_inserirCarro.Name = "BT_inserirCarro";
@@ -782,7 +783,7 @@
             // BT_exportar
             // 
             this.BT_exportar.BackColor = System.Drawing.Color.Transparent;
-            this.BT_exportar.BackgroundImage = global::GesStand.Properties.Resources.export;
+            this.BT_exportar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_exportar.BackgroundImage")));
             this.BT_exportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_exportar.ForeColor = System.Drawing.Color.Transparent;
             this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -799,7 +800,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BackgroundImage = global::GesStand.Properties.Resources.logo_gesStand_fatura;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1245, 621);
             this.Controls.Add(this.CARRO);

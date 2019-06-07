@@ -58,7 +58,7 @@ namespace GesStand.Forms
 
         private void bt_gestVenda_Click(object sender, EventArgs e)
         {
-            Form_Gestão_Vendas vendas = new Form_Gestão_Vendas();
+            Form_Gestao_Vendas vendas = new Form_Gestao_Vendas();
 
             vendas.Show();
         }
@@ -72,14 +72,14 @@ namespace GesStand.Forms
         #endregion
 
         private void timer_Tick(object sender, EventArgs e)
-        {           
+        {
 
-            status_datetime.Text = DateTime.Now.ToShortDateString();
-            lb_clientes.Text = "Clientes: " + Convert.ToString(MdGesStand.Cliente.Count());
-            lb_totalAluguer.Text = "Total Aluguer: " + Convert.ToString(MdGesStand.aluguer.Count());
-            lb_totalVendas.Text = "Total Vendas: " + Convert.ToString(MdGesStand.Venda.Count());
+            lb_data_atual.Text = DateTime.Now.ToShortDateString();
+            lb_nClientes.Text = "Clientes: " + Convert.ToString(MdGesStand.Clientes.Count());
+            lb_nAluguer.Text = "Total Aluguer: " + Convert.ToString(MdGesStand.Alugueres.Count());
+            lb_nVenda.Text = "Total Vendas: " + Convert.ToString(MdGesStand.Vendas.Count());
             contadorTempo = contadorTempo.Add(new TimeSpan(0, 0, 0, 0, 100));
-            status_contador.Text= contadorTempo.ToLongTimeString();
+            lb_cronometro.Text= contadorTempo.ToLongTimeString();
         }
 
         private void form_MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -91,6 +91,5 @@ namespace GesStand.Forms
                 e.Cancel = true;
             }
         }
-
     }
 }

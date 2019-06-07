@@ -46,12 +46,12 @@ namespace GesStand.Forms
 
         public void LerClientes()
         {
-            LIST_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
+            LIST_clientes.DataSource = MdGesStand.Clientes.ToList<Cliente>();
         }
 
         public void LerCarros()
         {
-            LIST_carro.DataSource = MdGesStand.Carro.OfType<CarroAluguer>().ToList();
+            LIST_carro.DataSource = MdGesStand.Carros.OfType<CarroAluguer>().ToList();
 
         }
 
@@ -92,14 +92,15 @@ namespace GesStand.Forms
             }
             else
             {
-                TB_inf_nchassi.Text = "Nenhum";
-                TB_inf_modelo.Text = "Nenhum";
-                TB_inf_marca.Text = "Nenhum";
-                TB_inf_combustivel.Text = "Nenhum";
-                TB_inf_combustivel.Text = "Nenhum";
+                TB_inf_nchassi.Text = "";
+                TB_inf_modelo.Text = "";
+                TB_inf_marca.Text = "";
+                TB_inf_matricula.Text = "";
+                TB_inf_combustivel.Text = "";
+                TB_inf_kms.Text = "";
 
-                TB_inf_dt_inicio.Text = "Nenhum";
-                TB_inf_dt_fim.Text = "Nenhum";
+                TB_inf_dt_inicio.Text = "";
+                TB_inf_dt_fim.Text = "";
                 TB_inf_valor.Text = "0";
             }
         }
@@ -128,7 +129,7 @@ namespace GesStand.Forms
                 carroAluguer.Matricula = tb_matricula.Text;
                 carroAluguer.Estado = "DISPONIVEL";
 
-                MdGesStand.Carro.Add(carroAluguer);
+                MdGesStand.Carros.Add(carroAluguer);
 
                 MdGesStand.SaveChanges();
 
@@ -179,7 +180,7 @@ namespace GesStand.Forms
                     aluguer.Cliente = clienteSelecionado;
                     aluguer.CarroAluguer = carroAluguerSelecionado;
 
-                    MdGesStand.aluguer.Add(aluguer);
+                    MdGesStand.Alugueres.Add(aluguer);
 
                     MdGesStand.SaveChanges();
 
@@ -197,38 +198,10 @@ namespace GesStand.Forms
 
         #endregion
 
-        private void BT_remCarro_Click(object sender, EventArgs e)
-        {
-            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
-
-            CarroAluguer carroAluguerSelecionado = LIST_aluguer.SelectedItem as CarroAluguer;
-
-            //Aluguer aluguer=
-
-            // DialogResult remover = MessageBox.Show("Tem a certeza que pertende cancelar o aluguer ? ", "SALVAR", MessageBoxButtons.YesNo);
-
-            // if (remover == DialogResult.Yes)
-            // {
-            //     if (LIST_aluguer.SelectedItem != null)
-            //     {
-            //         MdGesStand.aluguer.Remove(carroAluguerSelecionado);
-            //         MdGesStand.SaveChanges();
-
-            //         MessageBox.Show("Carro removido com sucesso!", "ALERTA", MessageBoxButtons.OK);
-
-            //     }
-            //     else
-            //     {
-            //         MessageBox.Show("[ATENÇÃO]-Não existe alugueres para remover!", "ALERTA", MessageBoxButtons.OK);
-            //     }
-            // }
-
-        }
-
         #region ATUALIZAR
         public void atualizar_listCarro()
         {
-            LIST_carro.DataSource = MdGesStand.Carro.OfType<CarroAluguer>().ToList();
+            LIST_carro.DataSource = MdGesStand.Carros.OfType<CarroAluguer>().ToList();
 
         }
 
@@ -311,7 +284,7 @@ namespace GesStand.Forms
             if (remover == DialogResult.Yes)
             {
                 aluguer.CarroAluguer.Estado = "DISPONIVEL";
-                MdGesStand.aluguer.Remove(aluguer);
+                MdGesStand.Alugueres.Remove(aluguer);
 
 
                 MdGesStand.SaveChanges();
@@ -337,7 +310,7 @@ namespace GesStand.Forms
                 }
                 else
                 {
-                    MdGesStand.Carro.Remove(carroAluguer);
+                    MdGesStand.Carros.Remove(carroAluguer);
 
                     MdGesStand.SaveChanges();
 

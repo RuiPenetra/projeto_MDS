@@ -20,9 +20,17 @@ namespace GesStand.Forms
         {
             InitializeComponent();
         }
+
         private void GestãoOficina_Load(object sender, EventArgs e)
         {
-            #region BUTTON HOVER
+            MdGesStand = new Model_GesStandContainer();
+
+            dateTimePickerDataInicio.Text = DateTime.Today.ToString();
+            dateTimePickerDataFim.Text = DateTime.Today.ToString();
+
+            LerClientes();
+
+            #region PASSAR O RATO SOBRE O BOTÃO
             // Create the ToolTip and associate with the Form container.
             ToolTip toolTip1 = new ToolTip();
 
@@ -42,15 +50,12 @@ namespace GesStand.Forms
             toolTip1.SetToolTip(BT_remvParcela, "Remover");
             toolTip1.SetToolTip(BT_exportar, "Exportar");
             #endregion
-
-            MdGesStand = new Model_GesStandContainer();
-            LerClientes();
         }
 
         #region LER DADOS
         private void LerClientes()
         {
-            LIST_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
+            LIST_clientes.DataSource = MdGesStand.Clientes.ToList<Cliente>();
         }
         private void LB_clientes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -88,10 +93,10 @@ namespace GesStand.Forms
             }
             else
             {
-                TB_inf_nchassi.Text = "Nenhum";
+                TB_inf_nchassi.Text = "";
                 TB_inf_kms.Text = "0";
-                TB_inf_marca.Text = "Nenhum";
-                TB_inf_combustivel.Text = "Nenhum";
+                TB_inf_marca.Text = "";
+                TB_inf_combustivel.Text = "";
 
             }
         }
@@ -106,17 +111,17 @@ namespace GesStand.Forms
             {
                 LIST_parcelas.DataSource = servicoSelecionado.Parcela.ToList<Parcela>();
 
-                TB_inf_dt_inicio.Text = Convert.ToString(servicoSelecionado.DataEntrada);
-                TB_inf_dt_fim.Text = Convert.ToString(servicoSelecionado.DataSaida);
+                TB_inf_dt_inicio.Text = Convert.ToString(servicoSelecionado.DataEntrada.ToShortDateString());
+                TB_inf_dt_fim.Text = servicoSelecionado.DataSaida.ToShortDateString();
                 TB_inf_tipo.Text = Convert.ToString(servicoSelecionado.Tipo);
                 TB_inf_valor.Text = Convert.ToString(servicoSelecionado.Total); //Total de parcelas
 
             }
             else
             {
-                TB_inf_dt_inicio.Text = "Nenhum";
-                TB_inf_dt_fim.Text = "Nenhum";
-                TB_inf_tipo.Text = "Nenhum";
+                TB_inf_dt_inicio.Text = "";
+                TB_inf_dt_fim.Text = "";
+                TB_inf_tipo.Text = "";
                 TB_inf_valor.Text = "0";
 
             }
@@ -130,33 +135,33 @@ namespace GesStand.Forms
 
             Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
-            CarroOficina co = new CarroOficina();
+            CarroOficina carroOficina = new CarroOficina();
 
             DialogResult guardar = MessageBox.Show("Tem a certeza que pertende inserir este carro ? ", "SALVAR", MessageBoxButtons.YesNo);
 
             if (guardar == DialogResult.Yes)
             {
-                if (!ValidarTextBox(tb_c_nChassis, tb_c_matricula, tb_c_kms, tb_c_marca, tb_c_modelo, tb_c_combustivel))
+                if (!ValidarTextBox(tb_c_nChassis, tb_c_matricula, tb_c_kms, tb_c_marca, tb_c_modelo, tb_c_combustivel,tb_c_kms))
                     return;
 
-                co.NumeroChassis = tb_c_nChassis.Text;
-                co.Marca = tb_c_marca.Text;
-                co.Modelo = tb_c_modelo.Text;
-                co.Combustivel = tb_c_combustivel.Text;
-                co.Matricula = tb_c_matricula.Text;
-                co.Kms = Convert.ToInt32(tb_c_kms.Text);
+                carroOficina.NumeroChassis = tb_c_nChassis.Text;
+                carroOficina.Marca = tb_c_marca.Text;
+                carroOficina.Modelo = tb_c_modelo.Text;
+                carroOficina.Combustivel = tb_c_combustivel.Text;
+                carroOficina.Matricula = tb_c_matricula.Text;
+                carroOficina.Kms = Convert.ToInt32(tb_c_kms.Text);
 
-                clienteSelecionado.CarroOficina.Add(co);
+                clienteSelecionado.CarroOficina.Add(carroOficina);
                 MdGesStand.SaveChanges();
 
-                limparLabelsCarros();
+                limparTextBoxsCarros();
 
                 atualizarCarros();
 
             }
             else
             {
-                limparLabelsCarros();
+                limparTextBoxsCarros();
             }
         }
 
@@ -181,14 +186,13 @@ namespace GesStand.Forms
 
                 MdGesStand.SaveChanges();
 
-                limparLabelsServicos();
+                limparTextBoxsServicos();
                 atualizarServicos();
             }
             else
             {
-                limparLabelsServicos();
+                limparTextBoxsServicos();
             }
-
         }
 
         private void bt_addParcela_Click(object sender, EventArgs e)
@@ -219,14 +223,15 @@ namespace GesStand.Forms
 
                 MdGesStand.SaveChanges();
 
+                atualizarServicos();
                 atualizarParcelas();
 
-                limparLabelsParcelas();
+                limparTextBoxsParcelas();
 
             }
             else
             {
-                limparLabelsParcelas();
+                limparTextBoxsParcelas();
             }
 
         }
@@ -246,10 +251,10 @@ namespace GesStand.Forms
             {
                 if (LIST_servicos.SelectedItem == null)
                 {
-                    MdGesStand.Carro.Remove(carroSelecionado);
+                    MdGesStand.Carros.Remove(carroSelecionado);
                     MdGesStand.SaveChanges();
 
-                    MessageBox.Show("Carro removido com sucesso!", "ALERTA", MessageBoxButtons.OK);
+                    MessageBox.Show("Carro removido com sucesso!", "REMOVER", MessageBoxButtons.OK);
 
                     atualizarCarros();
                 }
@@ -272,7 +277,7 @@ namespace GesStand.Forms
             {
                 if (LIST_parcelas.SelectedItem == null)
                 {
-                    MdGesStand.Servico.Remove(servicoSelecionado);
+                    MdGesStand.Servicos.Remove(servicoSelecionado);
                     MdGesStand.SaveChanges();
 
                     MessageBox.Show("Serviço removido com sucesso!", "ALERTA", MessageBoxButtons.OK);
@@ -291,21 +296,21 @@ namespace GesStand.Forms
         {
 
             Parcela parcelaSelecionada = LIST_parcelas.SelectedItem as Parcela;
-            DialogResult excluir = MessageBox.Show("Tem a certeza que pretende excluir a parcela selecionada??", "EXCLUIR", MessageBoxButtons.YesNo);
+            DialogResult excluir = MessageBox.Show("Tem a certeza que pretende excluir a parcela selecionada??", "REMOVER", MessageBoxButtons.YesNo);
 
             if (excluir == DialogResult.Yes)
             {
-                MdGesStand.parcela.Remove(parcelaSelecionada);
+                MdGesStand.Parcelas.Remove(parcelaSelecionada);
                 MdGesStand.SaveChanges();
 
-                MessageBox.Show("Parcela removida com sucesso!", "SUCESSO", MessageBoxButtons.OK);
+                MessageBox.Show("Parcela removida com sucesso!", "REMOVER", MessageBoxButtons.OK);
                 atualizarParcelas();
             }
         }
         #endregion
 
         #region Limpar
-        public void limparLabelsCarros()
+        public void limparTextBoxsCarros()
         {
             tb_c_nChassis.Text = "";
             tb_c_marca.Text = "";
@@ -313,13 +318,15 @@ namespace GesStand.Forms
             tb_c_combustivel.Text = "";
             tb_c_matricula.Text = "";
             tb_c_matricula.Text = "";
+            tb_c_matricula.Text = "";
+            tb_c_kms.Text = "";
         }
 
-        public void limparLabelsServicos()
+        public void limparTextBoxsServicos()
         {
             tb_s_servicoTipo.Text = "";
         }
-        public void limparLabelsParcelas()
+        public void limparTextBoxsParcelas()
         {
             tb_p_descricao.Text = "";
             tb_p_valor.Text = "";

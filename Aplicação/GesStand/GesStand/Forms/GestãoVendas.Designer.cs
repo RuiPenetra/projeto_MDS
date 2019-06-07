@@ -1,6 +1,6 @@
 ﻿namespace GesStand
 {
-    partial class Form_Gestão_Vendas
+    partial class Form_Gestao_Vendas
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestao_Vendas));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LIST_clientes = new System.Windows.Forms.ListBox();
             this.CARRO = new System.Windows.Forms.GroupBox();
@@ -213,7 +214,7 @@
             // BT_removerVenda
             // 
             this.BT_removerVenda.BackColor = System.Drawing.Color.Transparent;
-            this.BT_removerVenda.BackgroundImage = global::GesStand.Properties.Resources.bt_remover_client;
+            this.BT_removerVenda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_removerVenda.BackgroundImage")));
             this.BT_removerVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_removerVenda.Location = new System.Drawing.Point(283, 478);
             this.BT_removerVenda.Name = "BT_removerVenda";
@@ -225,7 +226,7 @@
             // BT_inserirVenda
             // 
             this.BT_inserirVenda.BackColor = System.Drawing.Color.Transparent;
-            this.BT_inserirVenda.BackgroundImage = global::GesStand.Properties.Resources.bt_gravar_client;
+            this.BT_inserirVenda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_inserirVenda.BackgroundImage")));
             this.BT_inserirVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_inserirVenda.Location = new System.Drawing.Point(166, 478);
             this.BT_inserirVenda.Name = "BT_inserirVenda";
@@ -359,7 +360,8 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::GesStand.Properties.Resources.venda;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(73, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(136, 124);
@@ -710,24 +712,25 @@
             // BT_exportar
             // 
             this.BT_exportar.BackColor = System.Drawing.Color.Transparent;
-            this.BT_exportar.BackgroundImage = global::GesStand.Properties.Resources.export1;
+            this.BT_exportar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_exportar.BackgroundImage")));
             this.BT_exportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_exportar.ForeColor = System.Drawing.Color.Transparent;
-            this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_exportar.Location = new System.Drawing.Point(133, 489);
+            this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BT_exportar.Location = new System.Drawing.Point(127, 483);
             this.BT_exportar.Name = "BT_exportar";
-            this.BT_exportar.Size = new System.Drawing.Size(47, 44);
+            this.BT_exportar.Size = new System.Drawing.Size(59, 53);
             this.BT_exportar.TabIndex = 9;
             this.BT_exportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BT_exportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BT_exportar.UseVisualStyleBackColor = false;
+            this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
-            // Form_Gestão_Vendas
+            // Form_Gestao_Vendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BackgroundImage = global::GesStand.Properties.Resources.logo_gesStand_fatura;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1158, 668);
             this.Controls.Add(this.panel2);
@@ -735,7 +738,7 @@
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
-            this.Name = "Form_Gestão_Vendas";
+            this.Name = "Form_Gestao_Vendas";
             this.Text = "Gestão Vendas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Gestão_Vendas_FormClosing);
             this.Load += new System.EventHandler(this.Gestão_Vendas_Load);

@@ -25,11 +25,11 @@ namespace GesStand
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Cliente> Cliente { get; set; }
-        public virtual DbSet<Venda> Venda { get; set; }
-        public virtual DbSet<Carro> Carro { get; set; }
-        public virtual DbSet<Parcela> parcela { get; set; }
-        public virtual DbSet<Servico> Servico { get; set; }
-        public virtual DbSet<Aluguer> aluguer { get; set; }
+        public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<Venda> Vendas { get; set; }
+        public virtual DbSet<Carro> Carros { get; set; }
+        public virtual DbSet<Parcela> Parcelas { get; set; }
+        public virtual DbSet<Servico> Servicos { get; set; }
+        public virtual DbSet<Aluguer> Alugueres { get; set; }
     }
 }

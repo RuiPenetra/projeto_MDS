@@ -1,39 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model_GesStand" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
   <EntityContainer Name="Model_GesStandContainer" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Cliente" EntityType="Model_GesStand.Cliente" />
-    <EntitySet Name="Venda" EntityType="Model_GesStand.Venda" />
-    <EntitySet Name="Carro" EntityType="Model_GesStand.Carro" />
-    <EntitySet Name="parcela" EntityType="Model_GesStand.Parcela" />
-    <EntitySet Name="Servico" EntityType="Model_GesStand.Servico" />
-    <EntitySet Name="aluguer" EntityType="Model_GesStand.Aluguer" />
+    <EntitySet Name="Clientes" EntityType="Model_GesStand.Cliente" />
+    <EntitySet Name="Vendas" EntityType="Model_GesStand.Venda" />
+    <EntitySet Name="Carros" EntityType="Model_GesStand.Carro" />
+    <EntitySet Name="Parcelas" EntityType="Model_GesStand.Parcela" />
+    <EntitySet Name="Servicos" EntityType="Model_GesStand.Servico" />
+    <EntitySet Name="Alugueres" EntityType="Model_GesStand.Aluguer" />
     <AssociationSet Name="ClienteCarroOficina" Association="Model_GesStand.ClienteCarroOficina">
-      <End Role="Cliente" EntitySet="Cliente" />
-      <End Role="CarroOficina" EntitySet="Carro" />
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="CarroOficina" EntitySet="Carros" />
     </AssociationSet>
     <AssociationSet Name="CarroOficinaServico" Association="Model_GesStand.CarroOficinaServico">
-      <End Role="CarroOficina" EntitySet="Carro" />
-      <End Role="Servico" EntitySet="Servico" />
+      <End Role="CarroOficina" EntitySet="Carros" />
+      <End Role="Servico" EntitySet="Servicos" />
     </AssociationSet>
     <AssociationSet Name="ServicoParcela" Association="Model_GesStand.ServicoParcela">
-      <End Role="Servico" EntitySet="Servico" />
-      <End Role="Parcela" EntitySet="parcela" />
+      <End Role="Servico" EntitySet="Servicos" />
+      <End Role="Parcela" EntitySet="Parcelas" />
     </AssociationSet>
     <AssociationSet Name="ClienteAluguer" Association="Model_GesStand.ClienteAluguer">
-      <End Role="Cliente" EntitySet="Cliente" />
-      <End Role="Aluguer" EntitySet="aluguer" />
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Aluguer" EntitySet="Alugueres" />
     </AssociationSet>
     <AssociationSet Name="AluguerCarroAluguer" Association="Model_GesStand.AluguerCarroAluguer">
-      <End Role="Aluguer" EntitySet="aluguer" />
-      <End Role="CarroAluguer" EntitySet="Carro" />
+      <End Role="Aluguer" EntitySet="Alugueres" />
+      <End Role="CarroAluguer" EntitySet="Carros" />
     </AssociationSet>
     <AssociationSet Name="ClienteVenda" Association="Model_GesStand.ClienteVenda">
-      <End Role="Cliente" EntitySet="Cliente" />
-      <End Role="Venda" EntitySet="Venda" />
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Venda" EntitySet="Vendas" />
     </AssociationSet>
     <AssociationSet Name="VendaCarroVenda" Association="Model_GesStand.VendaCarroVenda">
-      <End Role="Venda" EntitySet="Venda" />
-      <End Role="CarroVenda" EntitySet="Carro" />
+      <End Role="Venda" EntitySet="Vendas" />
+      <End Role="CarroVenda" EntitySet="Carros" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Cliente">

@@ -48,10 +48,10 @@ F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.Form_GestaoC
 F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.Forms.Form_GestaoOficina.resources
 F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.Forms.Form_Gestão_Alugueres.resources
 F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.Forms.form_MenuPrincipal.resources
-F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.Form_Gestão_Vendas.resources
 F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.Properties.Resources.resources
 F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.csproj.GenerateResource.cache
 F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.csproj.CoreCompileInputs.cache
 F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.csproj.CopyComplete
 F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.exe
 F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.pdb
+F:\GIT\projeto_MDS\Aplicação\GesStand\GesStand\obj\Debug\GesStand.Form_Gestao_Vendas.resources

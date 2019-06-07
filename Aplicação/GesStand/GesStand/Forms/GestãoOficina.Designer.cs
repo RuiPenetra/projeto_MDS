@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_GestaoOficina));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LIST_clientes = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -68,7 +69,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tb_c_matricula = new System.Windows.Forms.TextBox();
             this.LIST_carros = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.TB_inf_valor = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -104,7 +104,6 @@
             this.BT_exportar = new System.Windows.Forms.Button();
             this.saveFileDialogFicheiroTexto = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -112,7 +111,6 @@
             this.groupBox7.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -171,7 +169,7 @@
             // BT_remvParcela
             // 
             this.BT_remvParcela.BackColor = System.Drawing.Color.Transparent;
-            this.BT_remvParcela.BackgroundImage = global::GesStand.Properties.Resources.bt_remover_client;
+            this.BT_remvParcela.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_remvParcela.BackgroundImage")));
             this.BT_remvParcela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_remvParcela.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BT_remvParcela.Location = new System.Drawing.Point(82, 109);
@@ -191,7 +189,7 @@
             // BT_addParcela
             // 
             this.BT_addParcela.BackColor = System.Drawing.Color.Transparent;
-            this.BT_addParcela.BackgroundImage = global::GesStand.Properties.Resources.bt_gravar_client;
+            this.BT_addParcela.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_addParcela.BackgroundImage")));
             this.BT_addParcela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_addParcela.Location = new System.Drawing.Point(26, 109);
             this.BT_addParcela.Name = "BT_addParcela";
@@ -275,7 +273,7 @@
             // BT_addServico
             // 
             this.BT_addServico.BackColor = System.Drawing.Color.Transparent;
-            this.BT_addServico.BackgroundImage = global::GesStand.Properties.Resources.bt_gravar_client;
+            this.BT_addServico.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_addServico.BackgroundImage")));
             this.BT_addServico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_addServico.Location = new System.Drawing.Point(44, 125);
             this.BT_addServico.Name = "BT_addServico";
@@ -322,7 +320,7 @@
             this.dateTimePickerDataInicio.Name = "dateTimePickerDataInicio";
             this.dateTimePickerDataInicio.Size = new System.Drawing.Size(95, 20);
             this.dateTimePickerDataInicio.TabIndex = 6;
-            this.dateTimePickerDataInicio.Value = new System.DateTime(2019, 5, 24, 0, 3, 20, 0);
+            this.dateTimePickerDataInicio.Value = new System.DateTime(2019, 6, 7, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -337,7 +335,7 @@
             // BT_remvServico
             // 
             this.BT_remvServico.BackColor = System.Drawing.Color.Transparent;
-            this.BT_remvServico.BackgroundImage = global::GesStand.Properties.Resources.bt_remover_client;
+            this.BT_remvServico.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_remvServico.BackgroundImage")));
             this.BT_remvServico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_remvServico.Location = new System.Drawing.Point(101, 125);
             this.BT_remvServico.Name = "BT_remvServico";
@@ -401,7 +399,7 @@
             // BT_remvCarro
             // 
             this.BT_remvCarro.BackColor = System.Drawing.Color.Transparent;
-            this.BT_remvCarro.BackgroundImage = global::GesStand.Properties.Resources.bt_remover_client;
+            this.BT_remvCarro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_remvCarro.BackgroundImage")));
             this.BT_remvCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_remvCarro.Location = new System.Drawing.Point(111, 202);
             this.BT_remvCarro.Name = "BT_remvCarro";
@@ -492,7 +490,7 @@
             // BT_addCarro
             // 
             this.BT_addCarro.BackColor = System.Drawing.Color.Transparent;
-            this.BT_addCarro.BackgroundImage = global::GesStand.Properties.Resources.bt_gravar_client;
+            this.BT_addCarro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_addCarro.BackgroundImage")));
             this.BT_addCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_addCarro.Location = new System.Drawing.Point(55, 202);
             this.BT_addCarro.Name = "BT_addCarro";
@@ -527,17 +525,6 @@
             this.LIST_carros.TabIndex = 0;
             this.LIST_carros.SelectedIndexChanged += new System.EventHandler(this.LB_carros_SelectedIndexChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::GesStand.Properties.Resources.rep;
-            this.pictureBox1.Location = new System.Drawing.Point(64, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(145, 122);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.LightGray;
@@ -560,7 +547,7 @@
             this.TB_inf_valor.Name = "TB_inf_valor";
             this.TB_inf_valor.Size = new System.Drawing.Size(93, 20);
             this.TB_inf_valor.TabIndex = 46;
-            this.TB_inf_valor.Text = "Nenhum";
+            this.TB_inf_valor.Text = "0";
             // 
             // label22
             // 
@@ -629,7 +616,6 @@
             this.TB_inf_contacto.Name = "TB_inf_contacto";
             this.TB_inf_contacto.Size = new System.Drawing.Size(100, 20);
             this.TB_inf_contacto.TabIndex = 38;
-            this.TB_inf_contacto.Text = "Nenhum";
             // 
             // TB_inf_nif
             // 
@@ -639,7 +625,6 @@
             this.TB_inf_nif.Name = "TB_inf_nif";
             this.TB_inf_nif.Size = new System.Drawing.Size(100, 20);
             this.TB_inf_nif.TabIndex = 37;
-            this.TB_inf_nif.Text = "Nenhum";
             // 
             // TB_inf_nome
             // 
@@ -649,7 +634,6 @@
             this.TB_inf_nome.Name = "TB_inf_nome";
             this.TB_inf_nome.Size = new System.Drawing.Size(183, 20);
             this.TB_inf_nome.TabIndex = 36;
-            this.TB_inf_nome.Text = "Nenhum";
             // 
             // label18
             // 
@@ -694,7 +678,6 @@
             // groupBox13
             // 
             this.groupBox13.BackColor = System.Drawing.Color.Gainsboro;
-            this.groupBox13.Controls.Add(this.label3);
             this.groupBox13.Controls.Add(this.TB_inf_kms);
             this.groupBox13.Controls.Add(this.TB_inf_combustivel);
             this.groupBox13.Controls.Add(this.TB_inf_marca);
@@ -719,7 +702,6 @@
             this.TB_inf_kms.Name = "TB_inf_kms";
             this.TB_inf_kms.Size = new System.Drawing.Size(57, 20);
             this.TB_inf_kms.TabIndex = 42;
-            this.TB_inf_kms.Text = "Nenhum";
             // 
             // TB_inf_combustivel
             // 
@@ -729,7 +711,6 @@
             this.TB_inf_combustivel.Name = "TB_inf_combustivel";
             this.TB_inf_combustivel.Size = new System.Drawing.Size(92, 20);
             this.TB_inf_combustivel.TabIndex = 41;
-            this.TB_inf_combustivel.Text = "Nenhum";
             // 
             // TB_inf_marca
             // 
@@ -739,7 +720,6 @@
             this.TB_inf_marca.Name = "TB_inf_marca";
             this.TB_inf_marca.Size = new System.Drawing.Size(75, 20);
             this.TB_inf_marca.TabIndex = 40;
-            this.TB_inf_marca.Text = "Nenhum";
             // 
             // TB_inf_nchassi
             // 
@@ -749,7 +729,6 @@
             this.TB_inf_nchassi.Name = "TB_inf_nchassi";
             this.TB_inf_nchassi.Size = new System.Drawing.Size(87, 20);
             this.TB_inf_nchassi.TabIndex = 39;
-            this.TB_inf_nchassi.Text = "Nenhum";
             // 
             // label19
             // 
@@ -816,7 +795,6 @@
             this.TB_inf_tipo.Name = "TB_inf_tipo";
             this.TB_inf_tipo.Size = new System.Drawing.Size(110, 20);
             this.TB_inf_tipo.TabIndex = 47;
-            this.TB_inf_tipo.Text = "Nenhum";
             // 
             // label33
             // 
@@ -837,7 +815,6 @@
             this.TB_inf_dt_fim.Name = "TB_inf_dt_fim";
             this.TB_inf_dt_fim.Size = new System.Drawing.Size(110, 20);
             this.TB_inf_dt_fim.TabIndex = 45;
-            this.TB_inf_dt_fim.Text = "Nenhum";
             // 
             // TB_inf_dt_inicio
             // 
@@ -847,7 +824,6 @@
             this.TB_inf_dt_inicio.Name = "TB_inf_dt_inicio";
             this.TB_inf_dt_inicio.Size = new System.Drawing.Size(110, 20);
             this.TB_inf_dt_inicio.TabIndex = 44;
-            this.TB_inf_dt_inicio.Text = "Nenhum";
             // 
             // label25
             // 
@@ -904,11 +880,11 @@
             // BT_exportar
             // 
             this.BT_exportar.BackColor = System.Drawing.Color.Transparent;
-            this.BT_exportar.BackgroundImage = global::GesStand.Properties.Resources.export1;
+            this.BT_exportar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_exportar.BackgroundImage")));
             this.BT_exportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_exportar.ForeColor = System.Drawing.Color.Transparent;
             this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_exportar.Location = new System.Drawing.Point(133, 489);
+            this.BT_exportar.Location = new System.Drawing.Point(128, 486);
             this.BT_exportar.Name = "BT_exportar";
             this.BT_exportar.Size = new System.Drawing.Size(47, 44);
             this.BT_exportar.TabIndex = 9;
@@ -917,26 +893,15 @@
             this.BT_exportar.UseVisualStyleBackColor = false;
             this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(226, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 13);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "Km";
-            // 
             // Form_GestaoOficina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BackgroundImage = global::GesStand.Properties.Resources.logo_gesStand_fatura;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1336, 622);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
@@ -956,7 +921,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1014,7 +978,6 @@
         private System.Windows.Forms.ListBox LIST_carros;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox TB_inf_valor;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel panel1;
@@ -1048,6 +1011,5 @@
         private System.Windows.Forms.Button BT_exportar;
         private System.Windows.Forms.SaveFileDialog saveFileDialogFicheiroTexto;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Label label3;
     }
 }

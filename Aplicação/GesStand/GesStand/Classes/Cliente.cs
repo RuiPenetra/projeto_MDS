@@ -12,7 +12,7 @@ namespace GesStand
 
         public override string ToString()
         {
-            return "( -> Nome:" + this.Nome + "   -> NIF: " + this.NIF +" )";
+            return "(" + this.Nome + "-> " + this.NIF +" )";
              
         }
                

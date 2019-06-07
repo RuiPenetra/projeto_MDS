@@ -11,7 +11,7 @@ namespace GesStand
     {      
             public override string ToString()
         {
-            return "[ -> Matricula:" + this.Matricula + "  -> Kms: " + this.Kms + " km" + " ]";
+            return "[ "+ this.Marca + " -> " + this.Matricula + " ]";
         }
     }
 }

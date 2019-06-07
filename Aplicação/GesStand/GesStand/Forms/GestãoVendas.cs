@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace GesStand
 {
-    public partial class Form_Gestão_Vendas : Form
+    public partial class Form_Gestao_Vendas : Form
     {
         private Model_GesStandContainer MdGesStand;
-        public Form_Gestão_Vendas()
+        public Form_Gestao_Vendas()
         {
             InitializeComponent();
         }
@@ -39,14 +39,12 @@ namespace GesStand
 
             MdGesStand = new Model_GesStandContainer();
             LerClientes();
-
-
         }
 
         #region LER
         private void LerClientes()
         {
-            LIST_clientes.DataSource = MdGesStand.Cliente.ToList<Cliente>();
+            LIST_clientes.DataSource = MdGesStand.Clientes.ToList<Cliente>();
         }
         private void List_clientes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -63,6 +61,7 @@ namespace GesStand
                 LIST_venda.DataSource = clienteSelecionado.Venda.ToList<Venda>();
 
             }
+           
         }
 
         private void List_venda_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,6 +80,18 @@ namespace GesStand
                 TB_inf_data.Text =  vendaSelecionada.Data.ToString();
                 TB_inf_valor.Text = vendaSelecionada.Valor.ToString();
             }
+            else
+            {
+                TB_inf_nchassi.Text = "";
+                TB_inf_marca.Text = "";
+                TB_inf_modelo.Text = "";
+                TB_inf_combustivel.Text = "";
+                TB_inf_extras.Text = "";
+                TB_inf_estado.Text = "";
+                TB_inf_data.Text = "";
+                TB_inf_valor.Text = "0";
+            }
+           
         }
         #endregion
 
@@ -93,7 +104,7 @@ namespace GesStand
 
             v.CarroVenda = new CarroVenda();
 
-            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende inserir esta venda ? ", "SALVAR", MessageBoxButtons.YesNo);
+            DialogResult guardar = MessageBox.Show("Tem a certeza que pertende inserir esta venda ? ", "GUARDAR", MessageBoxButtons.YesNo);
 
             if (guardar == DialogResult.Yes)
             {
@@ -104,7 +115,7 @@ namespace GesStand
                 {
                     tb_valor.Text = string.Empty;
                     tb_valor.Focus();
-                    MessageBox.Show("Introduza um Valor!");
+                    MessageBox.Show("Introduza um Valor!","AVISO");
                     return;
                 }
 
@@ -124,8 +135,13 @@ namespace GesStand
 
                 atualizar_listVendaCarro();
 
-                MessageBox.Show("Venda inserida com sucesso!");
+                limpar_textbox();
+                MessageBox.Show("Venda inserida com sucesso!","GUARDAR");               
 
+            }
+            else
+            {
+                limpar_textbox();
             }
         }
 
@@ -150,7 +166,7 @@ namespace GesStand
 
         #endregion
 
-        #region FECHAR
+        #region FECHAR FORM
         private void Form_Gestão_Vendas_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult fechar = MessageBox.Show("Tem a certeza que pertende sair ? ", "Sair", MessageBoxButtons.YesNo);
@@ -188,6 +204,7 @@ namespace GesStand
 
         #endregion
 
+        #region REMOVER
         private void BT_removerVenda_Click(object sender, EventArgs e)
         {
             Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
@@ -201,14 +218,89 @@ namespace GesStand
             if (remover == DialogResult.Yes)
             {
 
-                MdGesStand.Carro.Remove(venda.CarroVenda);
-                MdGesStand.Venda.Remove(venda);
-                
+                MdGesStand.Carros.Remove(venda.CarroVenda);
+                MdGesStand.Vendas.Remove(venda);
+
                 MdGesStand.SaveChanges();
 
                 atualizar_listVendaCarro();
 
-                MessageBox.Show("Venda removida com sucesso!");
+                MessageBox.Show("Venda removida com sucesso!", "REMOVER");
+
+            }
+        }
+
+        #endregion
+
+        public void limpar_textbox()
+        {
+            tb_chassi.Text = "";
+            tb_marca.Text = "";
+            tb_modelo.Text = "";
+            tb_combustivel.Text = "";
+            tb_extras.Text = "";
+
+            tb_estado.Text = "";
+
+            dateTimePicker_data.Value=DateTime.Now;
+
+            tb_valor.Text = "";
+        }
+
+        private void BT_exportar_Click(object sender, EventArgs e)
+        {
+            DialogResult exportar = MessageBox.Show("Tem a certeza que pertende exportar os dados selecionados ? ", "EXPORTAR", MessageBoxButtons.YesNo);
+
+            if (exportar == DialogResult.Yes)
+            {
+
+                if (LIST_clientes.SelectedIndex == -1 || LIST_venda.SelectedIndex == -1)
+                    return;
+
+
+
+                //Cliente clienteSelecionado = (Cliente)LIST_clientes.SelectedItem;
+                //CarroOficina carroSelecionado = (CarroOficina)LIST_carros.SelectedItem;
+                //Servico servicoSelecionado = (Servico)LIST_servicos.SelectedItem;
+
+                //string linha = "***************************************************************";
+
+
+                //saveFileDialogFicheiroTexto.Filter = "Arquivo de Texto (.txt)|.txt";
+                //saveFileDialogFicheiroTexto.FileName = clienteSelecionado.Nome + "" + carroSelecionado.Matricula + "" + servicoSelecionado.Tipo + ".txt";
+
+                //if (saveFileDialogFicheiroTexto.ShowDialog() != DialogResult.OK)
+                //    return;
+
+
+
+                //StreamWriter ficheiro = new StreamWriter(saveFileDialogFicheiroTexto.FileName, false);
+
+                //ficheiro.WriteLine("Data de Emissão: " + DateTime.Now.ToString());
+                //ficheiro.WriteLine(string.Empty);
+
+                //ficheiro.WriteLine("Cliente: " + clienteSelecionado.Nome);
+                //ficheiro.WriteLine("Contacto: " + clienteSelecionado.Contacto);
+                //ficheiro.WriteLine(string.Empty);
+                //ficheiro.WriteLine(linha);
+                //ficheiro.WriteLine(string.Empty);
+
+                //ficheiro.WriteLine("Carro(Matrícula): " + carroSelecionado.Matricula);
+                //ficheiro.WriteLine("Serviço: " + servicoSelecionado.Tipo);
+                //ficheiro.WriteLine("Entrada: " + servicoSelecionado.DataEntrada.ToString("MM/dd/yyyy"));
+                //ficheiro.WriteLine("Saída: " + servicoSelecionado.DataSaida.ToString("MM/dd/yyyy"));
+                //ficheiro.WriteLine(string.Empty);
+                //ficheiro.WriteLine(linha);
+                //ficheiro.WriteLine(string.Empty);
+
+                //ficheiro.WriteLine("Parcelas: ");
+                //foreach (Parcela parcela in servicoSelecionado.Parcela)
+                //{
+                //    ficheiro.WriteLine(parcela.Valor + "€" + " - " + parcela.Descricao);
+                //}
+
+                //ficheiro.Close();
+                //MessageBox.Show("Dados Exportados!");
 
             }
         }

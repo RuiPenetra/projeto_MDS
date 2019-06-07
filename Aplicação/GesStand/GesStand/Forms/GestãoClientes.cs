@@ -21,51 +21,18 @@ namespace GesStand
             MdGesStand = new Model_GesStandContainer();// ??????
             timer1.Start();
 
-            (from Cliente in MdGesStand.Cliente
+            (from Cliente in MdGesStand.Clientes
              orderby Cliente.Nome
              select Cliente).Load();
 
-            clienteBindingSource.DataSource = MdGesStand.Cliente.Local.ToBindingList();// ??????
-        }
-
-        private void BT_filtrar_Click(object sender, EventArgs e)
-        {
-            if (tb_filtrar.Text.Length > 0)
-            {
-                BT_novo_registo.Enabled = false;
-
-                MdGesStand.Dispose();
-                MdGesStand = new Model_GesStandContainer();
-
-                (from cliente in MdGesStand.Cliente
-                 where cliente.Nome.ToUpper().Contains(tb_filtrar.Text)
-                 orderby cliente.Nome
-                 select cliente).ToList();
-
-                clienteBindingSource.DataSource = MdGesStand.Cliente.Local.ToBindingList();
-            }
-            else
-            {
-                BT_filtrar.Enabled = true;
-
-                MdGesStand.Dispose();
-                MdGesStand = new Model_GesStandContainer();
-
-                (from cliente in MdGesStand.Cliente
-                 orderby cliente.Nome
-                 select cliente).ToList();
-
-                clienteBindingSource.DataSource = MdGesStand.Cliente.Local.ToBindingList();
-
-            }
+            clienteBindingSource.DataSource = MdGesStand.Clientes.Local.ToBindingList();// ??????
         }
 
         #region Verificações
         private void timer1_Tick(object sender, EventArgs e)
         {
             int celula = -1;
-
-            // Percorrer as linhas do DataGrid
+                         
             foreach (DataGridViewRow row in clienteDataGridView.Rows)
             {
                 // Guardar valor da célula
@@ -78,10 +45,18 @@ namespace GesStand
                 }
                 else
                 {
-                    BT_novo_registo.Enabled = true;
+                   BT_novo_registo.Enabled = true;
                 }
-            }
+           }
 
+            if (tb_filtrar.Text == "")
+            {
+                (from Cliente in MdGesStand.Clientes
+                 orderby Cliente.Nome
+                 select Cliente).Load();
+
+                clienteBindingSource.DataSource = MdGesStand.Clientes.Local.ToBindingList();// ??????
+            }
 
         }
 
@@ -156,24 +131,15 @@ namespace GesStand
 
             if (guardar == DialogResult.Yes)
             {
-                //if (conta > 0)
-                //{
-                //    MessageBox.Show("O NIF introduzido já existe!");
-                //}
-                //else
-                //{
 
-                    clienteDataGridView.Focus();
-                    clienteDataGridView.Rows[0].Selected = true;
-                    clienteDataGridView.CurrentCell = clienteDataGridView.Rows[0].Cells[0];
+
+                  clienteDataGridView.Focus();
+                   clienteDataGridView.Rows[0].Selected = true;
+                   clienteDataGridView.CurrentCell = clienteDataGridView.Rows[0].Cells[0];
 
                     MdGesStand.SaveChanges();
                     MessageBox.Show("O cliente foi guardado/alterado com sucesso!", "SUCESSO");
-
-
-                //}
-
-                //atualizarDatagrid();                
+           
             }
         }
 
@@ -183,30 +149,53 @@ namespace GesStand
 
             if (remover == DialogResult.Yes)
             {
-                clienteDataGridView.Rows.Remove(clienteDataGridView.CurrentRow);
-
-                int procurar = Convert.ToInt32(clienteDataGridView.CurrentRow.Cells[0].Value);
+    
+                try
+                {
+                    clienteDataGridView.Rows.Remove(clienteDataGridView.CurrentRow);
+                   
+                    MdGesStand.SaveChanges();
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateException)
+                {
+                    MessageBox.Show("Este Cliente não pode ser apagado, uma vez que tem registos associados!");
+                }
                 MessageBox.Show("Cliente removido com sucesso!", "Sucesso");
-                MdGesStand.SaveChanges();
-
             }
 
         }
 
 
+        private void BT_filtrar_Click(object sender, EventArgs e)
+        {
+            if (tb_filtrar.Text.Length > 0)
+            {
+                BT_novo_registo.Enabled = false;
 
+                MdGesStand.Dispose();
+                MdGesStand = new Model_GesStandContainer();
 
-        //    MinhaOficinaContainer queryNIF = new MinhaOficinaContainer();
+                (from cliente in MdGesStand.Clientes
+                 where cliente.Nome.ToUpper().Contains(tb_filtrar.Text)
+                 orderby cliente.Nome
+                 select cliente).ToList();
 
-        //        if ((from pessoa in queryNIF.ClienteSet
-        //             where pessoa.NIF.Contains(textBoxNif.Text)
-        //             orderby pessoa.Nome
-        //             select pessoa).ToList().Count() > 0)
-        //        {
-        //            MessageBox.Show("O NIF introduzido já existe!");
-        //            return;
-        //        }
+                clienteBindingSource.DataSource = MdGesStand.Clientes.Local.ToBindingList();
+            }
+            else
+            {
+                BT_filtrar.Enabled = true;
 
-        //queryNIF.Dispose();
+                MdGesStand.Dispose();
+                MdGesStand = new Model_GesStandContainer();
+
+                (from cliente in MdGesStand.Clientes
+                 orderby cliente.Nome
+                 select cliente).ToList();
+
+                clienteBindingSource.DataSource = MdGesStand.Clientes.Local.ToBindingList();
+
+            }
+        }
     }
 }
