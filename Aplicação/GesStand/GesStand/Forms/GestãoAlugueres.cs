@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 
 namespace GesStand.Forms
 {
+    [Serializable]
     public partial class Form_Gestão_Alugueres : Form
     {
         private Model_GesStandContainer MdGesStand;
@@ -24,7 +26,7 @@ namespace GesStand.Forms
             LerClientes();
             LerCarros();
 
-            #region BUTTON HOVER
+            #region BOTÃO DETALHES
             // Create the ToolTip and associate with the Form container.
             ToolTip toolTip1 = new ToolTip();
 
@@ -36,8 +38,10 @@ namespace GesStand.Forms
             toolTip1.ShowAlways = true;
 
             // Set up the ToolTip text for the Button and Checkbox.
-            toolTip1.SetToolTip(BT_inserirCarro, "Guardar Registo");
-            toolTip1.SetToolTip(BT_removerCarro, "Remover Registo");
+            toolTip1.SetToolTip(BT_inserirCarro, "Guardar");
+            toolTip1.SetToolTip(BT_removerCarro, "Remover");
+            toolTip1.SetToolTip(BT_inserirAluguer, "Guardar");
+            toolTip1.SetToolTip(BT_removerAluguer, "Remover");
             toolTip1.SetToolTip(BT_exportar, "Exportar");
             #endregion
         }
@@ -51,7 +55,7 @@ namespace GesStand.Forms
 
         public void LerCarros()
         {
-            LIST_carro.DataSource = MdGesStand.Carros.OfType<CarroAluguer>().ToList();
+            LIST_carros.DataSource = MdGesStand.Carros.OfType<CarroAluguer>().ToList();
 
         }
 
@@ -64,18 +68,18 @@ namespace GesStand.Forms
             TB_inf_nif.Text = clienteSelecionado.NIF;
             TB_inf_contacto.Text = clienteSelecionado.Contacto.ToString();
 
-            LIST_aluguer.DataSource = null;
+            LIST_alugueres.DataSource = null;
 
             if (clienteSelecionado != null)
             {
-                LIST_aluguer.DataSource = clienteSelecionado.Aluguer.ToList<Aluguer>();
+                LIST_alugueres.DataSource = clienteSelecionado.Aluguer.ToList<Aluguer>();
 
             }
         }
 
         private void List_aluguer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Aluguer aluguerSelecionada = LIST_aluguer.SelectedItem as Aluguer;
+            Aluguer aluguerSelecionada = LIST_alugueres.SelectedItem as Aluguer;
 
             if (aluguerSelecionada != null)
             {
@@ -133,7 +137,7 @@ namespace GesStand.Forms
 
                 MdGesStand.SaveChanges();
 
-                limpar_carros();
+                limpar_textBox_carros();
                 atualizar_listCarro();
                 MessageBox.Show("Carro inserido com sucesso!", "SUCESSO");
             }
@@ -146,7 +150,7 @@ namespace GesStand.Forms
 
             Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
-            CarroAluguer carroAluguerSelecionado = LIST_carro.SelectedItem as CarroAluguer;
+            CarroAluguer carroAluguerSelecionado = LIST_carros.SelectedItem as CarroAluguer;
 
             Aluguer aluguer = new Aluguer();
 
@@ -184,7 +188,7 @@ namespace GesStand.Forms
 
                     MdGesStand.SaveChanges();
 
-                    limpar_aluguer();
+                    limpar_textBox_aluguer();
 
                     atualizar_listCarro();
                     atualizar_listAluguer();
@@ -198,10 +202,59 @@ namespace GesStand.Forms
 
         #endregion
 
+        #region REMOVER
+        private void BT_removerAluguer_Click(object sender, EventArgs e)
+        {
+            Aluguer aluguer = LIST_alugueres.SelectedItem as Aluguer;
+
+            DialogResult remover = MessageBox.Show("Tem a certeza que remover remover este aluguer? ", "REMOVER", MessageBoxButtons.YesNo);
+
+            if (remover == DialogResult.Yes)
+            {
+                aluguer.CarroAluguer.Estado = "DISPONIVEL";
+                MdGesStand.Alugueres.Remove(aluguer);
+
+
+                MdGesStand.SaveChanges();
+                atualizar_listAluguer();
+                atualizar_listCarro();
+
+                MessageBox.Show("Aluguer removido com sucesso!", "SUCESSO");
+            }
+
+        }
+
+        private void BT_removerCarro_Click(object sender, EventArgs e)
+        {
+            CarroAluguer carroAluguer = LIST_carros.SelectedItem as CarroAluguer;
+
+            DialogResult remover = MessageBox.Show("Tem a certeza que remover remover este carro? ", "REMOVER", MessageBoxButtons.YesNo);
+
+            if (remover == DialogResult.Yes)
+            {
+                if (carroAluguer.Estado == "INDISPONIVEL")
+                {
+                    MessageBox.Show("Não foi possivel remover o carro pois este encontra se alugado a um cliente! Caso prentenda remover ele terá que cancelar(apagar) o aluguer do mesmo!!", "AVISO");
+                }
+                else
+                {
+                    MdGesStand.Carros.Remove(carroAluguer);
+
+                    MdGesStand.SaveChanges();
+
+                    atualizar_listCarro();
+
+                    MessageBox.Show("Carro removido com sucesso!", "SUCESSO");
+                }
+            }
+        }
+
+        #endregion
+
         #region ATUALIZAR
         public void atualizar_listCarro()
         {
-            LIST_carro.DataSource = MdGesStand.Carros.OfType<CarroAluguer>().ToList();
+            LIST_carros.DataSource = MdGesStand.Carros.OfType<CarroAluguer>().ToList();
 
         }
 
@@ -209,20 +262,7 @@ namespace GesStand.Forms
         {
             Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
 
-            LIST_aluguer.DataSource = clienteSelecionado.Aluguer.ToList();
-        }
-
-        #endregion
-
-        #region FECHAR
-        private void Form_Gestão_Alugueres_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult fechar = MessageBox.Show("Tem a certeza que pertende sair ? ", "Sair", MessageBoxButtons.YesNo);
-
-            if (fechar == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            LIST_alugueres.DataSource = clienteSelecionado.Aluguer.ToList();
         }
 
         #endregion
@@ -249,11 +289,9 @@ namespace GesStand.Forms
             }
         }
         #endregion
-
-
-
+               
         #region LIMPAR
-        public void limpar_carros()
+        public void limpar_textBox_carros()
         {
             tb_chassi.Clear();
             tb_marca.Clear();
@@ -262,7 +300,7 @@ namespace GesStand.Forms
             tb_matricula.Clear();
         }
 
-        public void limpar_aluguer()
+        public void limpar_textBox_aluguer()
         {
             dateTimePicker_data_inicio.ResetText();
             dateTimePicker_data_fim.ResetText();
@@ -274,55 +312,96 @@ namespace GesStand.Forms
 
         #endregion
 
-        #region REMOVER
-        private void BT_removerAluguer_Click(object sender, EventArgs e)
+        #region EXPORTAR
+        private void BT_exportar_Click(object sender, EventArgs e)
         {
-            Aluguer aluguer = LIST_aluguer.SelectedItem as Aluguer;
+            DialogResult exportar = MessageBox.Show("Tem a certeza que pertende exportar os dados selecionados ? ", "EXPORTAR", MessageBoxButtons.YesNo);
 
-            DialogResult remover = MessageBox.Show("Tem a certeza que remover remover este aluguer? ", "REMOVER", MessageBoxButtons.YesNo);
-
-            if (remover == DialogResult.Yes)
+            if (exportar == DialogResult.Yes)
             {
-                aluguer.CarroAluguer.Estado = "DISPONIVEL";
-                MdGesStand.Alugueres.Remove(aluguer);
 
-
-                MdGesStand.SaveChanges();
-                atualizar_listAluguer();
-                atualizar_listCarro();
-
-                MessageBox.Show("Aluguer removido com sucesso!", "SUCESSO");
-            }
-
-        }
-
-        private void BT_removerCarro_Click(object sender, EventArgs e)
-        {
-            CarroAluguer carroAluguer = LIST_carro.SelectedItem as CarroAluguer;
-
-            DialogResult remover = MessageBox.Show("Tem a certeza que remover remover este carro? ", "REMOVER", MessageBoxButtons.YesNo);
-
-            if (remover == DialogResult.Yes)
-            {
-                if (carroAluguer.Estado == "INDISPONIVEL")
+                if (LIST_clientes.SelectedIndex == -1 || LIST_carros.SelectedIndex == -1 || LIST_alugueres.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Não foi possivel remover o carro pois este encontra se alugado a um cliente! Caso prentenda remover ele terá que cancelar(apagar) o aluguer do mesmo!!", "AVISO");
+                    MessageBox.Show("Para Exporta será necssario selecionar um cliente e um respetivo aluguer");
+                    return;
                 }
                 else
                 {
-                    MdGesStand.Carros.Remove(carroAluguer);
+                    Cliente clienteSelecionado = (Cliente)LIST_clientes.SelectedItem;
+                    Aluguer aluguerSelecionado = (Aluguer)LIST_alugueres.SelectedItem;
 
-                    MdGesStand.SaveChanges();
+                    string linha = "***************************************************************";
 
-                    atualizar_listCarro();
 
-                    MessageBox.Show("Carro removido com sucesso!", "SUCESSO");
+                    saveFileDialogFicheiroTexto.Filter = "Arquivo de Texto (.txt)|.txt";
+                    saveFileDialogFicheiroTexto.FileName = "(ALUGUER)" + clienteSelecionado.Nome + "" + aluguerSelecionado.CarroAluguer.Matricula + ".txt";
+
+                    if (saveFileDialogFicheiroTexto.ShowDialog() != DialogResult.OK)
+                        return;
+
+                    StreamWriter ficheiro = new StreamWriter(saveFileDialogFicheiroTexto.FileName, false);
+
+                    ficheiro.WriteLine(string.Empty);
+                    ficheiro.WriteLine(linha);
+                    ficheiro.WriteLine("          <<  FATURA ALUGUER  >>");
+                    ficheiro.WriteLine(linha);
+
+                    ficheiro.WriteLine("# CLIENTE #");
+                    ficheiro.WriteLine("Cliente: " + clienteSelecionado.Nome);
+                    ficheiro.WriteLine("Nif: " + clienteSelecionado.NIF);
+                    ficheiro.WriteLine("Contacto: " + clienteSelecionado.Contacto);
+                    ficheiro.WriteLine(string.Empty);
+                    ficheiro.WriteLine(linha);
+                    ficheiro.WriteLine(string.Empty);
+
+                    ficheiro.WriteLine("# CARRO #");
+                    ficheiro.WriteLine("---> Marca: " + aluguerSelecionado.CarroAluguer.Marca);
+                    ficheiro.WriteLine("---> Modelo: " + aluguerSelecionado.CarroAluguer.Modelo);
+                    ficheiro.WriteLine("---> Matrícula: " + aluguerSelecionado.CarroAluguer.Matricula);
+                    ficheiro.WriteLine(string.Empty);
+                    ficheiro.WriteLine(linha);
+                    ficheiro.WriteLine(string.Empty);
+
+                    ficheiro.WriteLine("# Aluguer #");
+                    ficheiro.WriteLine("---> Data da entrega: " + aluguerSelecionado.DataInicio.ToString("MM/dd/yyyy"));
+                    ficheiro.WriteLine("---> Data de devolução: " + aluguerSelecionado.DataFim.ToString("MM/dd/yyyy"));
+                    ficheiro.WriteLine("---> KMS: " + aluguerSelecionado.Kms);
+                    ficheiro.WriteLine(string.Empty);
+                    ficheiro.WriteLine(linha);
+                    ficheiro.WriteLine(string.Empty);
+
+
+                    ficheiro.WriteLine(" Valor: " + aluguerSelecionado.Valor + "€");
+
+                    ficheiro.WriteLine(aluguerSelecionado.Valor + "€");
+
+                    ficheiro.WriteLine(linha);
+                    ficheiro.WriteLine(" [ Data de Emissão: " + DateTime.Now.ToString() + " ]");
+                    ficheiro.WriteLine(linha);
+
+                    ficheiro.Close();
+                    MessageBox.Show("Dados exportados com Sucesso !", "SUCESSO");
                 }
+
             }
+
         }
 
         #endregion
 
+        #region FECHAR FORMULÁRIO
+        private void Form_Gestão_Alugueres_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult fechar = MessageBox.Show("Tem a certeza que pertende sair ? ", "Sair", MessageBoxButtons.YesNo);
+
+            if (fechar == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        #endregion
+        
     }
 }
 

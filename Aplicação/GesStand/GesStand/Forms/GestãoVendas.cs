@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 
 namespace GesStand
 {
+    [Serializable]
     public partial class Form_Gestao_Vendas : Form
     {
         private Model_GesStandContainer MdGesStand;
@@ -20,7 +22,7 @@ namespace GesStand
 
         private void Gestão_Vendas_Load(object sender, EventArgs e)
         {
-            #region BUTTON HOVER
+            #region BOTÃO DETALHES
             // Create the ToolTip and associate with the Form container.
             ToolTip toolTip1 = new ToolTip();
 
@@ -41,7 +43,7 @@ namespace GesStand
             LerClientes();
         }
 
-        #region LER
+        #region LER DADOS
         private void LerClientes()
         {
             LIST_clientes.DataSource = MdGesStand.Clientes.ToList<Cliente>();
@@ -61,7 +63,7 @@ namespace GesStand
                 LIST_venda.DataSource = clienteSelecionado.Venda.ToList<Venda>();
 
             }
-           
+
         }
 
         private void List_venda_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,11 +75,11 @@ namespace GesStand
                 TB_inf_nchassi.Text = vendaSelecionada.CarroVenda.NumeroChassis;
                 TB_inf_modelo.Text = vendaSelecionada.CarroVenda.Modelo;
                 TB_inf_marca.Text = vendaSelecionada.CarroVenda.Marca;
-                TB_inf_combustivel.Text =  vendaSelecionada.CarroVenda.Combustivel;
+                TB_inf_combustivel.Text = vendaSelecionada.CarroVenda.Combustivel;
                 TB_inf_extras.Text = vendaSelecionada.CarroVenda.Extras;
 
                 TB_inf_estado.Text = vendaSelecionada.Estado;
-                TB_inf_data.Text =  vendaSelecionada.Data.ToString();
+                TB_inf_data.Text = vendaSelecionada.Data.ToShortDateString();
                 TB_inf_valor.Text = vendaSelecionada.Valor.ToString();
             }
             else
@@ -91,7 +93,7 @@ namespace GesStand
                 TB_inf_data.Text = "";
                 TB_inf_valor.Text = "0";
             }
-           
+
         }
         #endregion
 
@@ -115,7 +117,7 @@ namespace GesStand
                 {
                     tb_valor.Text = string.Empty;
                     tb_valor.Focus();
-                    MessageBox.Show("Introduza um Valor!","AVISO");
+                    MessageBox.Show("Introduza um Valor!", "AVISO");
                     return;
                 }
 
@@ -136,7 +138,7 @@ namespace GesStand
                 atualizar_listVendaCarro();
 
                 limpar_textbox();
-                MessageBox.Show("Venda inserida com sucesso!","GUARDAR");               
+                MessageBox.Show("Venda inserida com sucesso!", "GUARDAR");
 
             }
             else
@@ -144,63 +146,6 @@ namespace GesStand
                 limpar_textbox();
             }
         }
-
-        #endregion
-
-        #region ATUALIZAR
-        public void atualizar_listVendaCarro()
-        {
-            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
-            TB_inf_nome.Text = clienteSelecionado.Nome;
-            TB_inf_nif.Text = clienteSelecionado.NIF;
-            TB_inf_contacto.Text = clienteSelecionado.Contacto.ToString();
-
-            LIST_venda.DataSource = null;
-
-            if (clienteSelecionado != null)
-            {
-                LIST_venda.DataSource = clienteSelecionado.Venda.ToList<Venda>();
-
-            }
-        }
-
-        #endregion
-
-        #region FECHAR FORM
-        private void Form_Gestão_Vendas_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult fechar = MessageBox.Show("Tem a certeza que pertende sair ? ", "Sair", MessageBoxButtons.YesNo);
-
-            if (fechar == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-        }
-
-        #endregion
-
-        #region VALIDAÇÕES
-        public bool ValidarTextBox(params TextBox[] registos)
-        {
-            foreach (TextBox textBox in registos)
-            {
-                if (textBox.Text == string.Empty)
-                {
-                    MessageBox.Show("Não foi possivel guardar o registo pois existe campos por preencher!!", "ERRO");
-                    textBox.Focus();
-                    return false;
-                }
-            }
-            return true;
-        }
-        //private void tb_kms_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-        //    {
-        //        e.Handled = true;
-        //    }
-        //}
-
 
         #endregion
 
@@ -232,6 +177,51 @@ namespace GesStand
 
         #endregion
 
+        #region ATUALIZAR
+        public void atualizar_listVendaCarro()
+        {
+            Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+            TB_inf_nome.Text = clienteSelecionado.Nome;
+            TB_inf_nif.Text = clienteSelecionado.NIF;
+            TB_inf_contacto.Text = clienteSelecionado.Contacto.ToString();
+
+            LIST_venda.DataSource = null;
+
+            if (clienteSelecionado != null)
+            {
+                LIST_venda.DataSource = clienteSelecionado.Venda.ToList<Venda>();
+
+            }
+        }
+
+        #endregion
+
+        #region VALIDAÇÕES
+        public bool ValidarTextBox(params TextBox[] registos)
+        {
+            foreach (TextBox textBox in registos)
+            {
+                if (textBox.Text == string.Empty)
+                {
+                    MessageBox.Show("Não foi possivel guardar o registo pois existe campos por preencher!!", "ERRO");
+                    textBox.Focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+        //private void tb_kms_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
+
+
+        #endregion
+
+        #region LIMPAR
         public void limpar_textbox()
         {
             tb_chassi.Text = "";
@@ -242,11 +232,14 @@ namespace GesStand
 
             tb_estado.Text = "";
 
-            dateTimePicker_data.Value=DateTime.Now;
+            dateTimePicker_data.Value = DateTime.Now;
 
             tb_valor.Text = "";
         }
 
+        #endregion
+
+        #region EXPORTAR
         private void BT_exportar_Click(object sender, EventArgs e)
         {
             DialogResult exportar = MessageBox.Show("Tem a certeza que pertende exportar os dados selecionados ? ", "EXPORTAR", MessageBoxButtons.YesNo);
@@ -255,54 +248,91 @@ namespace GesStand
             {
 
                 if (LIST_clientes.SelectedIndex == -1 || LIST_venda.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Para Exporta será necssario selecionar um cliente e uma respetiva venda");
                     return;
+                }
+                else
+                {
+                    Cliente clienteSelecionado = (Cliente)LIST_clientes.SelectedItem;
+                    Venda vendaSelecionada = (Venda)LIST_venda.SelectedItem;
+                    CarroVenda carroVendaSelecionado = vendaSelecionada.CarroVenda;
+
+
+                    string linha = "***************************************************************";
+
+
+                    saveFileDialogFicheiroTexto.Filter = "Arquivo de Texto (.txt)|.txt";
+                    saveFileDialogFicheiroTexto.FileName = "(VENDA)" + clienteSelecionado.Nome + "" + carroVendaSelecionado.NumeroChassis + ".txt";
+
+                    if (saveFileDialogFicheiroTexto.ShowDialog() != DialogResult.OK)
+                        return;
 
 
 
-                //Cliente clienteSelecionado = (Cliente)LIST_clientes.SelectedItem;
-                //CarroOficina carroSelecionado = (CarroOficina)LIST_carros.SelectedItem;
-                //Servico servicoSelecionado = (Servico)LIST_servicos.SelectedItem;
+                    StreamWriter ficheiro = new StreamWriter(saveFileDialogFicheiroTexto.FileName, false);
 
-                //string linha = "***************************************************************";
+                    ficheiro.WriteLine(string.Empty);
+                    ficheiro.WriteLine(linha);
+                    ficheiro.WriteLine("          <<  FATURA VENDA  >>");
+                    ficheiro.WriteLine(linha);
+
+                    ficheiro.WriteLine("# CLIENTE #");
+                    ficheiro.WriteLine("Cliente: " + clienteSelecionado.Nome);
+                    ficheiro.WriteLine("Nif: " + clienteSelecionado.NIF);
+                    ficheiro.WriteLine("Contacto: " + clienteSelecionado.Contacto);
+                    ficheiro.WriteLine(string.Empty);
+                    ficheiro.WriteLine(linha);
+                    ficheiro.WriteLine(string.Empty);
+
+                    ficheiro.WriteLine("# CARRO #");
+                    ficheiro.WriteLine("---> Marca: " + carroVendaSelecionado.Marca);
+                    ficheiro.WriteLine("---> Modelo: " + carroVendaSelecionado.Modelo);
+                    ficheiro.WriteLine("---> Combustivel: " + carroVendaSelecionado.Combustivel);
+                    ficheiro.WriteLine("---> Extras: " + carroVendaSelecionado.Extras);
+                    ficheiro.WriteLine(string.Empty);
+                    ficheiro.WriteLine(linha);
+                    ficheiro.WriteLine(string.Empty);
+
+                    ficheiro.WriteLine("# Venda #");
+                    ficheiro.WriteLine("---> Data da venda: " + vendaSelecionada.Data.ToString("MM/dd/yyyy"));
+                    ficheiro.WriteLine("---> Estado: " + vendaSelecionada.Estado);
+                    ficheiro.WriteLine("---> Valor: " + vendaSelecionada.Valor);
+                    ficheiro.WriteLine(string.Empty);
+                    ficheiro.WriteLine(linha);
+                    ficheiro.WriteLine(string.Empty);
 
 
-                //saveFileDialogFicheiroTexto.Filter = "Arquivo de Texto (.txt)|.txt";
-                //saveFileDialogFicheiroTexto.FileName = clienteSelecionado.Nome + "" + carroSelecionado.Matricula + "" + servicoSelecionado.Tipo + ".txt";
+                    ficheiro.WriteLine(" Valor: " + vendaSelecionada.Valor + "€");
 
-                //if (saveFileDialogFicheiroTexto.ShowDialog() != DialogResult.OK)
-                //    return;
+                    ficheiro.WriteLine(vendaSelecionada.Valor + "€");
 
+                    ficheiro.WriteLine(linha);
+                    ficheiro.WriteLine(" [ Data de Emissão: " + DateTime.Now.ToString() + " ]");
+                    ficheiro.WriteLine(linha);
 
-
-                //StreamWriter ficheiro = new StreamWriter(saveFileDialogFicheiroTexto.FileName, false);
-
-                //ficheiro.WriteLine("Data de Emissão: " + DateTime.Now.ToString());
-                //ficheiro.WriteLine(string.Empty);
-
-                //ficheiro.WriteLine("Cliente: " + clienteSelecionado.Nome);
-                //ficheiro.WriteLine("Contacto: " + clienteSelecionado.Contacto);
-                //ficheiro.WriteLine(string.Empty);
-                //ficheiro.WriteLine(linha);
-                //ficheiro.WriteLine(string.Empty);
-
-                //ficheiro.WriteLine("Carro(Matrícula): " + carroSelecionado.Matricula);
-                //ficheiro.WriteLine("Serviço: " + servicoSelecionado.Tipo);
-                //ficheiro.WriteLine("Entrada: " + servicoSelecionado.DataEntrada.ToString("MM/dd/yyyy"));
-                //ficheiro.WriteLine("Saída: " + servicoSelecionado.DataSaida.ToString("MM/dd/yyyy"));
-                //ficheiro.WriteLine(string.Empty);
-                //ficheiro.WriteLine(linha);
-                //ficheiro.WriteLine(string.Empty);
-
-                //ficheiro.WriteLine("Parcelas: ");
-                //foreach (Parcela parcela in servicoSelecionado.Parcela)
-                //{
-                //    ficheiro.WriteLine(parcela.Valor + "€" + " - " + parcela.Descricao);
-                //}
-
-                //ficheiro.Close();
-                //MessageBox.Show("Dados Exportados!");
+                    ficheiro.Close();
+                    MessageBox.Show("Dados exportados com Sucesso !", "SUCESSO");
+                }
 
             }
         }
+
+        #endregion
+
+        #region FECHAR FORMULÁRIO
+        private void Form_Gestão_Vendas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult fechar = MessageBox.Show("Tem a certeza que pertende sair ? ", "Sair", MessageBoxButtons.YesNo);
+
+            if (fechar == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+
+        #endregion
+               
     }
 }

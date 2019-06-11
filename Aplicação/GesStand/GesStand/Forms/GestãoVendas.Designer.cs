@@ -66,6 +66,8 @@
             this.label29 = new System.Windows.Forms.Label();
             this.lb_clienteContacto = new System.Windows.Forms.Label();
             this.lb_clienteNif = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.TB_inf_valor = new System.Windows.Forms.TextBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.TB_inf_extras = new System.Windows.Forms.TextBox();
             this.TB_inf_modelo = new System.Windows.Forms.TextBox();
@@ -76,8 +78,6 @@
             this.lb_carroCombustivel = new System.Windows.Forms.Label();
             this.lb_carroChassi = new System.Windows.Forms.Label();
             this.lb_carroMarca = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.TB_inf_valor = new System.Windows.Forms.TextBox();
             this.TB_inf_data = new System.Windows.Forms.TextBox();
             this.TB_inf_estado = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -88,7 +88,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.BT_exportar = new System.Windows.Forms.Button();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialogFicheiroTexto = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.CARRO.SuspendLayout();
@@ -98,17 +98,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox11.SuspendLayout();
-            this.groupBox10.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox1.Controls.Add(this.LIST_clientes);
             this.groupBox1.Location = new System.Drawing.Point(26, 143);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(224, 347);
+            this.groupBox1.Size = new System.Drawing.Size(234, 347);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SELECIONE UM CLIENTE";
@@ -116,15 +116,16 @@
             // LIST_clientes
             // 
             this.LIST_clientes.FormattingEnabled = true;
-            this.LIST_clientes.Location = new System.Drawing.Point(15, 19);
+            this.LIST_clientes.Location = new System.Drawing.Point(16, 19);
             this.LIST_clientes.Name = "LIST_clientes";
-            this.LIST_clientes.Size = new System.Drawing.Size(192, 316);
+            this.LIST_clientes.ScrollAlwaysVisible = true;
+            this.LIST_clientes.Size = new System.Drawing.Size(202, 316);
             this.LIST_clientes.TabIndex = 1;
             this.LIST_clientes.SelectedIndexChanged += new System.EventHandler(this.List_clientes_SelectedIndexChanged);
             // 
             // CARRO
             // 
-            this.CARRO.BackColor = System.Drawing.Color.LightGray;
+            this.CARRO.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.CARRO.Controls.Add(this.LIST_venda);
             this.CARRO.Controls.Add(this.groupBox2);
             this.CARRO.Controls.Add(this.BT_removerVenda);
@@ -132,7 +133,7 @@
             this.CARRO.Controls.Add(this.groupBox3);
             this.CARRO.Location = new System.Drawing.Point(10, 15);
             this.CARRO.Name = "CARRO";
-            this.CARRO.Size = new System.Drawing.Size(518, 550);
+            this.CARRO.Size = new System.Drawing.Size(518, 530);
             this.CARRO.TabIndex = 7;
             this.CARRO.TabStop = false;
             this.CARRO.Text = "CARRO";
@@ -142,13 +143,14 @@
             this.LIST_venda.FormattingEnabled = true;
             this.LIST_venda.Location = new System.Drawing.Point(93, 17);
             this.LIST_venda.Name = "LIST_venda";
+            this.LIST_venda.ScrollAlwaysVisible = true;
             this.LIST_venda.Size = new System.Drawing.Size(320, 199);
             this.LIST_venda.TabIndex = 2;
             this.LIST_venda.SelectedIndexChanged += new System.EventHandler(this.List_venda_SelectedIndexChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox2.Controls.Add(this.tb_estado);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label9);
@@ -214,11 +216,11 @@
             // BT_removerVenda
             // 
             this.BT_removerVenda.BackColor = System.Drawing.Color.Transparent;
-            this.BT_removerVenda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_removerVenda.BackgroundImage")));
+            this.BT_removerVenda.BackgroundImage = global::GesStand.Properties.Resources.remover;
             this.BT_removerVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_removerVenda.Location = new System.Drawing.Point(283, 478);
             this.BT_removerVenda.Name = "BT_removerVenda";
-            this.BT_removerVenda.Size = new System.Drawing.Size(54, 52);
+            this.BT_removerVenda.Size = new System.Drawing.Size(38, 39);
             this.BT_removerVenda.TabIndex = 9;
             this.BT_removerVenda.UseVisualStyleBackColor = false;
             this.BT_removerVenda.Click += new System.EventHandler(this.BT_removerVenda_Click);
@@ -226,18 +228,18 @@
             // BT_inserirVenda
             // 
             this.BT_inserirVenda.BackColor = System.Drawing.Color.Transparent;
-            this.BT_inserirVenda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_inserirVenda.BackgroundImage")));
+            this.BT_inserirVenda.BackgroundImage = global::GesStand.Properties.Resources.guardar;
             this.BT_inserirVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_inserirVenda.Location = new System.Drawing.Point(166, 478);
+            this.BT_inserirVenda.Location = new System.Drawing.Point(188, 478);
             this.BT_inserirVenda.Name = "BT_inserirVenda";
-            this.BT_inserirVenda.Size = new System.Drawing.Size(54, 52);
+            this.BT_inserirVenda.Size = new System.Drawing.Size(42, 39);
             this.BT_inserirVenda.TabIndex = 8;
             this.BT_inserirVenda.UseVisualStyleBackColor = false;
             this.BT_inserirVenda.Click += new System.EventHandler(this.bt_inserirVenda_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox3.Controls.Add(this.tb_extras);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label4);
@@ -342,7 +344,7 @@
             this.groupBox6.Controls.Add(this.CARRO);
             this.groupBox6.Location = new System.Drawing.Point(279, 45);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(538, 581);
+            this.groupBox6.Size = new System.Drawing.Size(538, 554);
             this.groupBox6.TabIndex = 8;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "VENDA";
@@ -351,16 +353,16 @@
             // 
             this.lb_extras.AutoSize = true;
             this.lb_extras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_extras.Location = new System.Drawing.Point(14, 104);
+            this.lb_extras.Location = new System.Drawing.Point(13, 108);
             this.lb_extras.Name = "lb_extras";
-            this.lb_extras.Size = new System.Drawing.Size(56, 13);
+            this.lb_extras.Size = new System.Drawing.Size(42, 13);
             this.lb_extras.TabIndex = 8;
-            this.lb_extras.Text = "EXTRAS :";
+            this.lb_extras.Text = "Extras :";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImage = global::GesStand.Properties.Resources.logo_venda;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(73, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -371,10 +373,9 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel2.Controls.Add(this.groupBox11);
-            this.panel2.Controls.Add(this.groupBox10);
             this.panel2.Controls.Add(this.groupBox5);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label7);
@@ -389,7 +390,7 @@
             // 
             // groupBox11
             // 
-            this.groupBox11.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox11.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox11.Controls.Add(this.TB_inf_contacto);
             this.groupBox11.Controls.Add(this.TB_inf_nif);
             this.groupBox11.Controls.Add(this.TB_inf_nome);
@@ -403,7 +404,7 @@
             this.groupBox11.Size = new System.Drawing.Size(270, 111);
             this.groupBox11.TabIndex = 29;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "CLIENTE";
+            this.groupBox11.Text = "CLIENTE  (Selecionado)";
             // 
             // TB_inf_contacto
             // 
@@ -475,9 +476,38 @@
             this.lb_clienteNif.TabIndex = 32;
             this.lb_clienteNif.Text = "Nif :";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox5.Controls.Add(this.TB_inf_valor);
+            this.groupBox5.Controls.Add(this.groupBox10);
+            this.groupBox5.Controls.Add(this.TB_inf_data);
+            this.groupBox5.Controls.Add(this.TB_inf_estado);
+            this.groupBox5.Controls.Add(this.label24);
+            this.groupBox5.Controls.Add(this.lb_parcelasValorTotal);
+            this.groupBox5.Controls.Add(this.label23);
+            this.groupBox5.Controls.Add(this.label22);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(18, 169);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(270, 297);
+            this.groupBox5.TabIndex = 14;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "VENDA  (Selecionada)";
+            // 
+            // TB_inf_valor
+            // 
+            this.TB_inf_valor.Enabled = false;
+            this.TB_inf_valor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_inf_valor.Location = new System.Drawing.Point(155, 274);
+            this.TB_inf_valor.Name = "TB_inf_valor";
+            this.TB_inf_valor.Size = new System.Drawing.Size(86, 20);
+            this.TB_inf_valor.TabIndex = 46;
+            this.TB_inf_valor.Text = "Nenhum";
+            // 
             // groupBox10
             // 
-            this.groupBox10.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox10.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox10.Controls.Add(this.TB_inf_extras);
             this.groupBox10.Controls.Add(this.TB_inf_modelo);
             this.groupBox10.Controls.Add(this.TB_inf_combustivel);
@@ -489,9 +519,9 @@
             this.groupBox10.Controls.Add(this.lb_carroMarca);
             this.groupBox10.Controls.Add(this.lb_extras);
             this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox10.Location = new System.Drawing.Point(18, 169);
+            this.groupBox10.Location = new System.Drawing.Point(11, 77);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(271, 180);
+            this.groupBox10.Size = new System.Drawing.Size(243, 195);
             this.groupBox10.TabIndex = 28;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "CARRO";
@@ -500,10 +530,10 @@
             // 
             this.TB_inf_extras.Enabled = false;
             this.TB_inf_extras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_extras.Location = new System.Drawing.Point(69, 102);
+            this.TB_inf_extras.Location = new System.Drawing.Point(16, 122);
             this.TB_inf_extras.Multiline = true;
             this.TB_inf_extras.Name = "TB_inf_extras";
-            this.TB_inf_extras.Size = new System.Drawing.Size(188, 59);
+            this.TB_inf_extras.Size = new System.Drawing.Size(218, 62);
             this.TB_inf_extras.TabIndex = 43;
             this.TB_inf_extras.Text = "Nenhum";
             // 
@@ -511,7 +541,7 @@
             // 
             this.TB_inf_modelo.Enabled = false;
             this.TB_inf_modelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_modelo.Location = new System.Drawing.Point(182, 43);
+            this.TB_inf_modelo.Location = new System.Drawing.Point(16, 79);
             this.TB_inf_modelo.Name = "TB_inf_modelo";
             this.TB_inf_modelo.Size = new System.Drawing.Size(75, 20);
             this.TB_inf_modelo.TabIndex = 42;
@@ -521,7 +551,7 @@
             // 
             this.TB_inf_combustivel.Enabled = false;
             this.TB_inf_combustivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_combustivel.Location = new System.Drawing.Point(82, 69);
+            this.TB_inf_combustivel.Location = new System.Drawing.Point(117, 79);
             this.TB_inf_combustivel.Name = "TB_inf_combustivel";
             this.TB_inf_combustivel.Size = new System.Drawing.Size(92, 20);
             this.TB_inf_combustivel.TabIndex = 41;
@@ -531,7 +561,7 @@
             // 
             this.TB_inf_marca.Enabled = false;
             this.TB_inf_marca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_marca.Location = new System.Drawing.Point(56, 44);
+            this.TB_inf_marca.Location = new System.Drawing.Point(101, 33);
             this.TB_inf_marca.Name = "TB_inf_marca";
             this.TB_inf_marca.Size = new System.Drawing.Size(75, 20);
             this.TB_inf_marca.TabIndex = 40;
@@ -541,9 +571,9 @@
             // 
             this.TB_inf_nchassi.Enabled = false;
             this.TB_inf_nchassi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_nchassi.Location = new System.Drawing.Point(69, 18);
+            this.TB_inf_nchassi.Location = new System.Drawing.Point(12, 33);
             this.TB_inf_nchassi.Name = "TB_inf_nchassi";
-            this.TB_inf_nchassi.Size = new System.Drawing.Size(87, 20);
+            this.TB_inf_nchassi.Size = new System.Drawing.Size(64, 20);
             this.TB_inf_nchassi.TabIndex = 39;
             this.TB_inf_nchassi.Text = "Nenhum";
             // 
@@ -551,7 +581,7 @@
             // 
             this.lb_carroModelo.AutoSize = true;
             this.lb_carroModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_carroModelo.Location = new System.Drawing.Point(137, 46);
+            this.lb_carroModelo.Location = new System.Drawing.Point(13, 63);
             this.lb_carroModelo.Name = "lb_carroModelo";
             this.lb_carroModelo.Size = new System.Drawing.Size(48, 13);
             this.lb_carroModelo.TabIndex = 10;
@@ -561,7 +591,7 @@
             // 
             this.lb_carroCombustivel.AutoSize = true;
             this.lb_carroCombustivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_carroCombustivel.Location = new System.Drawing.Point(12, 71);
+            this.lb_carroCombustivel.Location = new System.Drawing.Point(114, 63);
             this.lb_carroCombustivel.Name = "lb_carroCombustivel";
             this.lb_carroCombustivel.Size = new System.Drawing.Size(70, 13);
             this.lb_carroCombustivel.TabIndex = 11;
@@ -571,7 +601,7 @@
             // 
             this.lb_carroChassi.AutoSize = true;
             this.lb_carroChassi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_carroChassi.Location = new System.Drawing.Point(10, 21);
+            this.lb_carroChassi.Location = new System.Drawing.Point(9, 17);
             this.lb_carroChassi.Name = "lb_carroChassi";
             this.lb_carroChassi.Size = new System.Drawing.Size(59, 13);
             this.lb_carroChassi.TabIndex = 9;
@@ -581,45 +611,17 @@
             // 
             this.lb_carroMarca.AutoSize = true;
             this.lb_carroMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_carroMarca.Location = new System.Drawing.Point(12, 47);
+            this.lb_carroMarca.Location = new System.Drawing.Point(98, 17);
             this.lb_carroMarca.Name = "lb_carroMarca";
             this.lb_carroMarca.Size = new System.Drawing.Size(43, 13);
             this.lb_carroMarca.TabIndex = 8;
             this.lb_carroMarca.Text = "Marca :";
             // 
-            // groupBox5
-            // 
-            this.groupBox5.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox5.Controls.Add(this.TB_inf_valor);
-            this.groupBox5.Controls.Add(this.TB_inf_data);
-            this.groupBox5.Controls.Add(this.TB_inf_estado);
-            this.groupBox5.Controls.Add(this.label24);
-            this.groupBox5.Controls.Add(this.lb_parcelasValorTotal);
-            this.groupBox5.Controls.Add(this.label23);
-            this.groupBox5.Controls.Add(this.label22);
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(18, 355);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(270, 105);
-            this.groupBox5.TabIndex = 14;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "VENDA";
-            // 
-            // TB_inf_valor
-            // 
-            this.TB_inf_valor.Enabled = false;
-            this.TB_inf_valor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_valor.Location = new System.Drawing.Point(155, 78);
-            this.TB_inf_valor.Name = "TB_inf_valor";
-            this.TB_inf_valor.Size = new System.Drawing.Size(86, 20);
-            this.TB_inf_valor.TabIndex = 46;
-            this.TB_inf_valor.Text = "Nenhum";
-            // 
             // TB_inf_data
             // 
             this.TB_inf_data.Enabled = false;
             this.TB_inf_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_data.Location = new System.Drawing.Point(52, 46);
+            this.TB_inf_data.Location = new System.Drawing.Point(64, 19);
             this.TB_inf_data.Name = "TB_inf_data";
             this.TB_inf_data.Size = new System.Drawing.Size(110, 20);
             this.TB_inf_data.TabIndex = 45;
@@ -629,9 +631,9 @@
             // 
             this.TB_inf_estado.Enabled = false;
             this.TB_inf_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_inf_estado.Location = new System.Drawing.Point(64, 21);
+            this.TB_inf_estado.Location = new System.Drawing.Point(64, 45);
             this.TB_inf_estado.Name = "TB_inf_estado";
-            this.TB_inf_estado.Size = new System.Drawing.Size(110, 20);
+            this.TB_inf_estado.Size = new System.Drawing.Size(91, 20);
             this.TB_inf_estado.TabIndex = 44;
             this.TB_inf_estado.Text = "Nenhum";
             // 
@@ -639,7 +641,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(14, 24);
+            this.label24.Location = new System.Drawing.Point(19, 48);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(46, 13);
             this.label24.TabIndex = 15;
@@ -650,7 +652,7 @@
             // 
             this.lb_parcelasValorTotal.AutoSize = true;
             this.lb_parcelasValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_parcelasValorTotal.Location = new System.Drawing.Point(241, 81);
+            this.lb_parcelasValorTotal.Location = new System.Drawing.Point(241, 277);
             this.lb_parcelasValorTotal.Name = "lb_parcelasValorTotal";
             this.lb_parcelasValorTotal.Size = new System.Drawing.Size(13, 13);
             this.lb_parcelasValorTotal.TabIndex = 13;
@@ -661,7 +663,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(16, 49);
+            this.label23.Location = new System.Drawing.Point(16, 22);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(36, 13);
             this.label23.TabIndex = 14;
@@ -672,11 +674,11 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(106, 81);
+            this.label22.Location = new System.Drawing.Point(106, 277);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(43, 13);
+            this.label22.Size = new System.Drawing.Size(49, 13);
             this.label22.TabIndex = 12;
-            this.label22.Text = "VALOR";
+            this.label22.Text = "VALOR :";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -712,13 +714,13 @@
             // BT_exportar
             // 
             this.BT_exportar.BackColor = System.Drawing.Color.Transparent;
-            this.BT_exportar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_exportar.BackgroundImage")));
+            this.BT_exportar.BackgroundImage = global::GesStand.Properties.Resources.bt_exportar;
             this.BT_exportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_exportar.ForeColor = System.Drawing.Color.Transparent;
             this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BT_exportar.Location = new System.Drawing.Point(127, 483);
+            this.BT_exportar.Location = new System.Drawing.Point(130, 488);
             this.BT_exportar.Name = "BT_exportar";
-            this.BT_exportar.Size = new System.Drawing.Size(59, 53);
+            this.BT_exportar.Size = new System.Drawing.Size(46, 43);
             this.BT_exportar.TabIndex = 9;
             this.BT_exportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BT_exportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -730,14 +732,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::GesStand.Properties.Resources.logo_gesStand_fatura;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1158, 668);
+            this.ClientSize = new System.Drawing.Size(1158, 631);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Gestao_Vendas";
             this.Text = "Gestão Vendas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Gestão_Vendas_FormClosing);
@@ -754,10 +757,10 @@
             this.panel2.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -765,7 +768,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox LIST_clientes;
         private System.Windows.Forms.GroupBox CARRO;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
@@ -822,7 +824,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button BT_exportar;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogFicheiroTexto;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ListBox LIST_clientes;
     }
 }

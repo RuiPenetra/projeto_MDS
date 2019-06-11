@@ -11,6 +11,7 @@ using System.Data.Entity;
 
 namespace GesStand
 {
+    [Serializable]
     public partial class Form_GestaoClientes : Form
     {
         private Model_GesStandContainer MdGesStand;
@@ -20,6 +21,21 @@ namespace GesStand
 
             MdGesStand = new Model_GesStandContainer();// ??????
             timer1.Start();
+
+            #region BUTTON HOVER
+            // Create the ToolTip and associate with the Form container.
+            ToolTip toolTip1 = new ToolTip();
+
+            // Set up the delays for the ToolTip.
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            // Force the ToolTip text to be displayed whether or not the form is active.
+            toolTip1.ShowAlways = true;
+
+            // Set up the ToolTip text for the Button and Checkbox.
+            toolTip1.SetToolTip(BT_filtrar, "Filtrar");
+            #endregion
 
             (from Cliente in MdGesStand.Clientes
              orderby Cliente.Nome
@@ -32,7 +48,7 @@ namespace GesStand
         private void timer1_Tick(object sender, EventArgs e)
         {
             int celula = -1;
-                         
+
             foreach (DataGridViewRow row in clienteDataGridView.Rows)
             {
                 // Guardar valor da célula
@@ -45,9 +61,9 @@ namespace GesStand
                 }
                 else
                 {
-                   BT_novo_registo.Enabled = true;
+                    BT_novo_registo.Enabled = true;
                 }
-           }
+            }
 
             if (tb_filtrar.Text == "")
             {
@@ -133,13 +149,13 @@ namespace GesStand
             {
 
 
-                  clienteDataGridView.Focus();
-                   clienteDataGridView.Rows[0].Selected = true;
-                   clienteDataGridView.CurrentCell = clienteDataGridView.Rows[0].Cells[0];
+                clienteDataGridView.Focus();
+                clienteDataGridView.Rows[0].Selected = true;
+                clienteDataGridView.CurrentCell = clienteDataGridView.Rows[0].Cells[0];
 
-                    MdGesStand.SaveChanges();
-                    MessageBox.Show("O cliente foi guardado/alterado com sucesso!", "SUCESSO");
-           
+                MdGesStand.SaveChanges();
+                MessageBox.Show("O cliente foi guardado/alterado com sucesso!", "SUCESSO");
+
             }
         }
 
@@ -149,22 +165,30 @@ namespace GesStand
 
             if (remover == DialogResult.Yes)
             {
-    
+
                 try
                 {
                     clienteDataGridView.Rows.Remove(clienteDataGridView.CurrentRow);
-                   
+
                     MdGesStand.SaveChanges();
+
+                    MessageBox.Show("Cliente removido com sucesso!", "Sucesso");
+
+
                 }
                 catch (System.Data.Entity.Infrastructure.DbUpdateException)
                 {
                     MessageBox.Show("Este Cliente não pode ser apagado, uma vez que tem registos associados!");
+
                 }
-                MessageBox.Show("Cliente removido com sucesso!", "Sucesso");
             }
 
-        }
+            (from Cliente in MdGesStand.Clientes
+             orderby Cliente.IdCliente
+             select Cliente).Load();
 
+            clienteBindingSource.DataSource = MdGesStand.Clientes.Local.ToBindingList();
+        }
 
         private void BT_filtrar_Click(object sender, EventArgs e)
         {
@@ -197,5 +221,6 @@ namespace GesStand
 
             }
         }
+
     }
 }

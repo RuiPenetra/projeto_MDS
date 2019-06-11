@@ -52,13 +52,13 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BT_filtrar = new System.Windows.Forms.Button();
             this.tb_filtrar = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingNavigator)).BeginInit();
             this.clienteBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteDataGridView)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // clienteBindingNavigator
@@ -82,22 +82,22 @@
             this.BT_novo_registo,
             this.BT_guardar,
             this.BT_remover});
-            this.clienteBindingNavigator.Location = new System.Drawing.Point(15, 19);
+            this.clienteBindingNavigator.Location = new System.Drawing.Point(236, 82);
             this.clienteBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.clienteBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.clienteBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.clienteBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.clienteBindingNavigator.Name = "clienteBindingNavigator";
             this.clienteBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.clienteBindingNavigator.Size = new System.Drawing.Size(545, 25);
+            this.clienteBindingNavigator.Size = new System.Drawing.Size(464, 48);
             this.clienteBindingNavigator.TabIndex = 0;
             // 
             // BT_novo_registo
             // 
-            this.BT_novo_registo.Image = ((System.Drawing.Image)(resources.GetObject("BT_novo_registo.Image")));
+            this.BT_novo_registo.Image = global::GesStand.Properties.Resources.add_cliente;
             this.BT_novo_registo.Name = "BT_novo_registo";
             this.BT_novo_registo.RightToLeftAutoMirrorImage = true;
-            this.BT_novo_registo.Size = new System.Drawing.Size(59, 22);
+            this.BT_novo_registo.Size = new System.Drawing.Size(59, 45);
             this.BT_novo_registo.Text = "Novo ";
             // 
             // clienteBindingSource
@@ -107,7 +107,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 45);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -117,7 +117,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 45);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -126,13 +126,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 45);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 48);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -146,7 +146,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 48);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -154,7 +154,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 45);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -163,28 +163,28 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 45);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 48);
             // 
             // BT_guardar
             // 
-            this.BT_guardar.Image = ((System.Drawing.Image)(resources.GetObject("BT_guardar.Image")));
+            this.BT_guardar.Image = global::GesStand.Properties.Resources.guardar_cliente;
             this.BT_guardar.Name = "BT_guardar";
-            this.BT_guardar.Size = new System.Drawing.Size(69, 22);
+            this.BT_guardar.Size = new System.Drawing.Size(69, 45);
             this.BT_guardar.Text = "Guardar";
             this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
             // 
             // BT_remover
             // 
-            this.BT_remover.Image = ((System.Drawing.Image)(resources.GetObject("BT_remover.Image")));
+            this.BT_remover.Image = global::GesStand.Properties.Resources.remover;
             this.BT_remover.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BT_remover.Name = "BT_remover";
-            this.BT_remover.Size = new System.Drawing.Size(74, 22);
+            this.BT_remover.Size = new System.Drawing.Size(74, 45);
             this.BT_remover.Text = "Remover";
             this.BT_remover.Click += new System.EventHandler(this.BT_remover_Click);
             // 
@@ -202,10 +202,10 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.clienteDataGridView.DataSource = this.clienteBindingSource;
-            this.clienteDataGridView.Location = new System.Drawing.Point(15, 59);
+            this.clienteDataGridView.Location = new System.Drawing.Point(91, 150);
             this.clienteDataGridView.MultiSelect = false;
             this.clienteDataGridView.Name = "clienteDataGridView";
-            this.clienteDataGridView.Size = new System.Drawing.Size(545, 306);
+            this.clienteDataGridView.Size = new System.Drawing.Size(744, 306);
             this.clienteDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -220,6 +220,7 @@
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Nome";
             this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 200;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -232,6 +233,7 @@
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Morada";
             this.dataGridViewTextBoxColumn4.HeaderText = "Morada";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 200;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -241,50 +243,52 @@
             // 
             // BT_filtrar
             // 
-            this.BT_filtrar.Location = new System.Drawing.Point(483, 371);
+            this.BT_filtrar.BackgroundImage = global::GesStand.Properties.Resources.procurar_cliente;
+            this.BT_filtrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_filtrar.Location = new System.Drawing.Point(631, 466);
             this.BT_filtrar.Name = "BT_filtrar";
-            this.BT_filtrar.Size = new System.Drawing.Size(75, 23);
+            this.BT_filtrar.Size = new System.Drawing.Size(41, 40);
             this.BT_filtrar.TabIndex = 13;
-            this.BT_filtrar.Text = "Filtrar";
             this.BT_filtrar.UseVisualStyleBackColor = true;
             this.BT_filtrar.Click += new System.EventHandler(this.BT_filtrar_Click);
             // 
             // tb_filtrar
             // 
-            this.tb_filtrar.Location = new System.Drawing.Point(15, 374);
+            this.tb_filtrar.Location = new System.Drawing.Point(163, 477);
             this.tb_filtrar.Name = "tb_filtrar";
             this.tb_filtrar.Size = new System.Drawing.Size(462, 20);
             this.tb_filtrar.TabIndex = 14;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Gainsboro;
-            this.groupBox2.Controls.Add(this.clienteBindingNavigator);
-            this.groupBox2.Controls.Add(this.tb_filtrar);
-            this.groupBox2.Controls.Add(this.BT_filtrar);
-            this.groupBox2.Controls.Add(this.clienteDataGridView);
-            this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(56, 37);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(586, 411);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Lista Clientes";
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::GesStand.Properties.Resources.logo_clientes;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(-11, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(180, 118);
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
             // 
             // Form_GestaoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::GesStand.Properties.Resources.logo_gesStand_fatura;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(696, 487);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(919, 545);
+            this.Controls.Add(this.tb_filtrar);
+            this.Controls.Add(this.clienteBindingNavigator);
+            this.Controls.Add(this.BT_filtrar);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.clienteDataGridView);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_GestaoClientes";
             this.Text = "Gestão Clientes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_GestaoClientes_FormClosing);
@@ -293,9 +297,9 @@
             this.clienteBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteDataGridView)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -316,7 +320,6 @@
         private System.Windows.Forms.DataGridView clienteDataGridView;
         private System.Windows.Forms.Button BT_filtrar;
         private System.Windows.Forms.TextBox tb_filtrar;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripButton BT_remover;
@@ -325,5 +328,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

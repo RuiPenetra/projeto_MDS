@@ -173,8 +173,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EntityDeploy Include="Model_GesStand.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -228,60 +228,21 @@
       <LastGenOutput>Model_GesStand.cs</LastGenOutput>
       <DependentUpon>Model_GesStand.edmx</DependentUpon>
     </Content>
-    <None Include="Resources\clientes5.png" />
-    <None Include="Resources\clientes4.png" />
-    <None Include="Resources\export7.png" />
-    <None Include="Resources\logo_gesStand_fatura1.png" />
-    <None Include="Resources\save3.png" />
-    <None Include="Resources\remove3.png" />
-    <None Include="Resources\venda2.png" />
-    <None Include="Resources\aluguer2.png" />
+    <None Include="Resources\bt_exportar.png" />
+    <None Include="Resources\guardar.png" />
+    <None Include="Resources\procurar_cliente.png" />
+    <None Include="Resources\remover.png" />
+    <None Include="Resources\guardar_cliente.png" />
+    <None Include="Resources\add_cliente.png" />
+    <None Include="Resources\logo_gesStand_fatura.png" />
+    <None Include="Resources\logo_aluguer.png" />
+    <None Include="Resources\logo_venda.png" />
+    <None Include="Resources\logo_oficina.png" />
+    <None Include="Resources\logo_clientes.png" />
+    <None Include="Resources\logo_gesStand.png" />
+    <None Include="Resources\gear2.gif" />
     <None Include="Resources\gear1.gif" />
     <None Include="Resources\gear.gif" />
-    <None Include="Resources\clientes3.png" />
-    <None Include="Resources\oficina.png" />
-    <None Include="Resources\bt_add_client2.png" />
-    <None Include="Resources\export6.png" />
-    <None Include="Resources\export5.png" />
-    <None Include="Resources\export1.jpg" />
-    <None Include="Resources\remove2.png" />
-    <None Include="Resources\save2.png" />
-    <None Include="Resources\remove1.png" />
-    <None Include="Resources\save1.png" />
-    <None Include="Resources\export4.png" />
-    <None Include="Resources\save.png" />
-    <None Include="Resources\remove.png" />
-    <None Include="Resources\export3.png" />
-    <None Include="Resources\export1.png" />
-    <None Include="Resources\export.png" />
-    <None Include="Resources\export.jpg" />
-    <None Include="Resources\logo_gesStand_fatura.png" />
-    <None Include="Resources\export21.png" />
-    <None Include="Resources\export2.png" />
-    <None Include="Resources\teste26.gif" />
-    <None Include="Resources\teste25.gif" />
-    <None Include="Resources\teste24.gif" />
-    <None Include="Resources\teste23.gif" />
-    <None Include="Resources\teste22.gif" />
-    <None Include="Resources\img_oficina.bmp" />
-    <None Include="Resources\bt_add_client1.png" />
-    <None Include="Resources\bt_remover_client.png" />
-    <None Include="Resources\bt_gravar_client.png" />
-    <None Include="Resources\bt_add_client.png" />
-    <None Include="Resources\venda1.png" />
-    <None Include="Resources\aluguer1.png" />
-    <None Include="Resources\rep1.png" />
-    <None Include="Resources\aluguer.png" />
-    <None Include="Resources\venda.png" />
-    <None Include="Resources\028-repair.png" />
-    <None Include="Resources\rep.png" />
-    <None Include="Resources\reparar.png" />
-    <None Include="Resources\clientes1.png" />
-    <None Include="Resources\clientes.png" />
-    <None Include="Resources\logo_gesStand.png" />
-    <None Include="Resources\Logotipo_Final.png" />
-    <None Include="Resources\teste21.gif" />
-    <None Include="Resources\teste2.gif" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -298,5 +259,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
