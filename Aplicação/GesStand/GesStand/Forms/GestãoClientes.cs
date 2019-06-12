@@ -19,21 +19,20 @@ namespace GesStand
         {
             InitializeComponent();
 
-            MdGesStand = new Model_GesStandContainer();// ??????
+            MdGesStand = new Model_GesStandContainer();
             timer1.Start();
 
+            //PASSAR O RATO SOBRE O BOTÃO
             #region BUTTON HOVER
-            // Create the ToolTip and associate with the Form container.
+
             ToolTip toolTip1 = new ToolTip();
 
-            // Set up the delays for the ToolTip.
             toolTip1.AutoPopDelay = 5000;
             toolTip1.InitialDelay = 1000;
             toolTip1.ReshowDelay = 500;
-            // Force the ToolTip text to be displayed whether or not the form is active.
+
             toolTip1.ShowAlways = true;
 
-            // Set up the ToolTip text for the Button and Checkbox.
             toolTip1.SetToolTip(BT_filtrar, "Filtrar");
             #endregion
 
@@ -45,6 +44,8 @@ namespace GesStand
         }
 
         #region Verificações
+
+        //CONSTANTEMENTE VERIFICA SE EXISTE UMA LINHA VAZIA POR PREENCHER SE SIM BLOQUEIA O BOTÃO ADICIONAR
         private void timer1_Tick(object sender, EventArgs e)
         {
             int celula = -1;
@@ -76,53 +77,9 @@ namespace GesStand
 
         }
 
-        //public int ver_textbox_clientes()
-        //{
-        //    if (String.IsNullOrEmpty(nomeTextBox.Text))
-        //    {
-        //        MessageBox.Show("O campo < Nome > não foi preenchido!", "ERRO");
-
-        //        return 1;
-        //    }
-
-        //    if (String.IsNullOrEmpty(nIFTextBox.Text))
-        //    {
-        //        MessageBox.Show("O campo < Nif > não foi preenchido!", "ERRO");
-
-        //        return 1;
-        //    }
-
-        //    if (String.IsNullOrEmpty(moradaTextBox.Text))
-        //    {
-        //        MessageBox.Show("O campo < Morada > não foi preenchido!", "ERRO");
-
-        //        return 1;
-        //    }
-
-        //    if (String.IsNullOrEmpty(contactoTextBox.Text))
-        //    {
-        //        MessageBox.Show("O campo < Contacto > não foi preenchido!", "ERRO");
-
-        //        return 1;
-        //    }
-
-        //    return 0;
-
-        //}
-
         #endregion
-
-        //#region Configurações
-        //private void contactoTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-        //    {
-        //        e.Handled = true;
-        //    }
-        //}
-
-        //#endregion
-
+        
+        //FECHAR FORMULÁRIO
         private void Form_GestaoClientes_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult fechar = MessageBox.Show("Tem a certeza que pertende sair ? ", "Sair", MessageBoxButtons.YesNo);
@@ -159,6 +116,7 @@ namespace GesStand
             }
         }
 
+        //REMOVER CLIENTE
         private void BT_remover_Click(object sender, EventArgs e)
         {
             DialogResult remover = MessageBox.Show("Tem a certeza que pertende exclui o cliente selecionado? ", "REMOVER", MessageBoxButtons.YesNo);
@@ -190,6 +148,7 @@ namespace GesStand
             clienteBindingSource.DataSource = MdGesStand.Clientes.Local.ToBindingList();
         }
 
+        //PROCURAR CLIENTE
         private void BT_filtrar_Click(object sender, EventArgs e)
         {
             if (tb_filtrar.Text.Length > 0)

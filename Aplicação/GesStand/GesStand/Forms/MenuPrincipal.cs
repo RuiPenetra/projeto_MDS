@@ -22,17 +22,13 @@ namespace GesStand.Forms
             timer.Start();
 
             #region BUTTON HOVER
-            // Create the ToolTip and associate with the Form container.
             ToolTip toolTip1 = new ToolTip();
 
-            // Set up the delays for the ToolTip.
             toolTip1.AutoPopDelay = 5000;
             toolTip1.InitialDelay = 1000;
             toolTip1.ReshowDelay = 500;
-            // Force the ToolTip text to be displayed whether or not the form is active.
             toolTip1.ShowAlways = true;
 
-            // Set up the ToolTip text for the Button and Checkbox.
             toolTip1.SetToolTip(bt_gestClientes, "Gestão Clientes");
             toolTip1.SetToolTip(bt_gestOficina, "Gestão Oficina");
             toolTip1.SetToolTip(bt_gestVenda, "Gestão Vendas");
@@ -42,6 +38,8 @@ namespace GesStand.Forms
         }
 
         #region ABRIR FORMS
+
+        //ABRIR FORMULÁRIO CLIENTES
         private void bt_gestClientes_Click(object sender, EventArgs e)
         {
             Form_GestaoClientes cliente = new Form_GestaoClientes();
@@ -49,6 +47,7 @@ namespace GesStand.Forms
             cliente.Show();
         }
 
+        //ABRIR FORMULÁRIO OFICINA
         private void bt_gestOficina_Click(object sender, EventArgs e)
         {
             Form_GestaoOficina oficina = new Form_GestaoOficina();
@@ -56,12 +55,15 @@ namespace GesStand.Forms
             oficina.Show();
         }
 
+        //ABRIR FORMULÁRIO VENDA
         private void bt_gestVenda_Click(object sender, EventArgs e)
         {
             Form_Gestao_Vendas vendas = new Form_Gestao_Vendas();
 
             vendas.Show();
         }
+
+        //ABRIR FORMULÁRIO ALUGUER
         private void bt_gestAluguer_Click(object sender, EventArgs e)
         {
             Form_Gestão_Alugueres aluguer = new Form_Gestão_Alugueres();
@@ -71,6 +73,7 @@ namespace GesStand.Forms
 
         #endregion
 
+        //CONTAR TOTAL(CLIENTES,VENDAS,ALUGUER) E MOSTRAR
         private void timer_Tick(object sender, EventArgs e)
         {
 
@@ -82,6 +85,7 @@ namespace GesStand.Forms
             lb_cronometro.Text= contadorTempo.ToLongTimeString();
         }
 
+        //FECHAR FORMULÁRIO
         private void form_MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult fechar = MessageBox.Show("Tem a certeza que pertende sair da aplicação ? ", "Sair", MessageBoxButtons.YesNo);

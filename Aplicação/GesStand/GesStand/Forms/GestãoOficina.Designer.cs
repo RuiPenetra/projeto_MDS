@@ -315,7 +315,7 @@
             this.dateTimePickerDataFim.Name = "dateTimePickerDataFim";
             this.dateTimePickerDataFim.Size = new System.Drawing.Size(95, 20);
             this.dateTimePickerDataFim.TabIndex = 7;
-            this.dateTimePickerDataFim.Value = new System.DateTime(2019, 5, 24, 0, 0, 0, 0);
+            this.dateTimePickerDataFim.Value = new System.DateTime(2019, 6, 12, 0, 0, 0, 0);
             // 
             // dateTimePickerDataInicio
             // 
@@ -325,7 +325,7 @@
             this.dateTimePickerDataInicio.Name = "dateTimePickerDataInicio";
             this.dateTimePickerDataInicio.Size = new System.Drawing.Size(95, 20);
             this.dateTimePickerDataInicio.TabIndex = 6;
-            this.dateTimePickerDataInicio.Value = new System.DateTime(2019, 6, 7, 0, 0, 0, 0);
+            this.dateTimePickerDataInicio.Value = new System.DateTime(2019, 6, 12, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -407,9 +407,9 @@
             this.BT_remvCarro.BackColor = System.Drawing.Color.Transparent;
             this.BT_remvCarro.BackgroundImage = global::GesStand.Properties.Resources.remover;
             this.BT_remvCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_remvCarro.Location = new System.Drawing.Point(111, 202);
+            this.BT_remvCarro.Location = new System.Drawing.Point(111, 209);
             this.BT_remvCarro.Name = "BT_remvCarro";
-            this.BT_remvCarro.Size = new System.Drawing.Size(44, 42);
+            this.BT_remvCarro.Size = new System.Drawing.Size(37, 35);
             this.BT_remvCarro.TabIndex = 2;
             this.BT_remvCarro.UseVisualStyleBackColor = false;
             this.BT_remvCarro.Click += new System.EventHandler(this.bt_remvCarro_Click);
@@ -497,10 +497,10 @@
             // 
             this.BT_addCarro.BackColor = System.Drawing.Color.Transparent;
             this.BT_addCarro.BackgroundImage = global::GesStand.Properties.Resources.guardar;
-            this.BT_addCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_addCarro.Location = new System.Drawing.Point(55, 202);
+            this.BT_addCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BT_addCarro.Location = new System.Drawing.Point(55, 207);
             this.BT_addCarro.Name = "BT_addCarro";
-            this.BT_addCarro.Size = new System.Drawing.Size(39, 42);
+            this.BT_addCarro.Size = new System.Drawing.Size(35, 38);
             this.BT_addCarro.TabIndex = 1;
             this.BT_addCarro.UseVisualStyleBackColor = false;
             this.BT_addCarro.Click += new System.EventHandler(this.bt_addCarro_Click);
@@ -926,7 +926,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BackgroundImage = global::GesStand.Properties.Resources.logo_gesStand_fatura;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1336, 653);
+            this.ClientSize = new System.Drawing.Size(1336, 628);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);

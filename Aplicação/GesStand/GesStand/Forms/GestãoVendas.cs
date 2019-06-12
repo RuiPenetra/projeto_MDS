@@ -48,6 +48,7 @@ namespace GesStand
         {
             LIST_clientes.DataSource = MdGesStand.Clientes.ToList<Cliente>();
         }
+
         private void List_clientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;

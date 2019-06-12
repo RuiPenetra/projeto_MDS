@@ -245,7 +245,7 @@
             // 
             this.BT_filtrar.BackgroundImage = global::GesStand.Properties.Resources.procurar_cliente;
             this.BT_filtrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_filtrar.Location = new System.Drawing.Point(631, 466);
+            this.BT_filtrar.Location = new System.Drawing.Point(680, 462);
             this.BT_filtrar.Name = "BT_filtrar";
             this.BT_filtrar.Size = new System.Drawing.Size(41, 40);
             this.BT_filtrar.TabIndex = 13;
@@ -254,7 +254,7 @@
             // 
             // tb_filtrar
             // 
-            this.tb_filtrar.Location = new System.Drawing.Point(163, 477);
+            this.tb_filtrar.Location = new System.Drawing.Point(212, 473);
             this.tb_filtrar.Name = "tb_filtrar";
             this.tb_filtrar.Size = new System.Drawing.Size(462, 20);
             this.tb_filtrar.TabIndex = 14;
