@@ -255,8 +255,8 @@ namespace GesStand
                 }
                 else
                 {
-                    Cliente clienteSelecionado = (Cliente)LIST_clientes.SelectedItem;
-                    Venda vendaSelecionada = (Venda)LIST_venda.SelectedItem;
+                    Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+                    Venda vendaSelecionada = LIST_venda.SelectedItem as Venda;
                     CarroVenda carroVendaSelecionado = vendaSelecionada.CarroVenda;
 
 

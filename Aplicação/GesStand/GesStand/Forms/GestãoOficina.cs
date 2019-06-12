@@ -202,7 +202,7 @@ namespace GesStand.Forms
 
             Servico ServicoSelecionado = LIST_servicos.SelectedItem as Servico;
 
-            Parcela p = new Parcela();
+            Parcela parcela = new Parcela();
 
             DialogResult guardar = MessageBox.Show("Tem a certeza que pertende inserir esta parcela ? ", "SALVAR", MessageBoxButtons.YesNo);
 
@@ -216,10 +216,10 @@ namespace GesStand.Forms
                     return;
                 }
 
-                p.Valor = valor;
-                p.Descricao = tb_p_descricao.Text;
+                parcela.Valor = valor;
+                parcela.Descricao = tb_p_descricao.Text;
 
-                ServicoSelecionado.Parcela.Add(p);
+                ServicoSelecionado.Parcela.Add(parcela);
 
                 MdGesStand.SaveChanges();
 
@@ -412,11 +412,11 @@ namespace GesStand.Forms
                 }
                 else
                 {
-                    Cliente clienteSelecionado = (Cliente)LIST_clientes.SelectedItem;
-                    CarroOficina carroSelecionado = (CarroOficina)LIST_carrosOficina.SelectedItem;
-                    Servico servicoSelecionado = (Servico)LIST_servicos.SelectedItem;
+                    Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+                    CarroOficina carroSelecionado = LIST_carrosOficina.SelectedItem as CarroOficina;
+                    Servico servicoSelecionado = LIST_servicos.SelectedItem as Servico;
 
-                    string linha = "***************************************************************";
+                    string linha = "**************************************************";
 
 
                     saveFileDialogFicheiroTexto.Filter = "Arquivo de Texto (.txt)|.txt";

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="GesStand.Cliente" Collapsed="true">
+  <Class Name="GesStand.Cliente">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACCAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAABEEAAAI=</HashCode>
-      <FileName>Cliente.cs</FileName>
+      <HashCode>AACCAAAAAAAQAAAEAAAAAAAAACAAAAAAAAAABEEAAAI=</HashCode>
+      <FileName>Classes\Cliente.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

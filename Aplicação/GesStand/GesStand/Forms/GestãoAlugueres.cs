@@ -20,7 +20,7 @@ namespace GesStand.Forms
             InitializeComponent();
         }
 
-        private void Form_Gestão_Alugueres_Load(object sender, EventArgs e)
+        private void Form_Gestão_Alugueres_Load(object sender, EventArgs e) 
         {
             MdGesStand = new Model_GesStandContainer();
             LerClientes();
@@ -327,8 +327,8 @@ namespace GesStand.Forms
                 }
                 else
                 {
-                    Cliente clienteSelecionado = (Cliente)LIST_clientes.SelectedItem;
-                    Aluguer aluguerSelecionado = (Aluguer)LIST_alugueres.SelectedItem;
+                    Cliente clienteSelecionado = LIST_clientes.SelectedItem as Cliente;
+                    Aluguer aluguerSelecionado = LIST_alugueres.SelectedItem as Aluguer;
 
                     string linha = "***************************************************************";
 

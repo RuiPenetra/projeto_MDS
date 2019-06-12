@@ -172,8 +172,7 @@
       <DependentUpon>GestãoVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EntityDeploy Include="Model_GesStand.edmx">
@@ -192,7 +191,6 @@
     <None Include="Properties\DataSources\CarroVenda.datasource" />
     <None Include="Properties\DataSources\Cliente.datasource" />
     <None Include="Properties\DataSources\Form_GestaoClientes.datasource" />
-    <None Include="Properties\DataSources\Form_Gestão_Vendas.datasource" />
     <None Include="Properties\DataSources\GesStand.Forms.Form_GestaoOficina.datasource" />
     <None Include="Properties\DataSources\GesStand.Forms.Form_Gestão_Alugueres.datasource" />
     <None Include="Properties\DataSources\GesStand.Forms.form_MenuPrincipal.datasource" />
@@ -228,21 +226,19 @@
       <LastGenOutput>Model_GesStand.cs</LastGenOutput>
       <DependentUpon>Model_GesStand.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\GEAR.gif" />
+    <None Include="Resources\logo_gesStand.png" />
+    <None Include="Resources\logo_gesStand_fatura.png" />
+    <None Include="Resources\logo_oficina.png" />
+    <None Include="Resources\logo_aluguer.png" />
     <None Include="Resources\bt_exportar.png" />
     <None Include="Resources\guardar.png" />
+    <None Include="Resources\logo_venda.png" />
     <None Include="Resources\procurar_cliente.png" />
     <None Include="Resources\remover.png" />
     <None Include="Resources\guardar_cliente.png" />
     <None Include="Resources\add_cliente.png" />
-    <None Include="Resources\logo_gesStand_fatura.png" />
-    <None Include="Resources\logo_aluguer.png" />
-    <None Include="Resources\logo_venda.png" />
-    <None Include="Resources\logo_oficina.png" />
     <None Include="Resources\logo_clientes.png" />
-    <None Include="Resources\logo_gesStand.png" />
-    <None Include="Resources\gear2.gif" />
-    <None Include="Resources\gear1.gif" />
-    <None Include="Resources\gear.gif" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

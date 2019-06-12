@@ -33,9 +33,7 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.LIST_alugueres = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BT_removerAluguer = new System.Windows.Forms.Button();
             this.tb_kms = new System.Windows.Forms.TextBox();
-            this.BT_inserirAluguer = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePicker_data_fim = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,9 +48,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_combustivel = new System.Windows.Forms.TextBox();
-            this.BT_removerCarro = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.BT_inserirCarro = new System.Windows.Forms.Button();
             this.tb_modelo = new System.Windows.Forms.TextBox();
             this.tb_marca = new System.Windows.Forms.TextBox();
             this.tb_chassi = new System.Windows.Forms.TextBox();
@@ -95,9 +91,13 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.BT_exportar = new System.Windows.Forms.Button();
             this.saveFileDialogFicheiroTexto = new System.Windows.Forms.SaveFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BT_removerCarro = new System.Windows.Forms.Button();
+            this.BT_inserirCarro = new System.Windows.Forms.Button();
+            this.BT_exportar = new System.Windows.Forms.Button();
+            this.BT_removerAluguer = new System.Windows.Forms.Button();
+            this.BT_inserirAluguer = new System.Windows.Forms.Button();
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.CARRO.SuspendLayout();
@@ -154,17 +154,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "INSERIR";
             // 
-            // BT_removerAluguer
-            // 
-            this.BT_removerAluguer.BackgroundImage = global::GesStand.Properties.Resources.remover;
-            this.BT_removerAluguer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_removerAluguer.Location = new System.Drawing.Point(119, 134);
-            this.BT_removerAluguer.Name = "BT_removerAluguer";
-            this.BT_removerAluguer.Size = new System.Drawing.Size(40, 36);
-            this.BT_removerAluguer.TabIndex = 11;
-            this.BT_removerAluguer.UseVisualStyleBackColor = true;
-            this.BT_removerAluguer.Click += new System.EventHandler(this.BT_removerAluguer_Click);
-            // 
             // tb_kms
             // 
             this.tb_kms.Location = new System.Drawing.Point(89, 103);
@@ -172,18 +161,6 @@
             this.tb_kms.Size = new System.Drawing.Size(100, 20);
             this.tb_kms.TabIndex = 9;
             this.tb_kms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_kms_KeyPress);
-            // 
-            // BT_inserirAluguer
-            // 
-            this.BT_inserirAluguer.BackColor = System.Drawing.Color.Transparent;
-            this.BT_inserirAluguer.BackgroundImage = global::GesStand.Properties.Resources.guardar;
-            this.BT_inserirAluguer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_inserirAluguer.Location = new System.Drawing.Point(73, 134);
-            this.BT_inserirAluguer.Name = "BT_inserirAluguer";
-            this.BT_inserirAluguer.Size = new System.Drawing.Size(40, 36);
-            this.BT_inserirAluguer.TabIndex = 11;
-            this.BT_inserirAluguer.UseVisualStyleBackColor = false;
-            this.BT_inserirAluguer.Click += new System.EventHandler(this.BT_inserirAluguer_Click);
             // 
             // label11
             // 
@@ -320,17 +297,6 @@
             this.tb_combustivel.Size = new System.Drawing.Size(115, 20);
             this.tb_combustivel.TabIndex = 6;
             // 
-            // BT_removerCarro
-            // 
-            this.BT_removerCarro.BackgroundImage = global::GesStand.Properties.Resources.remover;
-            this.BT_removerCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_removerCarro.Location = new System.Drawing.Point(149, 169);
-            this.BT_removerCarro.Name = "BT_removerCarro";
-            this.BT_removerCarro.Size = new System.Drawing.Size(40, 36);
-            this.BT_removerCarro.TabIndex = 9;
-            this.BT_removerCarro.UseVisualStyleBackColor = true;
-            this.BT_removerCarro.Click += new System.EventHandler(this.BT_removerCarro_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -339,18 +305,6 @@
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Modelo :";
-            // 
-            // BT_inserirCarro
-            // 
-            this.BT_inserirCarro.BackColor = System.Drawing.Color.Transparent;
-            this.BT_inserirCarro.BackgroundImage = global::GesStand.Properties.Resources.guardar;
-            this.BT_inserirCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_inserirCarro.Location = new System.Drawing.Point(98, 169);
-            this.BT_inserirCarro.Name = "BT_inserirCarro";
-            this.BT_inserirCarro.Size = new System.Drawing.Size(40, 36);
-            this.BT_inserirCarro.TabIndex = 8;
-            this.BT_inserirCarro.UseVisualStyleBackColor = false;
-            this.BT_inserirCarro.Click += new System.EventHandler(this.BT_inserirCarro_Click);
             // 
             // tb_modelo
             // 
@@ -796,6 +750,41 @@
             this.label25.TabIndex = 16;
             this.label25.Text = "***************************************************************";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::GesStand.Properties.Resources.logo_aluguer;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(48, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(168, 130);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BT_removerCarro
+            // 
+            this.BT_removerCarro.BackColor = System.Drawing.Color.Transparent;
+            this.BT_removerCarro.BackgroundImage = global::GesStand.Properties.Resources.remover;
+            this.BT_removerCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_removerCarro.Location = new System.Drawing.Point(149, 169);
+            this.BT_removerCarro.Name = "BT_removerCarro";
+            this.BT_removerCarro.Size = new System.Drawing.Size(40, 36);
+            this.BT_removerCarro.TabIndex = 9;
+            this.BT_removerCarro.UseVisualStyleBackColor = false;
+            this.BT_removerCarro.Click += new System.EventHandler(this.BT_removerCarro_Click);
+            // 
+            // BT_inserirCarro
+            // 
+            this.BT_inserirCarro.BackColor = System.Drawing.Color.Transparent;
+            this.BT_inserirCarro.BackgroundImage = global::GesStand.Properties.Resources.guardar;
+            this.BT_inserirCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_inserirCarro.Location = new System.Drawing.Point(98, 169);
+            this.BT_inserirCarro.Name = "BT_inserirCarro";
+            this.BT_inserirCarro.Size = new System.Drawing.Size(40, 36);
+            this.BT_inserirCarro.TabIndex = 8;
+            this.BT_inserirCarro.UseVisualStyleBackColor = false;
+            this.BT_inserirCarro.Click += new System.EventHandler(this.BT_inserirCarro_Click);
+            // 
             // BT_exportar
             // 
             this.BT_exportar.BackColor = System.Drawing.Color.Transparent;
@@ -812,23 +801,35 @@
             this.BT_exportar.UseVisualStyleBackColor = false;
             this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
-            // pictureBox1
+            // BT_removerAluguer
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::GesStand.Properties.Resources.logo_aluguer;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(48, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(168, 130);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
+            this.BT_removerAluguer.BackColor = System.Drawing.Color.Transparent;
+            this.BT_removerAluguer.BackgroundImage = global::GesStand.Properties.Resources.remover;
+            this.BT_removerAluguer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_removerAluguer.Location = new System.Drawing.Point(119, 134);
+            this.BT_removerAluguer.Name = "BT_removerAluguer";
+            this.BT_removerAluguer.Size = new System.Drawing.Size(40, 36);
+            this.BT_removerAluguer.TabIndex = 11;
+            this.BT_removerAluguer.UseVisualStyleBackColor = false;
+            this.BT_removerAluguer.Click += new System.EventHandler(this.BT_removerAluguer_Click);
+            // 
+            // BT_inserirAluguer
+            // 
+            this.BT_inserirAluguer.BackColor = System.Drawing.Color.Transparent;
+            this.BT_inserirAluguer.BackgroundImage = global::GesStand.Properties.Resources.guardar;
+            this.BT_inserirAluguer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_inserirAluguer.Location = new System.Drawing.Point(73, 134);
+            this.BT_inserirAluguer.Name = "BT_inserirAluguer";
+            this.BT_inserirAluguer.Size = new System.Drawing.Size(40, 36);
+            this.BT_inserirAluguer.TabIndex = 11;
+            this.BT_inserirAluguer.UseVisualStyleBackColor = false;
+            this.BT_inserirAluguer.Click += new System.EventHandler(this.BT_inserirAluguer_Click);
             // 
             // Form_Gestão_Alugueres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BackgroundImage = global::GesStand.Properties.Resources.logo_gesStand_fatura;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1245, 645);
             this.Controls.Add(this.pictureBox1);

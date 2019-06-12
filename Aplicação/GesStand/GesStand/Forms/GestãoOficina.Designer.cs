@@ -34,9 +34,7 @@
             this.LIST_clientes = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.BT_remvParcela = new System.Windows.Forms.Button();
             this.tb_p_valor = new System.Windows.Forms.TextBox();
-            this.BT_addParcela = new System.Windows.Forms.Button();
             this.tb_p_descricao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,18 +42,15 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.tb_s_servicoTipo = new System.Windows.Forms.TextBox();
-            this.BT_addServico = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePickerDataFim = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDataInicio = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.BT_remvServico = new System.Windows.Forms.Button();
             this.LIST_servicos = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tb_c_combustivel = new System.Windows.Forms.TextBox();
-            this.BT_remvCarro = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.tb_c_modelo = new System.Windows.Forms.TextBox();
             this.tb_c_marca = new System.Windows.Forms.TextBox();
@@ -65,7 +60,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tb_c_kms = new System.Windows.Forms.TextBox();
-            this.BT_addCarro = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.tb_c_matricula = new System.Windows.Forms.TextBox();
             this.LIST_carrosOficina = new System.Windows.Forms.ListBox();
@@ -101,11 +95,17 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.BT_exportar = new System.Windows.Forms.Button();
             this.saveFileDialogFicheiroTexto = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BT_exportar = new System.Windows.Forms.Button();
+            this.BT_addServico = new System.Windows.Forms.Button();
+            this.BT_remvServico = new System.Windows.Forms.Button();
+            this.BT_remvParcela = new System.Windows.Forms.Button();
+            this.BT_addParcela = new System.Windows.Forms.Button();
+            this.BT_remvCarro = new System.Windows.Forms.Button();
+            this.BT_addCarro = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -170,37 +170,12 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Novo";
             // 
-            // BT_remvParcela
-            // 
-            this.BT_remvParcela.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BT_remvParcela.BackgroundImage = global::GesStand.Properties.Resources.remover;
-            this.BT_remvParcela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_remvParcela.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BT_remvParcela.Location = new System.Drawing.Point(82, 109);
-            this.BT_remvParcela.Name = "BT_remvParcela";
-            this.BT_remvParcela.Size = new System.Drawing.Size(44, 42);
-            this.BT_remvParcela.TabIndex = 7;
-            this.BT_remvParcela.UseVisualStyleBackColor = false;
-            this.BT_remvParcela.Click += new System.EventHandler(this.bt_remvParcela_Click);
-            // 
             // tb_p_valor
             // 
             this.tb_p_valor.Location = new System.Drawing.Point(26, 80);
             this.tb_p_valor.Name = "tb_p_valor";
             this.tb_p_valor.Size = new System.Drawing.Size(100, 20);
             this.tb_p_valor.TabIndex = 5;
-            // 
-            // BT_addParcela
-            // 
-            this.BT_addParcela.BackColor = System.Drawing.Color.Transparent;
-            this.BT_addParcela.BackgroundImage = global::GesStand.Properties.Resources.guardar;
-            this.BT_addParcela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_addParcela.Location = new System.Drawing.Point(26, 109);
-            this.BT_addParcela.Name = "BT_addParcela";
-            this.BT_addParcela.Size = new System.Drawing.Size(39, 42);
-            this.BT_addParcela.TabIndex = 1;
-            this.BT_addParcela.UseVisualStyleBackColor = false;
-            this.BT_addParcela.Click += new System.EventHandler(this.bt_addParcela_Click);
             // 
             // tb_p_descricao
             // 
@@ -275,18 +250,6 @@
             this.tb_s_servicoTipo.Size = new System.Drawing.Size(95, 20);
             this.tb_s_servicoTipo.TabIndex = 16;
             // 
-            // BT_addServico
-            // 
-            this.BT_addServico.BackColor = System.Drawing.Color.Transparent;
-            this.BT_addServico.BackgroundImage = global::GesStand.Properties.Resources.guardar;
-            this.BT_addServico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_addServico.Location = new System.Drawing.Point(44, 125);
-            this.BT_addServico.Name = "BT_addServico";
-            this.BT_addServico.Size = new System.Drawing.Size(39, 42);
-            this.BT_addServico.TabIndex = 6;
-            this.BT_addServico.UseVisualStyleBackColor = false;
-            this.BT_addServico.Click += new System.EventHandler(this.bt_addServico_Click);
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -336,18 +299,6 @@
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 5;
             this.label8.Text = "Data Fim :";
-            // 
-            // BT_remvServico
-            // 
-            this.BT_remvServico.BackColor = System.Drawing.Color.Transparent;
-            this.BT_remvServico.BackgroundImage = global::GesStand.Properties.Resources.remover;
-            this.BT_remvServico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_remvServico.Location = new System.Drawing.Point(101, 125);
-            this.BT_remvServico.Name = "BT_remvServico";
-            this.BT_remvServico.Size = new System.Drawing.Size(44, 42);
-            this.BT_remvServico.TabIndex = 1;
-            this.BT_remvServico.UseVisualStyleBackColor = false;
-            this.BT_remvServico.Click += new System.EventHandler(this.bt_remvServico_Click);
             // 
             // LIST_servicos
             // 
@@ -401,18 +352,6 @@
             this.tb_c_combustivel.Name = "tb_c_combustivel";
             this.tb_c_combustivel.Size = new System.Drawing.Size(119, 20);
             this.tb_c_combustivel.TabIndex = 15;
-            // 
-            // BT_remvCarro
-            // 
-            this.BT_remvCarro.BackColor = System.Drawing.Color.Transparent;
-            this.BT_remvCarro.BackgroundImage = global::GesStand.Properties.Resources.remover;
-            this.BT_remvCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_remvCarro.Location = new System.Drawing.Point(111, 209);
-            this.BT_remvCarro.Name = "BT_remvCarro";
-            this.BT_remvCarro.Size = new System.Drawing.Size(37, 35);
-            this.BT_remvCarro.TabIndex = 2;
-            this.BT_remvCarro.UseVisualStyleBackColor = false;
-            this.BT_remvCarro.Click += new System.EventHandler(this.bt_remvCarro_Click);
             // 
             // label13
             // 
@@ -492,18 +431,6 @@
             this.tb_c_kms.Size = new System.Drawing.Size(119, 20);
             this.tb_c_kms.TabIndex = 6;
             this.tb_c_kms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_c_kms_KeyPress);
-            // 
-            // BT_addCarro
-            // 
-            this.BT_addCarro.BackColor = System.Drawing.Color.Transparent;
-            this.BT_addCarro.BackgroundImage = global::GesStand.Properties.Resources.guardar;
-            this.BT_addCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BT_addCarro.Location = new System.Drawing.Point(55, 207);
-            this.BT_addCarro.Name = "BT_addCarro";
-            this.BT_addCarro.Size = new System.Drawing.Size(35, 38);
-            this.BT_addCarro.TabIndex = 1;
-            this.BT_addCarro.UseVisualStyleBackColor = false;
-            this.BT_addCarro.Click += new System.EventHandler(this.bt_addCarro_Click);
             // 
             // label7
             // 
@@ -884,6 +811,25 @@
             this.label32.TabIndex = 16;
             this.label32.Text = "***************************************************************";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(-1254, 360);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(202, 316);
+            this.listBox1.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::GesStand.Properties.Resources.logo_oficina;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(37, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(180, 118);
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
             // BT_exportar
             // 
             this.BT_exportar.BackColor = System.Drawing.Color.Transparent;
@@ -900,24 +846,78 @@
             this.BT_exportar.UseVisualStyleBackColor = false;
             this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
-            // pictureBox1
+            // BT_addServico
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::GesStand.Properties.Resources.logo_oficina;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(180, 118);
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
+            this.BT_addServico.BackColor = System.Drawing.Color.Transparent;
+            this.BT_addServico.BackgroundImage = global::GesStand.Properties.Resources.guardar;
+            this.BT_addServico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_addServico.Location = new System.Drawing.Point(44, 125);
+            this.BT_addServico.Name = "BT_addServico";
+            this.BT_addServico.Size = new System.Drawing.Size(39, 42);
+            this.BT_addServico.TabIndex = 6;
+            this.BT_addServico.UseVisualStyleBackColor = false;
+            this.BT_addServico.Click += new System.EventHandler(this.bt_addServico_Click);
             // 
-            // listBox1
+            // BT_remvServico
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(-1254, 360);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(202, 316);
-            this.listBox1.TabIndex = 1;
+            this.BT_remvServico.BackColor = System.Drawing.Color.Transparent;
+            this.BT_remvServico.BackgroundImage = global::GesStand.Properties.Resources.remover;
+            this.BT_remvServico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_remvServico.Location = new System.Drawing.Point(101, 125);
+            this.BT_remvServico.Name = "BT_remvServico";
+            this.BT_remvServico.Size = new System.Drawing.Size(44, 42);
+            this.BT_remvServico.TabIndex = 1;
+            this.BT_remvServico.UseVisualStyleBackColor = false;
+            this.BT_remvServico.Click += new System.EventHandler(this.bt_remvServico_Click);
+            // 
+            // BT_remvParcela
+            // 
+            this.BT_remvParcela.BackColor = System.Drawing.Color.Transparent;
+            this.BT_remvParcela.BackgroundImage = global::GesStand.Properties.Resources.remover;
+            this.BT_remvParcela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_remvParcela.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BT_remvParcela.Location = new System.Drawing.Point(82, 109);
+            this.BT_remvParcela.Name = "BT_remvParcela";
+            this.BT_remvParcela.Size = new System.Drawing.Size(44, 42);
+            this.BT_remvParcela.TabIndex = 7;
+            this.BT_remvParcela.UseVisualStyleBackColor = false;
+            this.BT_remvParcela.Click += new System.EventHandler(this.bt_remvParcela_Click);
+            // 
+            // BT_addParcela
+            // 
+            this.BT_addParcela.BackColor = System.Drawing.Color.Transparent;
+            this.BT_addParcela.BackgroundImage = global::GesStand.Properties.Resources.guardar;
+            this.BT_addParcela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_addParcela.Location = new System.Drawing.Point(26, 109);
+            this.BT_addParcela.Name = "BT_addParcela";
+            this.BT_addParcela.Size = new System.Drawing.Size(39, 42);
+            this.BT_addParcela.TabIndex = 1;
+            this.BT_addParcela.UseVisualStyleBackColor = false;
+            this.BT_addParcela.Click += new System.EventHandler(this.bt_addParcela_Click);
+            // 
+            // BT_remvCarro
+            // 
+            this.BT_remvCarro.BackColor = System.Drawing.Color.Transparent;
+            this.BT_remvCarro.BackgroundImage = global::GesStand.Properties.Resources.remover;
+            this.BT_remvCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_remvCarro.Location = new System.Drawing.Point(111, 209);
+            this.BT_remvCarro.Name = "BT_remvCarro";
+            this.BT_remvCarro.Size = new System.Drawing.Size(37, 35);
+            this.BT_remvCarro.TabIndex = 2;
+            this.BT_remvCarro.UseVisualStyleBackColor = false;
+            this.BT_remvCarro.Click += new System.EventHandler(this.bt_remvCarro_Click);
+            // 
+            // BT_addCarro
+            // 
+            this.BT_addCarro.BackColor = System.Drawing.Color.Transparent;
+            this.BT_addCarro.BackgroundImage = global::GesStand.Properties.Resources.guardar;
+            this.BT_addCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BT_addCarro.Location = new System.Drawing.Point(55, 207);
+            this.BT_addCarro.Name = "BT_addCarro";
+            this.BT_addCarro.Size = new System.Drawing.Size(35, 38);
+            this.BT_addCarro.TabIndex = 1;
+            this.BT_addCarro.UseVisualStyleBackColor = false;
+            this.BT_addCarro.Click += new System.EventHandler(this.bt_addCarro_Click);
             // 
             // Form_GestaoOficina
             // 

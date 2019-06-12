@@ -42,7 +42,6 @@
             this.tb_valor = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.BT_removerVenda = new System.Windows.Forms.Button();
-            this.BT_inserirVenda = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tb_extras = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -56,7 +55,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lb_extras = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.TB_inf_contacto = new System.Windows.Forms.TextBox();
@@ -90,16 +88,18 @@
             this.BT_exportar = new System.Windows.Forms.Button();
             this.saveFileDialogFicheiroTexto = new System.Windows.Forms.SaveFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BT_inserirVenda = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.CARRO.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -225,18 +225,6 @@
             this.BT_removerVenda.UseVisualStyleBackColor = false;
             this.BT_removerVenda.Click += new System.EventHandler(this.BT_removerVenda_Click);
             // 
-            // BT_inserirVenda
-            // 
-            this.BT_inserirVenda.BackColor = System.Drawing.Color.Transparent;
-            this.BT_inserirVenda.BackgroundImage = global::GesStand.Properties.Resources.guardar;
-            this.BT_inserirVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_inserirVenda.Location = new System.Drawing.Point(188, 478);
-            this.BT_inserirVenda.Name = "BT_inserirVenda";
-            this.BT_inserirVenda.Size = new System.Drawing.Size(42, 39);
-            this.BT_inserirVenda.TabIndex = 8;
-            this.BT_inserirVenda.UseVisualStyleBackColor = false;
-            this.BT_inserirVenda.Click += new System.EventHandler(this.bt_inserirVenda_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -358,18 +346,6 @@
             this.lb_extras.Size = new System.Drawing.Size(42, 13);
             this.lb_extras.TabIndex = 8;
             this.lb_extras.Text = "Extras :";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::GesStand.Properties.Resources.logo_venda;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(73, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(136, 124);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -727,12 +703,35 @@
             this.BT_exportar.UseVisualStyleBackColor = false;
             this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::GesStand.Properties.Resources.logo_venda;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(73, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(136, 124);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BT_inserirVenda
+            // 
+            this.BT_inserirVenda.BackColor = System.Drawing.Color.Transparent;
+            this.BT_inserirVenda.BackgroundImage = global::GesStand.Properties.Resources.guardar;
+            this.BT_inserirVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_inserirVenda.Location = new System.Drawing.Point(188, 478);
+            this.BT_inserirVenda.Name = "BT_inserirVenda";
+            this.BT_inserirVenda.Size = new System.Drawing.Size(42, 39);
+            this.BT_inserirVenda.TabIndex = 8;
+            this.BT_inserirVenda.UseVisualStyleBackColor = false;
+            this.BT_inserirVenda.Click += new System.EventHandler(this.bt_inserirVenda_Click);
+            // 
             // Form_Gestao_Vendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BackgroundImage = global::GesStand.Properties.Resources.logo_gesStand_fatura;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1158, 631);
             this.Controls.Add(this.panel2);
@@ -752,7 +751,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox11.ResumeLayout(false);
@@ -761,6 +759,7 @@
             this.groupBox5.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

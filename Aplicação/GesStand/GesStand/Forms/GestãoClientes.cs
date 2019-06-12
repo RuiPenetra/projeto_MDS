@@ -56,23 +56,22 @@ namespace GesStand
 
                 celula = Convert.ToInt32(row.Cells[0].Value);
 
-                if (celula == 0)
+                if (celula == 0 || tb_filtrar.Text != "")
                 {
+                    BT_remover.Enabled = false;
                     BT_novo_registo.Enabled = false;
+                    
                 }
                 else
                 {
+                    BT_remover.Enabled = true;
                     BT_novo_registo.Enabled = true;
+                    (from Cliente in MdGesStand.Clientes
+                     orderby Cliente.Nome
+                     select Cliente).Load();
+
+                    clienteBindingSource.DataSource = MdGesStand.Clientes.Local.ToBindingList();
                 }
-            }
-
-            if (tb_filtrar.Text == "")
-            {
-                (from Cliente in MdGesStand.Clientes
-                 orderby Cliente.Nome
-                 select Cliente).Load();
-
-                clienteBindingSource.DataSource = MdGesStand.Clientes.Local.ToBindingList();// ??????
             }
 
         }

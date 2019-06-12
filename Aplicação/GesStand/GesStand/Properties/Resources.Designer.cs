@@ -22,7 +22,7 @@ namespace GesStand.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace GesStand.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GesStand.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace GesStand.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_cliente {
+        public static System.Drawing.Bitmap add_cliente {
             get {
                 object obj = ResourceManager.GetObject("add_cliente", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bt_exportar {
+        public static System.Drawing.Bitmap bt_exportar {
             get {
                 object obj = ResourceManager.GetObject("bt_exportar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,9 +83,9 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap gear {
+        public static System.Drawing.Bitmap GEAR {
             get {
-                object obj = ResourceManager.GetObject("gear", resourceCulture);
+                object obj = ResourceManager.GetObject("GEAR", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,7 +93,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap guardar {
+        public static System.Drawing.Bitmap guardar {
             get {
                 object obj = ResourceManager.GetObject("guardar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap guardar_cliente {
+        public static System.Drawing.Bitmap guardar_cliente {
             get {
                 object obj = ResourceManager.GetObject("guardar_cliente", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logo_aluguer {
+        public static System.Drawing.Bitmap logo_aluguer {
             get {
                 object obj = ResourceManager.GetObject("logo_aluguer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logo_clientes {
+        public static System.Drawing.Bitmap logo_clientes {
             get {
                 object obj = ResourceManager.GetObject("logo_clientes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logo_gesStand {
+        public static System.Drawing.Bitmap logo_gesStand {
             get {
                 object obj = ResourceManager.GetObject("logo_gesStand", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +143,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logo_gesStand_fatura {
+        public static System.Drawing.Bitmap logo_gesStand_fatura {
             get {
                 object obj = ResourceManager.GetObject("logo_gesStand_fatura", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +153,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logo_oficina {
+        public static System.Drawing.Bitmap logo_oficina {
             get {
                 object obj = ResourceManager.GetObject("logo_oficina", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +163,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logo_venda {
+        public static System.Drawing.Bitmap logo_venda {
             get {
                 object obj = ResourceManager.GetObject("logo_venda", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +173,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap procurar_cliente {
+        public static System.Drawing.Bitmap procurar_cliente {
             get {
                 object obj = ResourceManager.GetObject("procurar_cliente", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +183,7 @@ namespace GesStand.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap remover {
+        public static System.Drawing.Bitmap remover {
             get {
                 object obj = ResourceManager.GetObject("remover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
