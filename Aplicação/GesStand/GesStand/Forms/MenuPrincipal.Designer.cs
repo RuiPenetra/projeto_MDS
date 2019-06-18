@@ -476,7 +476,6 @@
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(903, 545);
             this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox23);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.pictureBox22);
             this.Controls.Add(this.pictureBox20);
@@ -501,6 +500,7 @@
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.pictureBox19);
             this.Controls.Add(this.pictureBox21);
+            this.Controls.Add(this.pictureBox23);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "form_MenuPrincipal";
             this.Text = "GesStand";
